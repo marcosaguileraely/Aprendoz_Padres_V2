@@ -1,0 +1,54 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Subtopico" table="Subtopico" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idSubtopico" type="integer">
+            <column name="Id_Subtopico"/>
+            <generator class="identity"/>
+        </id>
+        <property name="subtopico" type="string">
+            <column name="Subtopico" length="200"/>
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="Fecha_inicio" length="10" not-null="true"/>
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="Fecha_Fin" length="10" not-null="true"/>
+        </property>
+        <property name="subtopic" type="string">
+            <column name="Subtopic" length="200"/>
+        </property>
+        <property name="numeroSubtopico" type="integer">
+            <column name="Numero_Subtopico"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <many-to-one name="unidad" class="com.aprendoz_desarrollo.data.Unidad">
+            <column name="Unidad_Id_Unidad" not-null="true"/>
+        </many-to-one>
+        <set name="recursos" inverse="true" cascade="">
+            <key>
+                <column name="Subtopico_Id_Subtopico" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Recurso"/>
+        </set>
+        <set name="aprendizajes" inverse="true" cascade="">
+            <key>
+                <column name="Subtopico_Id_Subtopico" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Aprendizaje"/>
+        </set>
+        <set name="otrasMetases" inverse="true" cascade="">
+            <key>
+                <column name="Subtopico_Id_Subtopico" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.OtrasMetas"/>
+        </set>
+        <set name="actividads" inverse="true" cascade="">
+            <key>
+                <column name="Subtopico_Id_Subtopico" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Actividad"/>
+        </set>
+    </class>
+</hibernate-mapping>

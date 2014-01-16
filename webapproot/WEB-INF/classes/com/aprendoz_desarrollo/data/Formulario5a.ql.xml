@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 01/15/2014 19:40:48
+
+Queries for entity: Formulario5a.
+
+@design.generated: Marks a generated query.
+
+-->
+
+<hibernate-mapping>
+
+    <query 
+        name="getFormulario5aById"
+        comment="Example HQL Query
+                 @design.generated">
+                 
+        <query-param name="id" type="java.lang.Integer"/>
+
+            from Formulario5a _a where _a.id=:id 
+
+    </query>
+
+</hibernate-mapping>

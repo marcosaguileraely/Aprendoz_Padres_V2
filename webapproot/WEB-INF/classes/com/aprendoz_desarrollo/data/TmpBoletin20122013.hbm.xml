@@ -1,0 +1,52 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TmpBoletin20122013" table="tmp_boletin_2012_2013" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.TmpBoletin20122013Id">
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="schoolYear" type="string">
+                <column name="School_Year" length="45"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="porcentaje" type="double">
+                <column name="porcentaje" precision="22"/>
+            </key-property>
+            <key-property name="calificacion" type="big_decimal">
+                <column name="calificacion" precision="10"/>
+            </key-property>
+            <key-property name="califchar" type="string">
+                <column name="califchar" length="10"/>
+            </key-property>
+            <key-property name="esperados" type="integer">
+                <column name="esperados"/>
+            </key-property>
+            <key-property name="logrados" type="integer">
+                <column name="logrados"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+            <key-property name="orden" type="string">
+                <column name="orden"/>
+            </key-property>
+            <key-property name="mescorte" type="string">
+                <column name="mescorte"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

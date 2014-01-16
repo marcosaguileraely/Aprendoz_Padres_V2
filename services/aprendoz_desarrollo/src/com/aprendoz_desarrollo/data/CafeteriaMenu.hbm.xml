@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CafeteriaMenu" table="cafeteria_menu" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idMenu" type="integer">
+            <column name="id_menu"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10"/>
+        </property>
+        <property name="diaSemana" type="string">
+            <column name="dia_semana" length="30"/>
+        </property>
+        <property name="sopaIdSopa" type="integer">
+            <column name="sopa_id_sopa"/>
+        </property>
+        <property name="garniturasIdGarnituras" type="integer">
+            <column name="garnituras_id_garnituras"/>
+        </property>
+        <property name="postresIdPostres" type="integer">
+            <column name="postres_id_postres"/>
+        </property>
+    </class>
+</hibernate-mapping>

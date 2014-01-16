@@ -1,0 +1,120 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Sy" table="SY" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idSy" type="integer">
+            <column name="Id_SY"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="schoolYear" type="string">
+            <column name="School_year" length="45"/>
+        </property>
+        <property name="fechaDesde" type="date">
+            <column name="fecha_desde" length="10"/>
+        </property>
+        <property name="fechaHasta" type="date">
+            <column name="fecha_hasta" length="10"/>
+        </property>
+        <set name="promocions" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_Sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Promocion"/>
+        </set>
+        <set name="inscAlumCostos" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCosto"/>
+        </set>
+        <set name="inscCoordinadoresCursos" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscCoordinadoresCurso"/>
+        </set>
+        <set name="coordinacionDeGrupos" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.CoordinacionDeGrupo"/>
+        </set>
+        <set name="inscAlumCursos" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCurso"/>
+        </set>
+        <set name="bimestreSies" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.BimestreSy"/>
+        </set>
+        <set name="cronogramas" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Cronograma"/>
+        </set>
+        <set name="semanas" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Semana"/>
+        </set>
+        <set name="inscComentariosAlumnoses" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscComentariosAlumnos"/>
+        </set>
+        <set name="horarios" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Horario"/>
+        </set>
+        <set name="periodos" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Periodo"/>
+        </set>
+        <set name="asignaturas" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Asignatura"/>
+        </set>
+        <set name="coordinadoreses" inverse="true" cascade="">
+            <key>
+                <column name="SY_id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Coordinadores"/>
+        </set>
+        <set name="costoses" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Costos"/>
+        </set>
+        <set name="matriculas" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Matricula"/>
+        </set>
+        <set name="sesionNivels" inverse="true" cascade="">
+            <key>
+                <column name="sy_id_sy"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.SesionNivel"/>
+        </set>
+        <set name="coordinacions" inverse="true" cascade="">
+            <key>
+                <column name="SY_Id_SY" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Coordinacion"/>
+        </set>
+    </class>
+</hibernate-mapping>

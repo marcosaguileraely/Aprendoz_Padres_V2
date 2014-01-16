@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscAlumArea" table="insc_alum_area" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscAlumArea" type="integer">
+            <column name="id_insc_alum_area"/>
+            <generator class="identity"/>
+        </id>
+        <property name="calificacionChar" type="string">
+            <column name="calificacion_char" length="15"/>
+        </property>
+        <property name="calificacionNum" type="float">
+            <column name="calificacion_num" precision="12"/>
+        </property>
+        <property name="ih" type="float">
+            <column name="ih" precision="12"/>
+        </property>
+        <many-to-one name="grado" class="com.aprendoz_desarrollo.data.Grado" cascade="none">
+            <column name="Grado_Id_Grado" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="area" class="com.aprendoz_desarrollo.data.Area" cascade="none">
+            <column name="Area_Id_Area" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy" cascade="none">
+            <column name="SY_id_SY" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona" cascade="none">
+            <column name="Persona_id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

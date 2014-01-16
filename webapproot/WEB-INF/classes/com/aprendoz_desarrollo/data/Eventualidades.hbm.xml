@@ -1,0 +1,51 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Eventualidades" table="Eventualidades" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idEventualidad" type="integer">
+            <column name="Id_Eventualidad"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10"/>
+        </property>
+        <property name="hora" type="time">
+            <column name="Hora" length="8" not-null="true"/>
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="45"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535"/>
+        </property>
+        <property name="fechaIngreso" type="timestamp">
+            <column name="fecha_ingreso" length="19" not-null="true"/>
+        </property>
+        <property name="usuarioReg" type="string">
+            <column name="usuario_reg" length="20" not-null="true"/>
+        </property>
+        <property name="pregunta1" type="string">
+            <column name="pregunta1" length="65535"/>
+        </property>
+        <property name="pregunta2" type="string">
+            <column name="pregunta2" length="65535"/>
+        </property>
+        <property name="pregunta3" type="string">
+            <column name="pregunta3" length="65535"/>
+        </property>
+        <property name="fechaPlanReparacion" type="date">
+            <column name="fecha_plan_reparacion" length="10"/>
+        </property>
+        <property name="confidencial" type="string">
+            <column name="confidencial" length="3"/>
+        </property>
+        <many-to-one name="tipoLugar" class="com.aprendoz_desarrollo.data.TipoLugar">
+            <column name="Lugar_id_Tipo_Lugar"/>
+        </many-to-one>
+        <set name="eventualidadPersonases" inverse="true" cascade="">
+            <key>
+                <column name="Eventualidades_Id_Eventualidad" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.EventualidadPersonas"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.PadresVistaActividades" table="padres_vista_actividades" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.PadresVistaActividadesId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="idActividad" type="integer">
+                <column name="Id_Actividad"/>
+            </key-property>
+            <key-property name="actividad" type="string">
+                <column name="Actividad" length="65535"/>
+            </key-property>
+            <key-property name="fecha" type="date">
+                <column name="Fecha" length="10"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

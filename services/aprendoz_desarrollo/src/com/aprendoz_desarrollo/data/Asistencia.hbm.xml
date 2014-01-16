@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Asistencia" table="asistencia" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idAsistencia" type="integer">
+            <column name="id_asistencia"/>
+            <generator class="identity"/>
+        </id>
+        <property name="tipoEventualidadIdTipoEventualidad" type="string">
+            <column name="Tipo_Eventualidad_Id_Tipo_Eventualidad" length="40"/>
+        </property>
+        <property name="tipoEventualidadIdTipoEventualidad1" type="string">
+            <column name="Tipo_Eventualidad_Id_Tipo_Eventualidad1" length="40"/>
+        </property>
+        <property name="tipoEventualidadIdTipoEventualidad2" type="string">
+            <column name="Tipo_Eventualidad_Id_Tipo_Eventualidad2" length="40"/>
+        </property>
+        <property name="comentario" type="string">
+            <column name="Comentario" length="65535"/>
+        </property>
+        <many-to-one name="sesion" class="com.aprendoz_desarrollo.data.Sesion">
+            <column name="sesion_id_sesion" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoAsistencia" class="com.aprendoz_desarrollo.data.TipoAsistencia">
+            <column name="tipo_asistencia_id_tipo" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="PERSONA_Id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

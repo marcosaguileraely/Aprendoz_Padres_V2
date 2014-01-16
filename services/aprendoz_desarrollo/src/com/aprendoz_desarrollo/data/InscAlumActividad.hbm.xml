@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscAlumActividad" table="Insc_Alum_Actividad" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscAlumActividad" type="integer">
+            <column name="Id_Insc_Alum_Actividad"/>
+            <generator class="identity"/>
+        </id>
+        <property name="logrado" type="boolean">
+            <column name="Logrado"/>
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10"/>
+        </property>
+        <property name="comentario" type="string">
+            <column name="Comentario" length="200"/>
+        </property>
+        <many-to-one name="actividad" class="com.aprendoz_desarrollo.data.Actividad">
+            <column name="Actividad_Id_Actividad" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

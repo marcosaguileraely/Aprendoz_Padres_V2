@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.PadresVistaAprendizajes" table="padres_vista_aprendizajes" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.PadresVistaAprendizajesId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="fechaEsperada" type="date">
+                <column name="Fecha_Esperada" length="10"/>
+            </key-property>
+            <key-property name="aprendizaje" type="string">
+                <column name="Aprendizaje" length="500"/>
+            </key-property>
+            <key-property name="learning" type="string">
+                <column name="Learning" length="500"/>
+            </key-property>
+            <key-property name="subtopico" type="string">
+                <column name="Subtopico" length="200"/>
+            </key-property>
+            <key-property name="unidad" type="string">
+                <column name="Unidad" length="500"/>
+            </key-property>
+            <key-property name="numeroUnidad" type="integer">
+                <column name="Numero_Unidad"/>
+            </key-property>
+            <key-property name="idAprendizaje" type="integer">
+                <column name="Id_Aprendizaje"/>
+            </key-property>
+            <key-property name="idSubtopico" type="integer">
+                <column name="Id_Subtopico"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

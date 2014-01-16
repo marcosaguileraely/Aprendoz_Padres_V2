@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCurso" table="administracion_vista_asignaturas_curso" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCursoId">
+            <key-property name="nombreLdap" type="string">
+                <column name="Nombre_LDAP" length="45"/>
+            </key-property>
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="syIdSy" type="integer">
+                <column name="SY_Id_SY"/>
+            </key-property>
+            <key-property name="idCurso" type="integer">
+                <column name="Id_Curso"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+            <key-property name="gradoIdGrado" type="integer">
+                <column name="Grado_Id_Grado"/>
+            </key-property>
+            <key-property name="grado" type="string">
+                <column name="Grado" length="45"/>
+            </key-property>
+            <key-property name="idGrado" type="integer">
+                <column name="Id_Grado"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

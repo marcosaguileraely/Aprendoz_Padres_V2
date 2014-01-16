@@ -1,0 +1,363 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Persona" table="PERSONA" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idPersona" type="integer">
+            <column name="Id_Persona"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nombreLdap" type="string">
+            <column name="Nombre_LDAP" length="45"/>
+        </property>
+        <property name="clave" type="string">
+            <column name="Clave" length="45"/>
+        </property>
+        <property name="codigo" type="string">
+            <column name="Codigo" length="45"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535"/>
+        </property>
+        <property name="activoRetirado" type="boolean">
+            <column name="Activo_Retirado"/>
+        </property>
+        <property name="apellido1" type="string">
+            <column name="Apellido1" length="45"/>
+        </property>
+        <property name="apellido2" type="string">
+            <column name="Apellido2" length="45"/>
+        </property>
+        <property name="nombre1" type="string">
+            <column name="Nombre1" length="45"/>
+        </property>
+        <property name="nombre2" type="string">
+            <column name="Nombre2" length="45"/>
+        </property>
+        <property name="nivelAcademico" type="string">
+            <column name="Nivel_Academico" length="45"/>
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="Fecha_Nacimiento" length="10"/>
+        </property>
+        <property name="lugarNacimientoMunicipio" type="string">
+            <column name="Lugar_Nacimiento_Municipio" length="45"/>
+        </property>
+        <property name="lugarNacimientoDepartamento" type="string">
+            <column name="Lugar_Nacimiento_Departamento" length="45"/>
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="Nacionalidad" length="45"/>
+        </property>
+        <property name="direccionResidencia" type="string">
+            <column name="Direccion_Residencia" length="500"/>
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="45"/>
+        </property>
+        <property name="telefono2" type="string">
+            <column name="Telefono2" length="45"/>
+        </property>
+        <property name="religion" type="string">
+            <column name="Religion" length="45"/>
+        </property>
+        <property name="tipoDocumento" type="string">
+            <column name="Tipo_Documento" length="45"/>
+        </property>
+        <property name="noDocumento" type="string">
+            <column name="No_Documento" length="45"/>
+        </property>
+        <property name="lugarExpedicionMunicipio" type="string">
+            <column name="Lugar_Expedicion_Municipio" length="45"/>
+        </property>
+        <property name="lugarExpedicionDepartamento" type="string">
+            <column name="Lugar_Expedicion_Departamento" length="45"/>
+        </property>
+        <property name="barrio" type="string">
+            <column name="Barrio" length="200"/>
+        </property>
+        <property name="municipio" type="string">
+            <column name="Municipio" length="45"/>
+        </property>
+        <property name="departamento" type="string">
+            <column name="Departamento" length="45"/>
+        </property>
+        <property name="saludPrepagada" type="string">
+            <column name="Salud_Prepagada" length="45"/>
+        </property>
+        <property name="eps" type="string">
+            <column name="EPS" length="45"/>
+        </property>
+        <property name="numeroContratoSalud" type="string">
+            <column name="Numero_Contrato_Salud" length="45"/>
+        </property>
+        <property name="clinicaEmergencia" type="string">
+            <column name="Clinica_Emergencia" length="45"/>
+        </property>
+        <property name="viveCon" type="string">
+            <column name="Vive_Con" length="45"/>
+        </property>
+        <property name="tipoSangre" type="string">
+            <column name="Tipo_Sangre" length="45"/>
+        </property>
+        <property name="sexo" type="string">
+            <column name="Sexo" length="45"/>
+        </property>
+        <property name="codigoFamilia" type="string">
+            <column name="Codigo_Familia" length="45"/>
+        </property>
+        <property name="fechaIngreso" type="timestamp">
+            <column name="Fecha_Ingreso" length="19"/>
+        </property>
+        <property name="gradoIngreso" type="string">
+            <column name="Grado_Ingreso" length="45"/>
+        </property>
+        <property name="cursoIngreso" type="string">
+            <column name="Curso_Ingreso" length="45"/>
+        </property>
+        <property name="fechaRetiro" type="date">
+            <column name="Fecha_Retiro" length="10"/>
+        </property>
+        <property name="comentarioRetiro" type="string">
+            <column name="comentario_retiro" length="65535"/>
+        </property>
+        <property name="colegioAnterior" type="string">
+            <column name="Colegio_Anterior" length="45"/>
+        </property>
+        <property name="hijoDeExalumno" type="boolean">
+            <column name="Hijo_de_Exalumno"/>
+        </property>
+        <property name="nombrePadreExalumno" type="string">
+            <column name="Nombre_Padre_Exalumno" length="200"/>
+        </property>
+        <property name="promocion" type="string">
+            <column name="Promocion" length="45"/>
+        </property>
+        <property name="profesion" type="string">
+            <column name="Profesion" length="45"/>
+        </property>
+        <property name="empresa" type="string">
+            <column name="Empresa" length="45"/>
+        </property>
+        <property name="cargo" type="string">
+            <column name="Cargo" length="45"/>
+        </property>
+        <property name="celular" type="string">
+            <column name="Celular" length="45"/>
+        </property>
+        <property name="direccionOficina" type="string">
+            <column name="Direccion_Oficina" length="500"/>
+        </property>
+        <property name="telefonoOficina" type="string">
+            <column name="Telefono_Oficina" length="45"/>
+        </property>
+        <property name="parentesco" type="string">
+            <column name="Parentesco" length="45"/>
+        </property>
+        <property name="rutaM" type="string">
+            <column name="Ruta_M" length="45"/>
+        </property>
+        <property name="rutaT" type="string">
+            <column name="Ruta_T" length="45"/>
+        </property>
+        <property name="tomaAlmuerzo" type="boolean">
+            <column name="Toma_Almuerzo"/>
+        </property>
+        <property name="tomaMediasNueves" type="boolean">
+            <column name="Toma_Medias_Nueves"/>
+        </property>
+        <property name="tomaSeguroAccidentes" type="boolean">
+            <column name="Toma_Seguro_Accidentes"/>
+        </property>
+        <property name="noPlaqueta" type="string">
+            <column name="No_Plaqueta" length="45"/>
+        </property>
+        <property name="matriculado" type="boolean">
+            <column name="matriculado"/>
+        </property>
+        <property name="inscAlumCursoIdInscAlumCurso" type="integer">
+            <column name="Insc_Alum_Curso_Id_Insc_Alum_Curso"/>
+        </property>
+        <property name="paisDomicilio" type="string">
+            <column name="pais_domicilio" length="45"/>
+        </property>
+        <property name="codigoPostal" type="string">
+            <column name="codigo_postal" length="8"/>
+        </property>
+        <many-to-one name="pais" class="com.aprendoz_desarrollo.data.Pais">
+            <column name="PAIS_NAC_ID" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoPersona" class="com.aprendoz_desarrollo.data.TipoPersona">
+            <column name="Tipo_Persona_Id_Tipo_Persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="grupoFamiliar" class="com.aprendoz_desarrollo.data.GrupoFamiliar">
+            <column name="Grupo_Familiar_ID_Grupo_Familiar" not-null="true"/>
+        </many-to-one>
+        <set name="inscAlumAprendizajes" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAprendizaje"/>
+        </set>
+        <set name="transporteInscAlumTransportes" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteInscAlumTransporte"/>
+        </set>
+        <set name="calificacionFinals" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.CalificacionFinal"/>
+        </set>
+        <set name="inscComentariosAlumnoses" inverse="true" cascade="">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscComentariosAlumnos"/>
+        </set>
+        <set name="inscAlumActividads" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumActividad"/>
+        </set>
+        <set name="inscDirectorNivels" inverse="true" cascade="">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscDirectorNivel"/>
+        </set>
+        <set name="inscPersonaGrupoFamiliars" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar"/>
+        </set>
+        <set name="eventualidadPersonases" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.EventualidadPersonas"/>
+        </set>
+        <set name="accStudentCards" inverse="true" cascade="">
+            <key>
+                <column name="id_persona"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.AccStudentCard"/>
+        </set>
+        <set name="coordinacionDeGrupos" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.CoordinacionDeGrupo"/>
+        </set>
+        <set name="inscAlumCursos" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCurso"/>
+        </set>
+        <set name="asistencias" inverse="true" cascade="">
+            <key>
+                <column name="PERSONA_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Asistencia"/>
+        </set>
+        <set name="inscCoordinadoresCursos" inverse="true" cascade="">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscCoordinadoresCurso"/>
+        </set>
+        <set name="logeventosaprendozs" inverse="true" cascade="">
+            <key>
+                <column name="usuario" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Logeventosaprendoz"/>
+        </set>
+        <set name="promocions" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Promocion"/>
+        </set>
+        <set name="inscCursoAsigs" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscCursoAsig"/>
+        </set>
+        <set name="actualizacionDatosPersonas" inverse="true" cascade="">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ActualizacionDatosPersona"/>
+        </set>
+        <set name="fichaMedicas" inverse="true" cascade="">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.FichaMedica"/>
+        </set>
+        <set name="transporteNovedadeses" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteNovedades"/>
+        </set>
+        <set name="logDocenteses" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.LogDocentes"/>
+        </set>
+        <set name="personaCarnes" inverse="true" cascade="">
+            <key>
+                <column name="persona_id_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.PersonaCarne"/>
+        </set>
+        <set name="inscAlumAsigCopies" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsigCopy"/>
+        </set>
+        <set name="coordinadoreses" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Coordinadores"/>
+        </set>
+        <set name="matriculas" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Matricula"/>
+        </set>
+        <set name="inscAlumAsigs" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsig"/>
+        </set>
+        <set name="inscAlumCostos" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCosto"/>
+        </set>
+        <set name="inscAlumAsigCopy2s" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsigCopy2"/>
+        </set>
+        <set name="coordinacions" inverse="true" cascade="">
+            <key>
+                <column name="Persona_Id_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Coordinacion"/>
+        </set>
+    </class>
+</hibernate-mapping>

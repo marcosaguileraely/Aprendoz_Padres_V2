@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.PadresVistaCalifFinal" table="padres_vista_calif_final" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.PadresVistaCalifFinalId">
+            <key-property name="personaIdPersona" type="integer">
+                <column name="Persona_Id_Persona"/>
+            </key-property>
+            <key-property name="aprendizajeIdAprendizaje" type="integer">
+                <column name="Aprendizaje_Id_Aprendizaje"/>
+            </key-property>
+            <key-property name="calificacionNum" type="float">
+                <column name="calificacion_num" precision="12"/>
+            </key-property>
+            <key-property name="calificacion" type="string">
+                <column name="calificacion" length="45"/>
+            </key-property>
+            <key-property name="idCalificacionFinal" type="integer">
+                <column name="id_calificacion_final"/>
+            </key-property>
+            <key-property name="fechaLogro" type="date">
+                <column name="fecha_logro" length="10"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

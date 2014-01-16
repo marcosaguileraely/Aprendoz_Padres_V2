@@ -1,0 +1,48 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Promocion" table="Promocion" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idPromocion" type="integer">
+            <column name="Id_Promocion"/>
+            <generator class="identity"/>
+        </id>
+        <property name="aprobado" type="boolean">
+            <column name="aprobado" not-null="true"/>
+        </property>
+        <property name="autorizadoAcademico" type="boolean">
+            <column name="autorizado_academico" not-null="true"/>
+        </property>
+        <property name="commentcomite" type="string">
+            <column name="commentcomite" length="65535"/>
+        </property>
+        <property name="autorizadoFinanciera" type="boolean">
+            <column name="autorizado_financiera" not-null="true"/>
+        </property>
+        <property name="commentfinanc" type="string">
+            <column name="commentfinanc" length="65535"/>
+        </property>
+        <property name="promovido" type="boolean">
+            <column name="promovido" not-null="true"/>
+        </property>
+        <property name="commentaprobado" type="string">
+            <column name="commentaprobado" length="65535"/>
+        </property>
+        <property name="commentpromovido" type="string">
+            <column name="commentpromovido" length="65535"/>
+        </property>
+        <property name="calificacion" type="float">
+            <column name="calificacion" precision="5"/>
+        </property>
+        <property name="calificacionChar" type="string">
+            <column name="calificacion_char" length="15"/>
+        </property>
+        <property name="autorizadoPromAnticipada" type="boolean">
+            <column name="autorizado_prom_anticipada" not-null="true"/>
+        </property>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="SY_Id_Sy" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

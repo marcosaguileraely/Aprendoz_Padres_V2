@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscAlumCosto" table="insc_alum_costo" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscAlumCosto" type="integer">
+            <column name="Id_Insc_Alum_Costo"/>
+            <generator class="identity"/>
+        </id>
+        <property name="inscrito" type="boolean">
+            <column name="inscrito" not-null="true"/>
+        </property>
+        <property name="descuentoPorcentaje" type="integer">
+            <column name="descuento_porcentaje" not-null="true"/>
+        </property>
+        <property name="descuentoValor" type="double">
+            <column name="descuento_valor" precision="22" not-null="true"/>
+        </property>
+        <property name="valorFinalDescuento" type="double">
+            <column name="valor_final_descuento" precision="22" not-null="true"/>
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="10" not-null="true"/>
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" not-null="true"/>
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="65535"/>
+        </property>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="SY_Id_SY" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="costos" class="com.aprendoz_desarrollo.data.Costos">
+            <column name="costo_Id_costo" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

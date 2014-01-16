@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Cronograma" table="cronograma" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idCronograma" type="integer">
+            <column name="id_cronograma"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535"/>
+        </property>
+        <many-to-one name="tipoDia" class="com.aprendoz_desarrollo.data.TipoDia">
+            <column name="tipo_dia"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="sy_id_sy"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

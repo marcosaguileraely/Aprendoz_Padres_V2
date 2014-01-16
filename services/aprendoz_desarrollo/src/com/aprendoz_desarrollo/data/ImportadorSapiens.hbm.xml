@@ -1,0 +1,555 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.ImportadorSapiens" table="importador_sapiens" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idImportadorSapiens" type="integer">
+            <column name="id_importador_sapiens"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="apellido1" type="string">
+            <column name="apellido1" length="65535"/>
+        </property>
+        <property name="apellido2" type="string">
+            <column name="apellido2" length="65535"/>
+        </property>
+        <property name="nombre1" type="string">
+            <column name="nombre1" length="65535"/>
+        </property>
+        <property name="nombre2" type="string">
+            <column name="nombre2" length="65535"/>
+        </property>
+        <property name="pro" type="boolean">
+            <column name="pro"/>
+        </property>
+        <property name="cli" type="boolean">
+            <column name="cli"/>
+        </property>
+        <property name="emp" type="boolean">
+            <column name="emp"/>
+        </property>
+        <property name="codide" type="string">
+            <column name="codide" length="20"/>
+        </property>
+        <property name="tele1" type="string">
+            <column name="tele1" length="15"/>
+        </property>
+        <property name="tele2" type="string">
+            <column name="tele2" length="15"/>
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="50"/>
+        </property>
+        <property name="direccio" type="string">
+            <column name="direccio" length="50"/>
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad" length="30"/>
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="15"/>
+        </property>
+        <property name="tipocxp" type="string">
+            <column name="tipocxp" length="15"/>
+        </property>
+        <property name="codban" type="string">
+            <column name="codban" length="15"/>
+        </property>
+        <property name="nocuenta" type="string">
+            <column name="nocuenta" length="30"/>
+        </property>
+        <property name="tipoc" type="string">
+            <column name="tipoc" length="15"/>
+        </property>
+        <property name="autoret" type="boolean">
+            <column name="autoret"/>
+        </property>
+        <property name="permanen" type="boolean">
+            <column name="permanen"/>
+        </property>
+        <property name="pagban" type="string">
+            <column name="pagban" length="15"/>
+        </property>
+        <property name="represen" type="string">
+            <column name="represen" length="15"/>
+        </property>
+        <property name="banco" type="string">
+            <column name="banco" length="20"/>
+        </property>
+        <property name="nitdian" type="string">
+            <column name="nitdian" length="20"/>
+        </property>
+        <property name="dvedian" type="string">
+            <column name="dvedian" length="15"/>
+        </property>
+        <property name="tdodian" type="string">
+            <column name="tdodian" length="15"/>
+        </property>
+        <property name="papdian" type="string">
+            <column name="papdian" length="20"/>
+        </property>
+        <property name="sapdian" type="string">
+            <column name="sapdian" length="20"/>
+        </property>
+        <property name="pnmdian" type="string">
+            <column name="pnmdian" length="20"/>
+        </property>
+        <property name="onmdian" type="string">
+            <column name="onmdian" length="20"/>
+        </property>
+        <property name="rzodian" type="string">
+            <column name="rzodian" length="20"/>
+        </property>
+        <property name="ciudian" type="string">
+            <column name="ciudian" length="30"/>
+        </property>
+        <property name="campo" type="string">
+            <column name="campo" length="15"/>
+        </property>
+        <property name="fac" type="boolean">
+            <column name="fac"/>
+        </property>
+        <property name="porfac" type="float">
+            <column name="porfac" precision="12"/>
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="10"/>
+        </property>
+        <property name="tele3" type="string">
+            <column name="tele3" length="15"/>
+        </property>
+        <property name="listavta" type="string">
+            <column name="listavta" length="15"/>
+        </property>
+        <property name="zona" type="string">
+            <column name="zona" length="15"/>
+        </property>
+        <property name="zonanom" type="string">
+            <column name="zonanom" length="15"/>
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="15"/>
+        </property>
+        <property name="fechanac" type="date">
+            <column name="fechanac" length="10"/>
+        </property>
+        <property name="fechaing" type="date">
+            <column name="fechaing" length="10"/>
+        </property>
+        <property name="edad" type="integer">
+            <column name="edad"/>
+        </property>
+        <property name="lugarnac" type="string">
+            <column name="lugarnac" length="30"/>
+        </property>
+        <property name="sangre" type="string">
+            <column name="sangre" length="15"/>
+        </property>
+        <property name="estcivil" type="string">
+            <column name="estcivil" length="15"/>
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="15"/>
+        </property>
+        <property name="tipcont" type="string">
+            <column name="tipcont" length="15"/>
+        </property>
+        <property name="ccosto" type="string">
+            <column name="ccosto" length="15"/>
+        </property>
+        <property name="ccostonom" type="string">
+            <column name="ccostonom" length="15"/>
+        </property>
+        <property name="cargo" type="string">
+            <column name="cargo" length="30"/>
+        </property>
+        <property name="cargonom" type="string">
+            <column name="cargonom" length="30"/>
+        </property>
+        <property name="cuentaah" type="string">
+            <column name="cuentaah" length="30"/>
+        </property>
+        <property name="codidenom" type="string">
+            <column name="codidenom" length="15"/>
+        </property>
+        <property name="conyuge" type="string">
+            <column name="conyuge" length="30"/>
+        </property>
+        <property name="libmil" type="string">
+            <column name="libmil" length="30"/>
+        </property>
+        <property name="teleofi" type="string">
+            <column name="teleofi" length="15"/>
+        </property>
+        <property name="cedula" type="string">
+            <column name="cedula" length="15"/>
+        </property>
+        <property name="indica" type="string">
+            <column name="indica" length="15"/>
+        </property>
+        <property name="saldo" type="float">
+            <column name="saldo" precision="12"/>
+        </property>
+        <property name="apartado" type="string">
+            <column name="apartado" length="15"/>
+        </property>
+        <property name="clase" type="string">
+            <column name="clase" length="15"/>
+        </property>
+        <property name="valort" type="float">
+            <column name="valort" precision="12"/>
+        </property>
+        <property name="num" type="float">
+            <column name="num" precision="12"/>
+        </property>
+        <property name="acudiendir" type="string">
+            <column name="acudiendir" length="30"/>
+        </property>
+        <property name="acudienemp" type="string">
+            <column name="acudienemp" length="30"/>
+        </property>
+        <property name="acudienocu" type="string">
+            <column name="acudienocu" length="30"/>
+        </property>
+        <property name="acudienpro" type="string">
+            <column name="acudienpro" length="30"/>
+        </property>
+        <property name="acudiente" type="string">
+            <column name="acudiente" length="50"/>
+        </property>
+        <property name="acudientel" type="string">
+            <column name="acudientel" length="30"/>
+        </property>
+        <property name="alquiler" type="float">
+            <column name="alquiler" precision="12"/>
+        </property>
+        <property name="asociaci" type="float">
+            <column name="asociaci" precision="12"/>
+        </property>
+        <property name="barrio" type="string">
+            <column name="barrio" length="30"/>
+        </property>
+        <property name="beca" type="boolean">
+            <column name="beca"/>
+        </property>
+        <property name="cafeteri" type="boolean">
+            <column name="cafeteri"/>
+        </property>
+        <property name="ccmadre" type="integer">
+            <column name="ccmadre"/>
+        </property>
+        <property name="ccpadre" type="integer">
+            <column name="ccpadre"/>
+        </property>
+        <property name="ciudadnac" type="string">
+            <column name="ciudadnac"/>
+        </property>
+        <property name="cursoact" type="string">
+            <column name="cursoact" length="15"/>
+        </property>
+        <property name="cursoant" type="string">
+            <column name="cursoant" length="15"/>
+        </property>
+        <property name="cursoing" type="string">
+            <column name="cursoing" length="15"/>
+        </property>
+        <property name="descto" type="float">
+            <column name="descto" precision="12"/>
+        </property>
+        <property name="folio" type="string">
+            <column name="folio" length="15"/>
+        </property>
+        <property name="fretiro" type="date">
+            <column name="fretiro" length="10"/>
+        </property>
+        <property name="fmatricula" type="date">
+            <column name="fmatricula" length="10"/>
+        </property>
+        <property name="grado" type="integer">
+            <column name="grado"/>
+        </property>
+        <property name="hermano1" type="string">
+            <column name="hermano1" length="50"/>
+        </property>
+        <property name="hermano2" type="string">
+            <column name="hermano2" length="50"/>
+        </property>
+        <property name="hermano3" type="string">
+            <column name="hermano3" length="50"/>
+        </property>
+        <property name="inactivo" type="boolean">
+            <column name="inactivo"/>
+        </property>
+        <property name="lugarde" type="string">
+            <column name="lugarde" length="30"/>
+        </property>
+        <property name="madredir" type="string">
+            <column name="madredir" length="50"/>
+        </property>
+        <property name="madreemp" type="string">
+            <column name="madreemp" length="30"/>
+        </property>
+        <property name="madrenom" type="string">
+            <column name="madrenom" length="50"/>
+        </property>
+        <property name="madreocu" type="string">
+            <column name="madreocu" length="30"/>
+        </property>
+        <property name="madreprof" type="string">
+            <column name="madreprof" length="30"/>
+        </property>
+        <property name="madretel" type="string">
+            <column name="madretel" length="15"/>
+        </property>
+        <property name="matrih" type="boolean">
+            <column name="matrih"/>
+        </property>
+        <property name="padredir" type="string">
+            <column name="padredir" length="50"/>
+        </property>
+        <property name="padreemp" type="string">
+            <column name="padreemp" length="30"/>
+        </property>
+        <property name="padrenom" type="string">
+            <column name="padrenom" length="50"/>
+        </property>
+        <property name="padreocu" type="string">
+            <column name="padreocu" length="30"/>
+        </property>
+        <property name="padreprof" type="string">
+            <column name="padreprof" length="30"/>
+        </property>
+        <property name="padretel" type="string">
+            <column name="padretel" length="30"/>
+        </property>
+        <property name="parentesco" type="string">
+            <column name="parentesco" length="15"/>
+        </property>
+        <property name="retirado" type="boolean">
+            <column name="retirado"/>
+        </property>
+        <property name="ruta" type="string">
+            <column name="ruta" length="15"/>
+        </property>
+        <property name="telecasa" type="string">
+            <column name="telecasa" length="30"/>
+        </property>
+        <property name="transpor" type="boolean">
+            <column name="transpor"/>
+        </property>
+        <property name="codidenum" type="string">
+            <column name="codidenum" length="30"/>
+        </property>
+        <property name="observacio" type="string">
+            <column name="observacio" length="65535"/>
+        </property>
+        <property name="seguro" type="boolean">
+            <column name="seguro"/>
+        </property>
+        <property name="curher1" type="string">
+            <column name="curher1" length="30"/>
+        </property>
+        <property name="curher2" type="string">
+            <column name="curher2" length="30"/>
+        </property>
+        <property name="curher3" type="string">
+            <column name="curher3" length="30"/>
+        </property>
+        <property name="numlis" type="integer">
+            <column name="numlis"/>
+        </property>
+        <property name="mediabec" type="boolean">
+            <column name="mediabec"/>
+        </property>
+        <property name="mediotra" type="boolean">
+            <column name="mediotra"/>
+        </property>
+        <property name="codint" type="string">
+            <column name="codint" length="30"/>
+        </property>
+        <property name="alu" type="boolean">
+            <column name="alu"/>
+        </property>
+        <property name="liqint" type="boolean">
+            <column name="liqint"/>
+        </property>
+        <property name="noliqint" type="boolean">
+            <column name="noliqint"/>
+        </property>
+        <property name="tied" type="string">
+            <column name="tied" length="30"/>
+        </property>
+        <property name="ngr" type="string">
+            <column name="ngr" length="30"/>
+        </property>
+        <property name="ntranspor" type="string">
+            <column name="ntranspor" length="30"/>
+        </property>
+        <property name="emailmadre" type="string">
+            <column name="emailmadre" length="50"/>
+        </property>
+        <property name="emailpadre" type="string">
+            <column name="emailpadre" length="50"/>
+        </property>
+        <property name="colanterio" type="string">
+            <column name="colanterio" length="50"/>
+        </property>
+        <property name="nacionalid" type="string">
+            <column name="nacionalid" length="50"/>
+        </property>
+        <property name="otro" type="boolean">
+            <column name="otro"/>
+        </property>
+        <property name="digveri" type="string">
+            <column name="digveri" length="15"/>
+        </property>
+        <property name="codigoant" type="string">
+            <column name="codigoant" length="15"/>
+        </property>
+        <property name="familia" type="string">
+            <column name="familia" length="30"/>
+        </property>
+        <property name="grupo" type="string">
+            <column name="grupo" length="15"/>
+        </property>
+        <property name="nacionali" type="string">
+            <column name="nacionali" length="30"/>
+        </property>
+        <property name="pension" type="boolean">
+            <column name="pension"/>
+        </property>
+        <property name="asopan" type="boolean">
+            <column name="asopan"/>
+        </property>
+        <property name="notaauxi" type="string">
+            <column name="notaauxi" length="15"/>
+        </property>
+        <property name="tipidpad" type="string">
+            <column name="tipidpad" length="15"/>
+        </property>
+        <property name="tipidmad" type="string">
+            <column name="tipidmad" length="15"/>
+        </property>
+        <property name="numidpad" type="string">
+            <column name="numidpad" length="30"/>
+        </property>
+        <property name="numidmad" type="string">
+            <column name="numidmad" length="30"/>
+        </property>
+        <property name="tipidres" type="string">
+            <column name="tipidres" length="15"/>
+        </property>
+        <property name="numidres" type="string">
+            <column name="numidres" length="30"/>
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres" length="50"/>
+        </property>
+        <property name="ccodigo" type="string">
+            <column name="ccodigo" length="15"/>
+        </property>
+        <property name="ricaxmil" type="integer">
+            <column name="ricaxmil"/>
+        </property>
+        <property name="bogo" type="boolean">
+            <column name="bogo"/>
+        </property>
+        <property name="numcue" type="string">
+            <column name="numcue" length="15"/>
+        </property>
+        <property name="clasecta" type="string">
+            <column name="clasecta" length="15"/>
+        </property>
+        <property name="diasbl" type="integer">
+            <column name="diasbl"/>
+        </property>
+        <property name="encargado" type="string">
+            <column name="encargado" length="50"/>
+        </property>
+        <property name="ciiu" type="string">
+            <column name="ciiu" length="30"/>
+        </property>
+        <property name="codciu" type="string">
+            <column name="codciu" length="15"/>
+        </property>
+        <property name="coddpto" type="string">
+            <column name="coddpto" length="15"/>
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="15"/>
+        </property>
+        <property name="pagodav" type="boolean">
+            <column name="pagodav"/>
+        </property>
+        <property name="tarjedav" type="string">
+            <column name="tarjedav" length="30"/>
+        </property>
+        <property name="cafeteria" type="boolean">
+            <column name="cafeteria"/>
+        </property>
+        <property name="religion" type="string">
+            <column name="religion" length="30"/>
+        </property>
+        <property name="saludpre" type="string">
+            <column name="saludpre" length="30"/>
+        </property>
+        <property name="eps" type="string">
+            <column name="eps" length="30"/>
+        </property>
+        <property name="contsalud" type="string">
+            <column name="contsalud" length="30"/>
+        </property>
+        <property name="clinicaeme" type="string">
+            <column name="clinicaeme" length="30"/>
+        </property>
+        <property name="vivecon" type="string">
+            <column name="vivecon" length="15"/>
+        </property>
+        <property name="tiporh" type="string">
+            <column name="tiporh" length="15"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50"/>
+        </property>
+        <property name="exalmadre" type="boolean">
+            <column name="exalmadre"/>
+        </property>
+        <property name="exalpadre" type="boolean">
+            <column name="exalpadre"/>
+        </property>
+        <property name="anomadre" type="string">
+            <column name="anomadre" length="15"/>
+        </property>
+        <property name="anopadre" type="string">
+            <column name="anopadre" length="15"/>
+        </property>
+        <property name="fallecidom" type="boolean">
+            <column name="fallecidom"/>
+        </property>
+        <property name="fallecidop" type="boolean">
+            <column name="fallecidop"/>
+        </property>
+        <property name="acudienema" type="string">
+            <column name="acudienema" length="50"/>
+        </property>
+        <property name="tipidacu" type="string">
+            <column name="tipidacu" length="15"/>
+        </property>
+        <property name="numidacu" type="string">
+            <column name="numidacu" length="30"/>
+        </property>
+        <property name="respondir" type="string">
+            <column name="respondir" length="50"/>
+        </property>
+        <property name="respontel" type="string">
+            <column name="respontel" length="30"/>
+        </property>
+        <property name="responpare" type="string">
+            <column name="responpare" length="30"/>
+        </property>
+        <property name="paidian" type="integer">
+            <column name="paidian"/>
+        </property>
+        <property name="codigoroch" type="string">
+            <column name="codigoroch" length="15"/>
+        </property>
+    </class>
+</hibernate-mapping>

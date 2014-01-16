@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Semana" table="semana" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idSemana" type="integer">
+            <column name="id_semana"/>
+            <generator class="identity"/>
+        </id>
+        <property name="numeroSemana" type="integer">
+            <column name="numero_semana"/>
+        </property>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="sy_id_sy"/>
+        </many-to-one>
+        <many-to-one name="tipoSemana" class="com.aprendoz_desarrollo.data.TipoSemana">
+            <column name="tipo_semana_id_tipo_semana"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

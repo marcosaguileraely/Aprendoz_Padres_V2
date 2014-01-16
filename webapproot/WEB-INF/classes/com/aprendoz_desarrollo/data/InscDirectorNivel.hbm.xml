@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscDirectorNivel" table="insc_director_nivel" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscDirectorNivel" type="integer">
+            <column name="id_insc_director_nivel"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="persona_id_persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="nivel" class="com.aprendoz_desarrollo.data.Nivel">
+            <column name="nivel_id_nivel" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

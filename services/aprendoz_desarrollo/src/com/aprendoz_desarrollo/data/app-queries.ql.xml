@@ -1,0 +1,325 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="getTodosCostos">
+        <query-param name="idp" type="java.lang.Integer"/>
+        <query-param name="cod" type="java.lang.String"/>
+        <query-param name="nuevo" type="java.lang.Boolean"/>
+        <query-param name="sy" type="java.lang.Integer"/>
+        <query-param name="cod2" type="java.lang.String"/>
+        SELECT _c.idCosto as idcosto, _c.codigo as codigo, _c.nombreProducto as nombre, _c.valor as valor, _c.nuevo as nuevo, _iac.inscrito as inscrito, _iac.idInscAlumCosto as idiac
+FROM InscAlumCosto _iac INNER JOIN _iac.costos _c INNER JOIN _iac.persona _p INNER JOIN _iac.sy as _sy
+WHERE _p.idPersona=:idp AND ( _c.codigo=:cod OR _c.codigo=:cod2) AND _c.nuevo=:nuevo AND _sy.idSy=:sy
+    </query>
+    <query name="_hqlFichaMedicaByUser">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT _p.idPersona as id, CONCAT(_p.nombre1,&apos; &apos;,_p.nombre2,&apos; &apos;,_p.apellido1,&apos; &apos;,_p.apellido2) as nombrecompleto, _p.fechaNacimiento as fecha, _p.gradoIngreso as grado, _p.tipoSangre as rh, _p.eps as eps, _p.saludPrepagada  as prepagada, _p.telefono as telefono, _p.clinicaEmergencia as emergencia
+FROM Persona _p
+WHERE _p.idPersona=:idp
+    </query>
+    <query name="_verificaResponsable">
+        <query-param name="idgf" type="java.lang.Integer"/>
+        SELECT gf.idGrupoFamiliar as id, gf.grupoFamiliar as grupo, p.nombreLdap as usuario, tp.tipoPersona as tipo,
+CONCAT(p.nombre1,&apos; &apos;,p.nombre2,&apos; &apos;,p.apellido1,&apos; &apos;,p.apellido2) as nombrecompleto, p.noDocumento as dni
+FROM InscPersonaGrupoFamiliar ipgf INNER JOIN ipgf.grupoFamiliar as gf INNER JOIN ipgf.persona as p INNER JOIN ipgf.tipoPersona tp
+WHERE ipgf.responsable=true AND gf.idGrupoFamiliar=:idgf
+    </query>
+    <query name="_typeUserByUsername">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT p.nombreLdap as username, tp.idTipoPersona as idtipo, tp.tipoPersona as tipo
+FROM Persona p INNER JOIN p.tipoPersona tp
+WHERE p.nombreLdap=:user
+    </query>
+    <query name="getCostosTransporte">
+        <query-param name="idg" type="java.lang.Integer"/>
+        <query-param name="cod" type="java.lang.String"/>
+        <query-param name="nuevo" type="java.lang.Boolean"/>
+        SELECT _c.idCosto as id, _c.codigo as codigo, _c.nombreProducto as nombre, _c.valor as valor, _c.nuevo as nuevo
+FROM Costos _c INNER JOIN _c.grado _g
+WHERE _g.idGrado=:idg and _c.codigo=:cod and _c.nuevo=:nuevo
+    </query>
+    <query name="getIdbyUser">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT _p.idPersona as id, _t.idTipoPersona as idtipo, _t.tipoPersona as tipo
+FROM Persona _p INNER JOIN _p.tipoPersona _t
+WHERE _p.nombreLdap=:user
+    </query>
+    <query name="returExitsValue">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT COUNT(adp.idActualizacionDatosPersona) as retorno
+FROM ActualizacionDatosPersona adp INNER JOIN adp.persona p
+WHERE p.nombreLdap=:user
+    </query>
+    <query name="GetInscPersonaGrupoFamiliar">
+        <query-param name="gf" type="java.lang.Integer"/>
+        SELECT p.idPersona as idpersona, p.noDocumento as dni, p.nombre1 as nombre1, p.nombre2 as nombre2, p.apellido1 as apellido1, p.apellido2 as apellido2, tp.idTipoPersona as idtipopersona, tp.tipoPersona as tipoPersona, ipgf.responsable as responsable, gf.idGrupoFamiliar as idGrupoFamiliar, gf.grupoFamiliar as grupoFamiliar, ipgf.idInscPersonaGrupoFamiliar as idunico
+FROM InscPersonaGrupoFamiliar ipgf INNER JOIN ipgf.persona p INNER JOIN ipgf.tipoPersona tp INNER JOIN ipgf.grupoFamiliar gf
+WHERE gf.idGrupoFamiliar=:gf AND tp.idTipoPersona&gt;1
+    </query>
+    <query name="_countGrupoFamiliarUpdated">
+        <query-param name="idgrupofamiliar" type="java.lang.Integer"/>
+        SELECT COUNT(gf.idGrupoFamiliar) as _count
+FROM InscPersonaGrupoFamiliar ipgf INNER JOIN ipgf.grupoFamiliar gf
+WHERE gf.idGrupoFamiliar=:idgrupofamiliar
+    </query>
+    <query name="getAsignaturasMalas">
+        <query-param name="id" type="java.lang.Integer"/>
+        select
+calificacion AS puntaje,
+porcentaje AS porcent,
+esperados AS esperados,
+logrados AS logrados,
+califChar AS calificacion,
+persona.idPersona AS persona,
+asignatura.asignatura AS asig
+
+from InscAlumAsig ia where ia.persona=:id
+    </query>
+    <query name="_detallesAlimentos">
+        <query-param name="idp" type="java.lang.Integer"/>
+        <query-param name="alergias" type="java.lang.String"/>
+        <query-param name="especiales" type="java.lang.String"/>
+        UPDATE FichaMedica fm SET fm.alergias=:alergias, fm.recomendacionesEspeciales=:especiales
+WHERE fm.persona IN(SELECT _p.idPersona FROM Persona _p WHERE _p.idPersona=:idp)
+    </query>
+    <query name="getIdPersonabyUser">
+        <query-param name="username" type="java.lang.String"/>
+        SELECT p.idPersona as idp, p.nombreLdap as user, gf.idGrupoFamiliar as idgf, gf.grupoFamiliar as familia
+FROM Persona p INNER JOIN p.grupoFamiliar as gf
+WHERE p.nombreLdap=:username
+    </query>
+    <query name="hql_ls_pais">
+        SELECT p.idPais as idpais, p.pais as pais
+FROM Pais p
+    </query>
+    <query name="hq_ls_grado">
+        SELECT g.idGrado as idgrado,  g.grado as grado
+FROM Grado g
+WHERE g.idGrado &lt;1000
+ORDER BY g.idGrado asc
+    </query>
+    <query name="getNombreGrupoFamiliar">
+        <query-param name="id" type="java.lang.Integer"/>
+        from GrupoFamiliar _a where _a.idGrupoFamiliar=:id
+    </query>
+    <query name="listadoEstudiantesGrupoFamiliar">
+        <query-param name="idg" type="java.lang.Integer"/>
+        SELECT _p.codigo as codigo, _p.idPersona as idpersona, _p.nombreLdap as user,
+CONCAT(_p.nombre1,&apos; &apos;, _p.nombre2,&apos; &apos;, _p.apellido1,&apos; &apos;, _p.apellido2) AS completo, _f.grupoFamiliar as grupo, _f.idGrupoFamiliar as idgrupo, _t.tipoPersona as tipo, _t.idTipoPersona as idtipo
+FROM Persona _p INNER JOIN _p.grupoFamiliar _f INNER JOIN _p.tipoPersona _t
+WHERE _f.idGrupoFamiliar=:idg and _t.idTipoPersona=1
+    </query>
+    <query name="getCoordinatorInfo">
+        <query-param name="id" type="java.lang.Integer"/>
+        SELECT year.schoolYear as sy, persona.idPersona as id, curso.idCurso as cursoid, curso.curso as curso, docente.
+idCurso as docente_curso,asignatura.idAsignatura as idasignatura, asignatura.asignatura as asignatura, profesor.nombre1 as n1, profesor.nombre2 as n2, profesor.apellido1 as a1, profesor.apellido2 as a2, profesor.email as correo
+FROM InscAlumCurso AS iac, InscCursoAsig as ica
+INNER JOIN iac.sy as year
+INNER JOIN iac.persona as persona
+INNER JOIN iac.curso as curso
+INNER JOIN ica.curso as docente
+INNER JOIN ica.asignatura as asignatura
+INNER JOIN asignatura.sy as asignatura_sy
+INNER JOIN ica.persona as profesor
+WHERE year.idSy=3 and persona.idPersona=:id and curso.idCurso &gt;= 10101 and curso.idCurso &lt;= 40403
+AND curso.idCurso = docente.idCurso and year.idSy = asignatura_sy.idSy AND asignatura.asignatura LIKE &apos;DESARROLLO DE VIRTUDES%&apos;
+    </query>
+    <query name="_hqlAlergiasByUser">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT _p.idPersona as id, fm.alergias as alergias, fm.recomendacionesEspeciales as recomendaciones, fm.idfichaMedica as idficha
+FROM FichaMedica fm INNER JOIN fm.persona _p
+WHERE _p.idPersona=:idp
+    </query>
+    <query name="getGrupoFamiliarbyUser">
+        <query-param name="idgrupo" type="java.lang.Integer"/>
+        SELECT p.nombreLdap as user,
+p.idPersona as pid,
+p.codigo as code,
+CONCAT(p.nombre1,&apos; &apos;,p.nombre2) as nombres,
+CONCAT(p.apellido1,&apos; &apos;, p.apellido2) as apellidos,
+UPPER(t.tipoPersona) as tipo,
+g.idGrupoFamiliar as idgrupo,
+g.grupoFamiliar as familia,
+t.idTipoPersona as idtipo
+FROM Persona p INNER JOIN p.grupoFamiliar g INNER JOIN p.tipoPersona as t
+WHERE g.idGrupoFamiliar=:idgrupo
+ORDER BY p.codigo asc
+    </query>
+    <query name="getCostos">
+        <query-param name="idg" type="java.lang.Integer"/>
+        <query-param name="cod" type="java.lang.Integer"/>
+        SELECT _c.idCosto as id, _c.codigo as codigo, _c.nombreProducto as nombre, _c.valor as valor, _c.nuevo as nuevo
+FROM Costos _c INNER JOIN _c.grado _g
+WHERE _g.idGrado=:idg and _c.codigo=:cod
+    </query>
+    <query name="mailAcudiente">
+        <query-param name="grupo" type="java.lang.Integer"/>
+        SELECT p.tipoDocumento AS tipoDocumento,p.noDocumento AS numeroDocumento,p.nombre1 AS nombre1,p.nombre2 AS nombre2,p.apellido1 AS apellido1, p.apellido2 AS apellido2, p.email as correo, p.sexo AS sexo, tipo.tipoPersona AS tipoPersona, familia.idGrupoFamiliar as idFamilia, familia.grupoFamiliar as grupo
+FROM Persona AS p INNER JOIN p.tipoPersona AS tipo INNER JOIN p.grupoFamiliar as familia
+WHERE  tipo.idTipoPersona=3 AND familia.idGrupoFamiliar = :grupo
+    </query>
+    <query name="returnExistsValueGrupoFamiliar">
+        <query-param name="idg" type="java.lang.Integer"/>
+        SELECT agf.idActualizacionGrupoFamiliar as valorRetornado, agf.fecha as fecha, agf.actualizado as actualizado, familia.idGrupoFamiliar as idgrupo
+FROM ActualizacionGrupoFamiliar agf INNER JOIN agf.grupoFamiliar as familia
+WHERE familia.idGrupoFamiliar=:idg
+    </query>
+    <query name="updateServicios">
+        <query-param name="idiac" type="java.lang.Integer"/>
+        <query-param name="inscribir" type="java.lang.Boolean"/>
+        UPDATE InscAlumCosto iac SET iac.inscrito=:inscribir
+WHERE iac.idInscAlumCosto=:idiac
+    </query>
+    <query name="trackingPersonas" comment="Quesry para realizar seguimiento a usuarios">
+        <query-param name="usuario" type="java.lang.String"/>
+        SELECT
+p.idPersona as id,
+p.nombre1 as nombre1,
+p.nombre2 as nombre2,
+p.apellido1 as apellido1,
+p.apellido2 as apellido2,
+curdate() as fecha_actual
+FROM
+Persona p WHERE p.nombreLdap=:usuario
+    </query>
+    <query name="hqlGetTotalPagar">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT SUM(c.valor) as totalPagar
+FROM InscAlumCosto iac INNER JOIN iac.costos as c INNER JOIN iac.persona as p INNER JOIN iac.sy as sy
+WHERE p.idPersona=:idp AND iac.inscrito=1 and c.anual=1and sy.idSy=4
+    </query>
+    <query name="mailPadre">
+        <query-param name="grupo" type="java.lang.Integer"/>
+        SELECT p.tipoDocumento AS tipoDocumento,p.noDocumento AS numeroDocumento,p.nombre1 AS nombre1,p.nombre2 AS nombre2,p.apellido1 AS apellido1, p.apellido2 AS apellido2, p.email as correo, p.sexo AS sexo, tipo.tipoPersona AS tipoPersona, familia.idGrupoFamiliar as idFamilia, familia.grupoFamiliar as grupo
+FROM Persona AS p INNER JOIN p.tipoPersona AS tipo INNER JOIN p.grupoFamiliar as familia
+WHERE  (tipo.idTipoPersona=2 OR tipo.idTipoPersona=4  OR tipo.idTipoPersona=10) AND familia.idGrupoFamiliar = :grupo
+    </query>
+    <query name="getSubjectsByStudent">
+        <query-param name="idpersona" type="java.lang.Integer"/>
+        <query-param name="idsy" type="java.lang.Integer"/>
+        SELECT
+p.idPersona as idpersona,
+a.idAsignatura as idasignatura,
+a.asignatura as asignatura,
+sy.idSy as idsy,
+sy.schoolYear as schoolYear,
+iaa.calificacion as puntaje,
+iaa.califChar as calificacion,
+iaa.porcentaje as porcentaje
+FROM InscAlumAsig iaa INNER JOIN iaa.asignatura a INNER JOIN iaa.persona p INNER JOIN iaa.periodo per INNER JOIN  per.sy as sy
+WHERE p.idPersona=:idpersona AND sy.idSy=:idsy
+    </query>
+    <query name="getGrupoFamiliarbyIdPersona">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT p.nombreLdap as user,
+p.idPersona as pid,
+CONCAT(p.nombre1,&apos; &apos;,p.nombre2,&apos; &apos;, p.apellido1,&apos; &apos;, p.apellido2) as nombreCompleto,
+UPPER(t.tipoPersona) as tipo,
+g.idGrupoFamiliar as idgrupo,
+g.grupoFamiliar as familia
+FROM Persona p INNER JOIN p.grupoFamiliar g INNER JOIN p.tipoPersona as t
+WHERE p.idPersona=:idp
+    </query>
+    <query name="mailMadre">
+        <query-param name="grupo" type="java.lang.Integer"/>
+        SELECT p.tipoDocumento AS tipoDocumento,p.noDocumento AS numeroDocumento,p.nombre1 AS nombre1,p.nombre2 AS nombre2,p.apellido1 AS apellido1, p.apellido2 AS apellido2, p.email as correo, p.sexo AS sexo, tipo.tipoPersona AS tipoPersona, familia.idGrupoFamiliar as idFamilia, familia.grupoFamiliar as grupo
+FROM Persona AS p INNER JOIN p.tipoPersona AS tipo INNER JOIN p.grupoFamiliar as familia
+WHERE  (tipo.idTipoPersona=4 OR tipo.idTipoPersona=12 OR tipo.idTipoPersona=12 OR tipo.idTipoPersona=7 OR tipo.idTipoPersona=8) AND familia.idGrupoFamiliar = :grupo
+    </query>
+    <query name="getGradoUsuario">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT _p.idPersona as idpersona, _p.codigo as codigo, _c.idCurso as idcurso, _c.curso as curso, _g.idGrado as idgrado, _g.grado as grado , _sy.idSy as idsy, _sy.schoolYear as sy
+FROM InscAlumCurso _iac INNER JOIN _iac.persona _p INNER JOIN _iac.curso _c INNER JOIN _iac.sy _sy INNER JOIN _c.grado _g
+WHERE _p.idPersona=:idp
+AND _p.codigo&gt;=12000 AND _p.codigo&lt;=13999
+ORDER BY _sy.idSy DESC
+    </query>
+    <query name="getTipoPersonaByUser">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT p.nombre1 AS n1,p.nombre2 AS n2,p.apellido1 AS a1, p.apellido2 AS a2, p.nombreLdap AS usuario, tipo.tipoPersona AS tipoPe, tipo.idTipoPersona AS tipoId
+FROM Persona AS p INNER JOIN p.tipoPersona AS tipo INNER JOIN p.grupoFamiliar as familia
+WHERE   p.nombreLdap = :user
+    </query>
+    <query name="personaGetInfo">
+        <query-param name="username" type="java.lang.String"/>
+        SELECT p.idPersona as idpersona, p.tipoDocumento AS tipoDocumento,p.noDocumento AS numeroDocumento,p.nombre1 AS n1,p.nombre2 AS n2,p.apellido1 AS a1, p.apellido2 AS a2, p.nombreLdap AS usuario, p.sexo AS sexo1, tipo.tipoPersona AS tipoPe, tipo.idTipoPersona AS tipoId, familia.idGrupoFamiliar as idFamilia, familia.grupoFamiliar as grupoFamilia, p.idPersona as idpersona,
+p.noDocumento as documento
+FROM Persona AS p INNER JOIN p.tipoPersona AS tipo INNER JOIN p.grupoFamiliar as familia
+WHERE   p.nombreLdap=:username
+    </query>
+    <query name="updateDatosPersona">
+        <query-param name="pbool" type="java.lang.Byte"/>
+        <query-param name="idp" type="java.lang.Integer"/>
+        UPDATE ActualizacionDatosPersona adp SET adp.actualizado=:pbool
+WHERE adp.persona IN(SELECT _p.idPersona FROM Persona _p WHERE _p.idPersona=:idp)
+    </query>
+    <query name="haveNewIntegrants">
+        <query-param name="grupo" type="java.lang.Integer"/>
+        SELECT COUNT(_ip.idInscPersonaGrupoFamiliar) as numero
+FROM InscPersonaGrupoFamiliar _ip
+INNER JOIN _ip.tipoPersona _tp
+INNER JOIN _ip.persona _p
+INNER JOIN _ip.grupoFamiliar _gf
+WHERE _p.codigo &gt;=13000 and _p.codigo&lt;=14000 and _gf.idGrupoFamiliar=:grupo
+    </query>
+    <query name="getUserbyIdPersona">
+        <query-param name="id" type="java.lang.Integer"/>
+        SELECT p.idPersona as idp, p.nombreLdap as user, CONCAT(p.nombre1,&apos; &apos;,p.nombre2,&apos; &apos;,p.apellido1,&apos; &apos;,p.apellido2) as nombrecompleto
+FROM Persona p
+WHERE p.idPersona=:id
+    </query>
+    <query name="showInformationUser">
+        <query-param name="user" type="java.lang.String"/>
+        SELECT
+p.tipoDocumento AS tipoDocumento,
+p.noDocumento AS numeroDocumento,
+p.idPersona AS idpersona,
+p.nombre1 AS nombre1,
+p.nombre2 AS nombre2,
+p.apellido1 AS apellido1,
+p.apellido2 AS apellido2,
+p.nombreLdap AS usuario,
+p.clave AS clave,
+p.sexo AS sexo,
+tipo.tipoPersona AS tipoPersona,
+tipo.idTipoPersona as idtipo
+FROM Persona AS p
+INNER JOIN p.tipoPersona AS tipo
+WHERE p.nombreLdap=:user
+    </query>
+    <query name="_existeFichaMedicaByUser">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT p.idPersona as idpersona
+FROM FichaMedica fm INNER JOIN fm.persona p
+WHERE p.idPersona=:idp
+    </query>
+    <query name="updateInscPersonaGrupoFamiliar">
+        <query-param name="responsable" type="java.lang.Boolean"/>
+        <query-param name="idipgf" type="java.lang.Integer"/>
+        UPDATE InscPersonaGrupoFamiliar ipgf SET ipgf.responsable=:responsable
+WHERE ipgf.idInscPersonaGrupoFamiliar=:idipgf
+    </query>
+    <query name="hql_dash_asignaturas">
+        <query-param name="idsy" type="java.lang.Integer"/>
+        <query-param name="idpersona" type="java.lang.Integer"/>
+        SELECT p.idPersona as idalumno, Sy.idSy as sy, a.idAsignatura as idasignatura, a.asignatura as asignatura, iaa.calificacion as puntaje, iaa.califChar as calificacion, iaa.esperados as esperados, iaa.logrados as logrados, iaa.porcentaje as porcentaje
+FROM InscAlumAsig iaa INNER JOIN iaa.asignatura a INNER JOIN iaa.persona p INNER JOIN iaa.periodo.sy Sy
+WHERE Sy.idSy=:idsy and p.idPersona=:idpersona
+    </query>
+    <query name="hqlAlergiasByUser">
+        <query-param name="idp" type="java.lang.Integer"/>
+        SELECT _p.idPersona as id, fm.alergias as alergias, fm.recomendacionesEspeciales as recomendaciones, fm.idfichaMedica as idficha
+FROM FichaMedica fm INNER JOIN fm.persona _p
+WHERE _p.idPersona=:idp
+    </query>
+    <query name="getSyByCurDate">
+        <query-param name="f1" type="java.util.Date"/>
+        SELECT
+sy.idSy as idsy,
+sy.schoolYear as sy,
+DATE(sy.fechaDesde),
+DATE(sy.fechaHasta)
+FROM Sy sy
+WHERE :f1 BETWEEN sy.fechaDesde AND sy.fechaHasta
+    </query>
+</hibernate-mapping>

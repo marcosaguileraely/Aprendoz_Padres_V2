@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.NivelEsperado" table="Nivel_Esperado" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idNivelEsperado" type="integer">
+            <column name="Id_Nivel_Esperado"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nivelEsperado" type="string">
+            <column name="Nivel_Esperado" length="45"/>
+        </property>
+        <set name="aprendizajes" inverse="true" cascade="">
+            <key>
+                <column name="Nivel_Esperado_Id_Nivel_Esperado" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Aprendizaje"/>
+        </set>
+    </class>
+</hibernate-mapping>

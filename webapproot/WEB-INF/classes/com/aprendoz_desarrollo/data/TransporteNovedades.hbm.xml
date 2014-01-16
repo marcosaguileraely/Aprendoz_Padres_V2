@@ -1,0 +1,69 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TransporteNovedades" table="transporte_novedades" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idNovedades" type="integer">
+            <column name="id_novedades"/>
+            <generator class="identity"/>
+        </id>
+        <property name="horaProgramada" type="time">
+            <column name="hora_programada" length="8"/>
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" not-null="true"/>
+        </property>
+        <property name="horaActualSalida" type="time">
+            <column name="hora_actual_salida" length="8" not-null="true"/>
+        </property>
+        <property name="aprobacionDirNivel" type="boolean">
+            <column name="aprobacion_dir_nivel" not-null="true"/>
+        </property>
+        <property name="aprobacionCoordinador" type="boolean">
+            <column name="aprobacion_coordinador" not-null="true"/>
+        </property>
+        <property name="aprobacionTransporte" type="boolean">
+            <column name="aprobacion_transporte" not-null="true"/>
+        </property>
+        <property name="numeroPuerta" type="integer">
+            <column name="numero_puerta"/>
+        </property>
+        <property name="fechaProgramada" type="date">
+            <column name="fecha_programada" length="10" not-null="true"/>
+        </property>
+        <property name="fechaSolicitudInicio" type="date">
+            <column name="fecha_solicitud_inicio" length="10" not-null="true"/>
+        </property>
+        <property name="fechaSolicitudFin" type="date">
+            <column name="fecha_solicitud_fin" length="10" not-null="true"/>
+        </property>
+        <property name="tipoSolicitud_1" type="string">
+            <column name="tipo_solicitud" length="30" not-null="true"/>
+        </property>
+        <property name="lunes" type="boolean">
+            <column name="lunes" not-null="true"/>
+        </property>
+        <property name="martes" type="boolean">
+            <column name="martes" not-null="true"/>
+        </property>
+        <property name="miercoles" type="boolean">
+            <column name="miercoles" not-null="true"/>
+        </property>
+        <property name="jueves" type="boolean">
+            <column name="jueves" not-null="true"/>
+        </property>
+        <property name="viernes" type="boolean">
+            <column name="viernes" not-null="true"/>
+        </property>
+        <property name="sabado" type="boolean">
+            <column name="sabado" not-null="true"/>
+        </property>
+        <many-to-one name="transporteRutas" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="ruta_id_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoSolicitud" class="com.aprendoz_desarrollo.data.TipoSolicitud">
+            <column name="tipo_solicitud_id_tipo_solucitud" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

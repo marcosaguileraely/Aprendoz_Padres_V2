@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AccStudentCard" table="acc_student_card" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="cardCodeData" type="string">
+            <column name="card_code_data" not-null="true"/>
+        </property>
+        <property name="cardNumber" type="string">
+            <column name="card_number" not-null="true"/>
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="19" not-null="true"/>
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="updated" length="19" not-null="true"/>
+        </property>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="id_persona"/>
+        </many-to-one>
+        <set name="accStudentCardAuthorizations" inverse="true" cascade="">
+            <key>
+                <column name="student_card_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.AccStudentCardAuthorization"/>
+        </set>
+    </class>
+</hibernate-mapping>

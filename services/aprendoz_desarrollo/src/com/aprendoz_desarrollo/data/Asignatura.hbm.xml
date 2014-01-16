@@ -1,0 +1,117 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Asignatura" table="asignatura" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idAsignatura" type="integer">
+            <column name="Id_Asignatura"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="asignatura" type="string">
+            <column name="Asignatura" length="300"/>
+        </property>
+        <property name="subject" type="string">
+            <column name="Subject" length="300"/>
+        </property>
+        <property name="electiva" type="boolean">
+            <column name="Electiva"/>
+        </property>
+        <property name="idArea1" type="integer">
+            <column name="Id_Area1"/>
+        </property>
+        <property name="idArea2" type="integer">
+            <column name="Id_Area2"/>
+        </property>
+        <property name="idArea3" type="integer">
+            <column name="Id_Area3"/>
+        </property>
+        <property name="idSubarea1" type="integer">
+            <column name="Id_Subarea1"/>
+        </property>
+        <property name="idSubarea2" type="integer">
+            <column name="Id_Subarea2"/>
+        </property>
+        <property name="idSubarea3" type="integer">
+            <column name="Id_Subarea3"/>
+        </property>
+        <property name="salonIdSalon" type="integer">
+            <column name="Salon_Id_Salon"/>
+        </property>
+        <property name="intensidadHoraria" type="float">
+            <column name="intensidad_horaria" precision="4"/>
+        </property>
+        <property name="peso" type="float">
+            <column name="peso" precision="4"/>
+        </property>
+        <property name="descripAsigEspaniol" type="string">
+            <column name="descrip_asig_espaniol" length="65535"/>
+        </property>
+        <property name="descripAsigIngles" type="string">
+            <column name="descrip_asig_ingles" length="65535"/>
+        </property>
+        <property name="ihA1" type="float">
+            <column name="ih_a1" precision="12" not-null="true"/>
+        </property>
+        <property name="ihA2" type="float">
+            <column name="ih_a2" precision="12" not-null="true"/>
+        </property>
+        <property name="ihA3" type="float">
+            <column name="ih_a3" precision="12" not-null="true"/>
+        </property>
+        <property name="meses" type="float">
+            <column name="meses" precision="12"/>
+        </property>
+        <property name="esperadostotal" type="integer">
+            <column name="esperadostotal"/>
+        </property>
+        <many-to-one name="grado" class="com.aprendoz_desarrollo.data.Grado">
+            <column name="Grado_Id_Grado" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoInscAsig" class="com.aprendoz_desarrollo.data.TipoInscAsig">
+            <column name="Tipo_Insc_Asig_Id_Tipo_Insc_Asig"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="SY_Id_SY" not-null="true"/>
+        </many-to-one>
+        <set name="inscCursoAsigs" inverse="true" cascade="">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscCursoAsig"/>
+        </set>
+        <set name="horarios" inverse="true" cascade="">
+            <key>
+                <column name="asignatura_id_asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Horario"/>
+        </set>
+        <set name="inscAlumAsigCopies" inverse="true" cascade="">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsigCopy"/>
+        </set>
+        <set name="inscAlumAsigs" inverse="true" cascade="">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsig"/>
+        </set>
+        <set name="sesions" inverse="true" cascade="">
+            <key>
+                <column name="asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Sesion"/>
+        </set>
+        <set name="unidads" inverse="true" cascade="">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Unidad"/>
+        </set>
+        <set name="inscAlumAsigCopy2s" inverse="true" cascade="">
+            <key>
+                <column name="Asignatura_Id_Asignatura" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAsigCopy2"/>
+        </set>
+    </class>
+</hibernate-mapping>

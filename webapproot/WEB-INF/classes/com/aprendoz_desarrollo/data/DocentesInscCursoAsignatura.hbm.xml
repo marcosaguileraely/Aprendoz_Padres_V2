@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DocentesInscCursoAsignatura" table="docentes_insc_curso_asignatura" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.DocentesInscCursoAsignaturaId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="asignaturaIdAsignatura" type="integer">
+                <column name="Asignatura_Id_Asignatura"/>
+            </key-property>
+            <key-property name="syIdSy" type="integer">
+                <column name="SY_Id_SY"/>
+            </key-property>
+            <key-property name="schoolYear" type="string">
+                <column name="School_year" length="45"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="nombreLdap" type="string">
+                <column name="Nombre_LDAP" length="45"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

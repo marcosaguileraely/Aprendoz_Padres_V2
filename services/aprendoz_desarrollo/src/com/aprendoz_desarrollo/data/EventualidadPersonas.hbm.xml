@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.EventualidadPersonas" table="Eventualidad_Personas" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idEventualidadPersonas" type="integer">
+            <column name="Id_Eventualidad_Personas"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one name="subtipoEventualidad" class="com.aprendoz_desarrollo.data.SubtipoEventualidad">
+            <column name="subtipo_eventualidad" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="eventualidades" class="com.aprendoz_desarrollo.data.Eventualidades">
+            <column name="Eventualidades_Id_Eventualidad" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

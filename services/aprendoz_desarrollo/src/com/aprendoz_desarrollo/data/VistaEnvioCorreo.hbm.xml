@@ -1,0 +1,85 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaEnvioCorreo" table="vista_envio_correo" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaEnvioCorreoId">
+            <key-property name="idCurso" type="integer">
+                <column name="Id_Curso"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+            <key-property name="grupoFamiliar" type="string">
+                <column name="Grupo_Familiar" length="45"/>
+            </key-property>
+            <key-property name="alumnoCodigo" type="string">
+                <column name="alumno_codigo" length="45"/>
+            </key-property>
+            <key-property name="alumnoId" type="integer">
+                <column name="alumno_id"/>
+            </key-property>
+            <key-property name="alumnoApellido1" type="string">
+                <column name="alumno_apellido1" length="45"/>
+            </key-property>
+            <key-property name="alumnoApellido2" type="string">
+                <column name="alumno_apellido2" length="45"/>
+            </key-property>
+            <key-property name="alumnoNombre1" type="string">
+                <column name="alumno_nombre1" length="45"/>
+            </key-property>
+            <key-property name="alumnoNombre2" type="string">
+                <column name="alumno_nombre2" length="45"/>
+            </key-property>
+            <key-property name="alumnoUsuario" type="string">
+                <column name="alumno_usuario" length="45"/>
+            </key-property>
+            <key-property name="alumnoClave" type="string">
+                <column name="alumno_clave" length="45"/>
+            </key-property>
+            <key-property name="alumnoMail" type="string">
+                <column name="alumno_mail" length="65535"/>
+            </key-property>
+            <key-property name="padreApellido1" type="string">
+                <column name="padre_apellido1" length="45"/>
+            </key-property>
+            <key-property name="padreApellido2" type="string">
+                <column name="padre_apellido2" length="45"/>
+            </key-property>
+            <key-property name="padreNombre1" type="string">
+                <column name="padre_nombre1" length="45"/>
+            </key-property>
+            <key-property name="padreNombre2" type="string">
+                <column name="padre_nombre2" length="45"/>
+            </key-property>
+            <key-property name="padreUsuario" type="string">
+                <column name="padre_usuario" length="45"/>
+            </key-property>
+            <key-property name="padreClave" type="string">
+                <column name="padre_clave" length="45"/>
+            </key-property>
+            <key-property name="padreMail" type="string">
+                <column name="padre_mail" length="65535"/>
+            </key-property>
+            <key-property name="madreApellido1" type="string">
+                <column name="madre_apellido1" length="45"/>
+            </key-property>
+            <key-property name="madreApellido2" type="string">
+                <column name="madre_apellido2" length="45"/>
+            </key-property>
+            <key-property name="madreNombre1" type="string">
+                <column name="madre_nombre1" length="45"/>
+            </key-property>
+            <key-property name="madreNombre2" type="string">
+                <column name="madre_nombre2" length="45"/>
+            </key-property>
+            <key-property name="madreUsuario" type="string">
+                <column name="madre_usuario" length="45"/>
+            </key-property>
+            <key-property name="madreClave" type="string">
+                <column name="madre_clave" length="45"/>
+            </key-property>
+            <key-property name="madreCorreo" type="string">
+                <column name="madre_correo" length="65535"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

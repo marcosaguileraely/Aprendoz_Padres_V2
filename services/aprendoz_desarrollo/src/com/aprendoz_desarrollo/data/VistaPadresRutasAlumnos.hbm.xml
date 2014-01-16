@@ -1,0 +1,217 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaPadresRutasAlumnos" table="vista_padres_rutas_alumnos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaPadresRutasAlumnosId">
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="Codigo" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="lunesRuta" type="integer">
+                <column name="lunes_ruta"/>
+            </key-property>
+            <key-property name="lunesNumeroRuta" type="string">
+                <column name="lunes_numero_ruta"/>
+            </key-property>
+            <key-property name="martesRuta" type="integer">
+                <column name="martes_ruta"/>
+            </key-property>
+            <key-property name="martesNumeroRuta" type="string">
+                <column name="martes_numero_ruta"/>
+            </key-property>
+            <key-property name="miercolesRuta" type="integer">
+                <column name="miercoles_ruta"/>
+            </key-property>
+            <key-property name="miercolesNumeroRuta" type="string">
+                <column name="miercoles_numero_ruta"/>
+            </key-property>
+            <key-property name="juevesRuta" type="integer">
+                <column name="jueves_ruta"/>
+            </key-property>
+            <key-property name="juevesNumeroRuta" type="string">
+                <column name="jueves_numero_ruta"/>
+            </key-property>
+            <key-property name="viernesRuta" type="integer">
+                <column name="viernes_ruta"/>
+            </key-property>
+            <key-property name="viernesNumeroRuta" type="string">
+                <column name="viernes_numero_ruta"/>
+            </key-property>
+            <key-property name="sabadoRuta" type="integer">
+                <column name="sabado_ruta"/>
+            </key-property>
+            <key-property name="sabadoNumeroRuta" type="string">
+                <column name="sabado_numero_ruta"/>
+            </key-property>
+            <key-property name="domingoRuta" type="integer">
+                <column name="domingo_ruta"/>
+            </key-property>
+            <key-property name="domingoNumeroRuta" type="string">
+                <column name="domingo_numero_ruta"/>
+            </key-property>
+            <key-property name="amPm" type="string">
+                <column name="am_pm"/>
+            </key-property>
+            <key-property name="lunesIdRuta" type="integer">
+                <column name="lunes_id_ruta"/>
+            </key-property>
+            <key-property name="lunesPlacaVehiculo" type="string">
+                <column name="lunes_placa_vehiculo"/>
+            </key-property>
+            <key-property name="lunesNombreConductor" type="string">
+                <column name="lunes_nombre_conductor" length="65535"/>
+            </key-property>
+            <key-property name="lunesNombreMonitora" type="string">
+                <column name="lunes_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="lunesNombreResponsable" type="string">
+                <column name="lunes_nombre_responsable" length="65535"/>
+            </key-property>
+            <key-property name="lunesTelefono" type="string">
+                <column name="lunes_telefono"/>
+            </key-property>
+            <key-property name="lunesTipoTransporte" type="string">
+                <column name="lunes_tipo_transporte"/>
+            </key-property>
+            <key-property name="martesIdRuta" type="integer">
+                <column name="martes_id_ruta"/>
+            </key-property>
+            <key-property name="martesPlacaVehiculo" type="string">
+                <column name="martes_placa_vehiculo"/>
+            </key-property>
+            <key-property name="martesNombreConductor" type="string">
+                <column name="martes_nombre_conductor" length="65535"/>
+            </key-property>
+            <key-property name="martesNombreMonitora" type="string">
+                <column name="martes_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="martesNombreResponsable" type="string">
+                <column name="martes_nombre_responsable" length="65535"/>
+            </key-property>
+            <key-property name="martesTelefono" type="string">
+                <column name="martes_telefono"/>
+            </key-property>
+            <key-property name="martesTipoTransporte" type="string">
+                <column name="martes_tipo_transporte"/>
+            </key-property>
+            <key-property name="miercolesIdRuta" type="integer">
+                <column name="miercoles_id_ruta"/>
+            </key-property>
+            <key-property name="miercolesPlacaVehiculo" type="string">
+                <column name="miercoles_placa_vehiculo"/>
+            </key-property>
+            <key-property name="miercolesNombreConductor" type="string">
+                <column name="miercoles_nombre_conductor" length="65535"/>
+            </key-property>
+            <key-property name="miercolesNombreMonitora" type="string">
+                <column name="miercoles_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="miercolesNombreResponsable" type="string">
+                <column name="miercoles_nombre_responsable" length="65535"/>
+            </key-property>
+            <key-property name="miercolesTelefono" type="string">
+                <column name="miercoles_telefono"/>
+            </key-property>
+            <key-property name="miercolesTipoTransporte" type="string">
+                <column name="miercoles_tipo_transporte"/>
+            </key-property>
+            <key-property name="juevesIdRuta" type="integer">
+                <column name="jueves_id_ruta"/>
+            </key-property>
+            <key-property name="juevesPlacaVehiculo" type="string">
+                <column name="jueves_placa_vehiculo"/>
+            </key-property>
+            <key-property name="juevesNombreCoductor" type="string">
+                <column name="jueves_nombre_coductor" length="65535"/>
+            </key-property>
+            <key-property name="juevesNombreMonitora" type="string">
+                <column name="jueves_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="juevesNombreReponsable" type="string">
+                <column name="jueves_nombre_reponsable" length="65535"/>
+            </key-property>
+            <key-property name="juevesTelefono" type="string">
+                <column name="jueves_telefono"/>
+            </key-property>
+            <key-property name="juevesTipoTransporte" type="string">
+                <column name="jueves_tipo_transporte"/>
+            </key-property>
+            <key-property name="viernesIdRuta" type="integer">
+                <column name="viernes_id_ruta"/>
+            </key-property>
+            <key-property name="viernesPlacaVehiculo" type="string">
+                <column name="viernes_placa_vehiculo"/>
+            </key-property>
+            <key-property name="viernesNombreConductor" type="string">
+                <column name="viernes_nombre_conductor" length="65535"/>
+            </key-property>
+            <key-property name="viernesNombreMonitora" type="string">
+                <column name="viernes_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="viernesNombreReponsable" type="string">
+                <column name="viernes_nombre_reponsable" length="65535"/>
+            </key-property>
+            <key-property name="viernesTelefono" type="string">
+                <column name="viernes_telefono"/>
+            </key-property>
+            <key-property name="viernesTipoTransporte" type="string">
+                <column name="viernes_tipo_transporte"/>
+            </key-property>
+            <key-property name="sabadoIdRuta" type="integer">
+                <column name="sabado_id_ruta"/>
+            </key-property>
+            <key-property name="sabadoPlacaVehiculo" type="string">
+                <column name="sabado_placa_vehiculo"/>
+            </key-property>
+            <key-property name="sabadoNombreConductor" type="string">
+                <column name="sabado_nombre_conductor" length="65535"/>
+            </key-property>
+            <key-property name="sabadoNombreMonitora" type="string">
+                <column name="sabado_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="sabadoNombreResponsable" type="string">
+                <column name="sabado_nombre_responsable" length="65535"/>
+            </key-property>
+            <key-property name="sabadoTelefono" type="string">
+                <column name="sabado_telefono"/>
+            </key-property>
+            <key-property name="sabadoTipoTransporte" type="string">
+                <column name="sabado_tipo_transporte"/>
+            </key-property>
+            <key-property name="domingoIdRuta" type="integer">
+                <column name="domingo_id_ruta"/>
+            </key-property>
+            <key-property name="domingoPlacaVehiculo" type="string">
+                <column name="domingo_placa_vehiculo"/>
+            </key-property>
+            <key-property name="domingoNombreConductor" type="string">
+                <column name="domingo_nombre_conductor" length="65535"/>
+            </key-property>
+            <key-property name="domingoNombreMonitora" type="string">
+                <column name="domingo_nombre_monitora" length="65535"/>
+            </key-property>
+            <key-property name="domingoNombreResponsable" type="string">
+                <column name="domingo_nombre_responsable" length="65535"/>
+            </key-property>
+            <key-property name="domingoTelefono" type="string">
+                <column name="domingo_telefono"/>
+            </key-property>
+            <key-property name="domingoTipoTransporte" type="string">
+                <column name="domingo_tipo_transporte"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

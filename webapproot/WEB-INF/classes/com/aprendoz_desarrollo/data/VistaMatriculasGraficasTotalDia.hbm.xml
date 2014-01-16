@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDia" table="vista_matriculas_graficas_total_dia" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDiaId">
+            <key-property name="cont" type="long">
+                <column name="CONT"/>
+            </key-property>
+            <key-property name="idMatricula" type="integer">
+                <column name="id_matricula"/>
+            </key-property>
+            <key-property name="cursoIdCurso" type="integer">
+                <column name="Curso_Id_Curso"/>
+            </key-property>
+            <key-property name="personaIdPersona" type="integer">
+                <column name="Persona_Id_Persona"/>
+            </key-property>
+            <key-property name="syIdSy" type="integer">
+                <column name="SY_Id_SY"/>
+            </key-property>
+            <key-property name="fechaMatricula" type="date">
+                <column name="fecha_matricula" length="10"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

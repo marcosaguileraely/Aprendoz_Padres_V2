@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Matricula" table="matricula" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idMatricula" type="integer">
+            <column name="id_matricula"/>
+            <generator class="identity"/>
+        </id>
+        <property name="valorAnual" type="double">
+            <column name="valor_anual" precision="22" not-null="true"/>
+        </property>
+        <property name="valorMensual" type="integer">
+            <column name="valor_mensual" not-null="true"/>
+        </property>
+        <property name="fechaMatricula" type="date">
+            <column name="fecha_matricula" length="10" not-null="true"/>
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" length="65535" not-null="true"/>
+        </property>
+        <many-to-one name="curso" class="com.aprendoz_desarrollo.data.Curso">
+            <column name="Curso_Id_Curso" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="SY_Id_SY" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

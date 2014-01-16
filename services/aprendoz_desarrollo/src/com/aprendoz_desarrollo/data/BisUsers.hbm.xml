@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.BisUsers" table="bis_users" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.BisUsersId">
+            <key-property name="nombre" type="string">
+                <column name="NOMBRE"/>
+            </key-property>
+            <key-property name="apellido" type="string">
+                <column name="APELLIDO"/>
+            </key-property>
+            <key-property name="id" type="string">
+                <column name="ID"/>
+            </key-property>
+            <key-property name="auth" type="string">
+                <column name="AUTH"/>
+            </key-property>
+            <key-property name="hex" type="string">
+                <column name="HEX"/>
+            </key-property>
+            <key-property name="dec" type="string">
+                <column name="Dec"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

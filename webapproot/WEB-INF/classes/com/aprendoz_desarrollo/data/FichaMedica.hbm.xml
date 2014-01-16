@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.FichaMedica" table="ficha_medica" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idfichaMedica" type="integer">
+            <column name="idficha_medica"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fecha_creacion" length="19"/>
+        </property>
+        <property name="medicoTratante" type="string">
+            <column name="medico_tratante" length="50"/>
+        </property>
+        <property name="alergias" type="string">
+            <column name="alergias" length="65535"/>
+        </property>
+        <property name="enfermedadesRecientes" type="string">
+            <column name="enfermedades_recientes" length="65535"/>
+        </property>
+        <property name="antecedentesQuirurgicos" type="string">
+            <column name="antecedentes_quirurgicos" length="65535"/>
+        </property>
+        <property name="medicamentosActualidad" type="string">
+            <column name="medicamentos_actualidad" length="65535"/>
+        </property>
+        <property name="medicamentosAlerta" type="string">
+            <column name="medicamentos_alerta" length="65535"/>
+        </property>
+        <property name="recomendacionesEspeciales" type="string">
+            <column name="recomendaciones_especiales" length="65535"/>
+        </property>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="persona_id_persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

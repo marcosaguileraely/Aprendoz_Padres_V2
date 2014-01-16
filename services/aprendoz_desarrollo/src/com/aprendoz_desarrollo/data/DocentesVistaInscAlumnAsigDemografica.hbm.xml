@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemografica" table="docentes_vista_insc_alumn_asig_demografica" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemograficaId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="subject" type="string">
+                <column name="Subject" length="300"/>
+            </key-property>
+            <key-property name="personaIdPersona" type="integer">
+                <column name="Persona_Id_Persona"/>
+            </key-property>
+            <key-property name="esperados" type="integer">
+                <column name="esperados"/>
+            </key-property>
+            <key-property name="logrados" type="integer">
+                <column name="logrados"/>
+            </key-property>
+            <key-property name="calificacion" type="big_decimal">
+                <column name="Calificacion" precision="10"/>
+            </key-property>
+            <key-property name="califChar" type="string">
+                <column name="calif_char" length="10"/>
+            </key-property>
+            <key-property name="porcentaje" type="big_decimal">
+                <column name="Porcentaje" precision="10"/>
+            </key-property>
+            <key-property name="schoolYear" type="string">
+                <column name="School_year" length="45"/>
+            </key-property>
+            <key-property name="idSy" type="integer">
+                <column name="Id_SY"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

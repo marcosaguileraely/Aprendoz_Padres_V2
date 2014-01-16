@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Actividad" table="Actividad" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idActividad" type="integer">
+            <column name="Id_Actividad"/>
+            <generator class="identity"/>
+        </id>
+        <property name="actividad" type="string">
+            <column name="Actividad" length="65535"/>
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10"/>
+        </property>
+        <property name="requeridoAlternativo" type="boolean">
+            <column name="Requerido_Alternativo"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <many-to-one name="subtopico" class="com.aprendoz_desarrollo.data.Subtopico">
+            <column name="Subtopico_Id_Subtopico" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoValoracion" class="com.aprendoz_desarrollo.data.TipoValoracion">
+            <column name="Tipo_Valoracion_Id_Tipo_Valoracion"/>
+        </many-to-one>
+        <many-to-one name="tipoDesempeno" class="com.aprendoz_desarrollo.data.TipoDesempeno">
+            <column name="Tipo_Desempeno_Id_Tipo_Desempeno"/>
+        </many-to-one>
+        <many-to-one name="tipoActividad" class="com.aprendoz_desarrollo.data.TipoActividad">
+            <column name="Tipo_Actividad_Id_Tipo_Actividad"/>
+        </many-to-one>
+        <set name="inscAlumActividads" inverse="true" cascade="">
+            <key>
+                <column name="Actividad_Id_Actividad" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumActividad"/>
+        </set>
+    </class>
+</hibernate-mapping>

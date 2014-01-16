@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.HistorialCalificaciones" table="Historial_Calificaciones" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idHistorialCalificaciones" type="integer">
+            <column name="Id_Historial_Calificaciones"/>
+            <generator class="identity"/>
+        </id>
+        <property name="calificacion" type="string">
+            <column name="Calificacion" length="30"/>
+        </property>
+        <property name="calificacionNum" type="integer">
+            <column name="Calificacion_Num"/>
+        </property>
+        <property name="fechaLogro" type="date">
+            <column name="Fecha_Logro" length="10"/>
+        </property>
+        <property name="comentario" type="string">
+            <column name="Comentario" length="500"/>
+        </property>
+        <property name="fechaIngreso" type="date">
+            <column name="Fecha_Ingreso" length="10"/>
+        </property>
+        <many-to-one name="inscAlumAprendizaje" class="com.aprendoz_desarrollo.data.InscAlumAprendizaje" cascade="none">
+            <column name="ins_alumn_aprendizaje_id_historial_calificaciones" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

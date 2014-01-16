@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Costos" table="costos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idCosto" type="integer">
+            <column name="id_costo"/>
+            <generator class="identity"/>
+        </id>
+        <property name="codigo" type="string">
+            <column name="codigo" length="6" not-null="true"/>
+        </property>
+        <property name="nombreProducto" type="string">
+            <column name="nombre_producto" length="50" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535"/>
+        </property>
+        <property name="valor" type="double">
+            <column name="valor" precision="22" not-null="true"/>
+        </property>
+        <property name="nuevo" type="boolean">
+            <column name="nuevo" not-null="true"/>
+        </property>
+        <property name="obligatorio" type="boolean">
+            <column name="obligatorio" not-null="true"/>
+        </property>
+        <property name="positivo" type="boolean">
+            <column name="positivo" not-null="true"/>
+        </property>
+        <property name="anual" type="boolean">
+            <column name="anual" not-null="true"/>
+        </property>
+        <many-to-one name="grado" class="com.aprendoz_desarrollo.data.Grado">
+            <column name="Grado_Id_Grado" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="SY_Id_SY" not-null="true"/>
+        </many-to-one>
+        <set name="inscAlumCostos" inverse="true" cascade="">
+            <key>
+                <column name="costo_Id_costo" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumCosto"/>
+        </set>
+    </class>
+</hibernate-mapping>

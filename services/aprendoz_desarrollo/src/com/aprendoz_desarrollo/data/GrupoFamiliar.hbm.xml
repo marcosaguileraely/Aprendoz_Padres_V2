@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.GrupoFamiliar" table="Grupo_Familiar" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idGrupoFamiliar" type="integer">
+            <column name="ID_Grupo_Familiar"/>
+            <generator class="identity"/>
+        </id>
+        <property name="grupoFamiliar" type="string">
+            <column name="Grupo_Familiar" length="45"/>
+        </property>
+        <property name="grupoLdap" type="string">
+            <column name="Grupo_LDAP" length="45"/>
+        </property>
+        <set name="transporteRutases" inverse="true" cascade="">
+            <key>
+                <column name="grupo_familiad_id_grupo_familiar" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteRutas"/>
+        </set>
+        <set name="personas" inverse="true" cascade="">
+            <key>
+                <column name="Grupo_Familiar_ID_Grupo_Familiar" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Persona"/>
+        </set>
+        <set name="inscPersonaGrupoFamiliars" inverse="true" cascade="">
+            <key>
+                <column name="Grupo_familiar_Id_Grupo_Familiar" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar"/>
+        </set>
+        <set name="actualizacionGrupoFamiliars" inverse="true" cascade="">
+            <key>
+                <column name="grupo_familiar_id_grupo_familiar" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar"/>
+        </set>
+    </class>
+</hibernate-mapping>

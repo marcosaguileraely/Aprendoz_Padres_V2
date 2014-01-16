@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Logeventosaprendoz" table="logeventosaprendoz" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idLogEventos" type="integer">
+            <column name="id_log_eventos"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="hora" type="time">
+            <column name="hora" length="8" not-null="true"/>
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true"/>
+        </property>
+        <property name="accion" type="string">
+            <column name="accion" length="65535" not-null="true"/>
+        </property>
+        <property name="tabla" type="string">
+            <column name="tabla" not-null="true"/>
+        </property>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="usuario" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CurriculoGrado" table="curriculo_grado" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.CurriculoGradoId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="idUnidad" type="integer">
+                <column name="Id_Unidad"/>
+            </key-property>
+            <key-property name="unidad" type="string">
+                <column name="Unidad" length="500"/>
+            </key-property>
+            <key-property name="idSubtopico" type="integer">
+                <column name="Id_Subtopico"/>
+            </key-property>
+            <key-property name="subtopico" type="string">
+                <column name="Subtopico" length="200"/>
+            </key-property>
+            <key-property name="aprendizaje" type="string">
+                <column name="Aprendizaje" length="500"/>
+            </key-property>
+            <key-property name="actividad" type="string">
+                <column name="Actividad" length="65535"/>
+            </key-property>
+            <key-property name="recurso" type="string">
+                <column name="Recurso" length="300"/>
+            </key-property>
+            <key-property name="asignaturaSyIdSy" type="integer">
+                <column name="asignatura_SY_Id_SY"/>
+            </key-property>
+            <key-property name="asignaturaGradoIdGrado" type="integer">
+                <column name="asignatura_Grado_Id_Grado"/>
+            </key-property>
+            <key-property name="gradoIdGrado" type="integer">
+                <column name="Grado_Id_Grado"/>
+            </key-property>
+            <key-property name="gradoGrado" type="string">
+                <column name="Grado_Grado" length="45"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

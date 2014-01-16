@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Recurso" table="Recurso" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idRecurso" type="integer">
+            <column name="Id_Recurso"/>
+            <generator class="identity"/>
+        </id>
+        <property name="recurso" type="string">
+            <column name="Recurso" length="300"/>
+        </property>
+        <property name="documento" type="binary">
+            <column name="Documento"/>
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="Ubicacion" length="300"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <many-to-one name="subtopico" class="com.aprendoz_desarrollo.data.Subtopico">
+            <column name="Subtopico_Id_Subtopico" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoRecurso" class="com.aprendoz_desarrollo.data.TipoRecurso">
+            <column name="Tipo_Recurso_Id_Tipo_Recurso" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

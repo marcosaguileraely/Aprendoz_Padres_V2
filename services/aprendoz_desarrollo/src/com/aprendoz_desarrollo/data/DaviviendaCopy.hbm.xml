@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DaviviendaCopy" table="davivienda_copy" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="iddavivienda" type="integer">
+            <column name="iddavivienda"/>
+            <generator class="identity"/>
+        </id>
+        <property name="grado" type="string">
+            <column name="grado" not-null="true"/>
+        </property>
+        <property name="curso" type="string">
+            <column name="curso" not-null="true"/>
+        </property>
+        <property name="idpersona" type="integer">
+            <column name="idpersona" not-null="true"/>
+        </property>
+        <property name="apellido1" type="string">
+            <column name="apellido1" not-null="true"/>
+        </property>
+        <property name="apellido2" type="string">
+            <column name="apellido2" not-null="true"/>
+        </property>
+        <property name="nombre1" type="string">
+            <column name="nombre1" not-null="true"/>
+        </property>
+        <property name="nombre2" type="string">
+            <column name="nombre2" not-null="true"/>
+        </property>
+        <property name="nodocumento" type="string">
+            <column name="nodocumento" not-null="true"/>
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" not-null="true"/>
+        </property>
+        <property name="facturadavivienda" type="byte">
+            <column name="facturadavivienda" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

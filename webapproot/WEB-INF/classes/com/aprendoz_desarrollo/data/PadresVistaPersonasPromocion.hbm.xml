@@ -1,0 +1,52 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.PadresVistaPersonasPromocion" table="padres_vista_personas_promocion" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.PadresVistaPersonasPromocionId">
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="Codigo" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="grupoFamiliarIdGrupoFamiliar" type="integer">
+                <column name="Grupo_Familiar_ID_Grupo_Familiar"/>
+            </key-property>
+            <key-property name="grupoFamiliar" type="string">
+                <column name="Grupo_Familiar" length="45"/>
+            </key-property>
+            <key-property name="idGrupoFamiliar" type="integer">
+                <column name="ID_Grupo_Familiar"/>
+            </key-property>
+            <key-property name="tipoPersonaIdTipoPersona" type="integer">
+                <column name="Tipo_Persona_Id_Tipo_Persona"/>
+            </key-property>
+            <key-property name="autorizadoFinanciera" type="boolean">
+                <column name="autorizado_financiera"/>
+            </key-property>
+            <key-property name="autorizadoAcademico" type="boolean">
+                <column name="autorizado_academico"/>
+            </key-property>
+            <key-property name="aprobado" type="boolean">
+                <column name="aprobado"/>
+            </key-property>
+            <key-property name="promovido" type="boolean">
+                <column name="promovido"/>
+            </key-property>
+            <key-property name="syIdSy" type="integer">
+                <column name="SY_Id_Sy"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VProfesorAsignaturaCompleto" table="v_profesor_asignatura_completo" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VProfesorAsignaturaCompletoId">
+            <key-property name="asignaturaIdAsignatura" type="integer">
+                <column name="Asignatura_Id_Asignatura"/>
+            </key-property>
+            <key-property name="personaIdPersona" type="integer">
+                <column name="Persona_Id_Persona"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="subject" type="string">
+                <column name="Subject" length="300"/>
+            </key-property>
+            <key-property name="nombreLdap" type="string">
+                <column name="Nombre_LDAP" length="45"/>
+            </key-property>
+            <key-property name="syIdSy" type="integer">
+                <column name="SY_Id_SY"/>
+            </key-property>
+            <key-property name="gradoIdGrado" type="integer">
+                <column name="Grado_Id_Grado"/>
+            </key-property>
+            <key-property name="cursoIdCurso" type="integer">
+                <column name="Curso_Id_Curso"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

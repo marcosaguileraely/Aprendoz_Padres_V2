@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Eje" table="Eje" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idEje" type="integer">
+            <column name="Id_Eje"/>
+            <generator class="identity"/>
+        </id>
+        <property name="ejeTematico" type="string">
+            <column name="Eje_Tematico" length="300"/>
+        </property>
+        <property name="axis" type="string">
+            <column name="Axis" length="300"/>
+        </property>
+        <property name="activo" type="boolean">
+            <column name="Activo"/>
+        </property>
+        <many-to-one name="subarea" class="com.aprendoz_desarrollo.data.Subarea">
+            <column name="Subarea_Id_Subarea"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

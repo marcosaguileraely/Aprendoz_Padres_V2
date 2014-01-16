@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b44a3f7-4f0f-4507-b028-036eb6d682ff">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/aprendozreports/PAD001"/>
+	<property name="ireport.jasperserver.url" value="http://leon:8090/jasperserver/services/repository"/>
+	<parameter name="idpersona" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="asignatura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     Persona.`Apellido1` AS Persona_Apellido1,
+     Persona.`Apellido2` AS Persona_Apellido2,
+     Persona.`Nombre1` AS Persona_Nombre1,
+     Persona.`Nombre2` AS Persona_Nombre2,
+     Persona.`Id_Persona` AS Persona_Id_Persona,
+     Aprendizaje.`Aprendizaje` AS Aprendizaje_Aprendizaje,
+     Aprendizaje.`Fecha_Esperada` AS Aprendizaje_Fecha_Esperada,
+     Asignatura.`Asignatura` AS Asignatura_Asignatura,
+     Asignatura.`Id_Asignatura` AS Asignatura_Id_Asignatura,
+     Insc_Alum_Aprendizaje.`Aprendizaje_Id_Aprendizaje` AS Insc_Alum_Aprendizaje_Aprendizaje_Id_Aprendizaje,
+     Insc_Alum_Aprendizaje.`Persona_Id_Persona` AS Insc_Alum_Aprendizaje_Persona_Id_Persona,
+     Aprendizaje.`Subtopico_Id_Subtopico` AS Aprendizaje_Subtopico_Id_Subtopico,
+     Aprendizaje.`Id_Aprendizaje` AS Aprendizaje_Id_Aprendizaje,
+     Insc_Alum_Aprendizaje.`Id_Insc_Alum_Aprendizaje` AS Insc_Alum_Aprendizaje_Id_Insc_Alum_Aprendizaje,
+     Insc_Alum_Curso.`Persona_Id_Persona` AS Insc_Alum_Curso_Persona_Id_Persona,
+     Insc_Alum_Curso.`Id_Insc_Alum_Curso` AS Insc_Alum_Curso_Id_Insc_Alum_Curso,
+     Subtopico.`Id_Subtopico` AS Subtopico_Id_Subtopico,
+     Unidad.`Id_Unidad` AS Unidad_Id_Unidad,
+     Unidad.`Asignatura_Id_Asignatura` AS Unidad_Asignatura_Id_Asignatura,
+     Subtopico.`Unidad_Id_Unidad` AS Subtopico_Unidad_Id_Unidad,
+     Curso.`Id_Curso` AS Curso_Id_Curso,
+     Curso.`Curso` AS Curso_Curso,
+     Insc_Alum_Curso.`Curso_Id_Curso` AS Insc_Alum_Curso_Curso_Id_Curso,
+     Persona.`Codigo` AS Persona_Codigo,
+     Aprendizaje.`Learning` AS Aprendizaje_Learning,
+     Asignatura.`SY_Id_SY` AS Asignatura_SY_Id_SY,
+     Insc_Alum_Aprendizaje.`Calificacion` AS Insc_Alum_Aprendizaje_Calificacion,
+     Insc_Alum_Aprendizaje.`Comentario` AS Insc_Alum_Aprendizaje_Comentario,
+     Insc_Alum_Aprendizaje.`Fecha_Logro` AS Insc_Alum_Aprendizaje_Fecha_Logro,
+     calificacion_final.`calificacion` AS calificacion_final_calificacion,
+     Insc_Alum_Curso.`SY_Id_SY` AS Insc_Alum_Curso_SY_Id_SY,
+     SY.`Id_SY` AS SY_Id_SY,
+     SY.`School_year` AS SY_School_year
+FROM
+     `Aprendizaje` Aprendizaje INNER JOIN `Insc_Alum_Aprendizaje` Insc_Alum_Aprendizaje ON Aprendizaje.`Id_Aprendizaje` = Insc_Alum_Aprendizaje.`Aprendizaje_Id_Aprendizaje`
+     INNER JOIN `Persona` Persona ON Insc_Alum_Aprendizaje.`Persona_Id_Persona` = Persona.`Id_Persona`
+     INNER JOIN `Insc_Alum_Curso` Insc_Alum_Curso ON Persona.`Id_Persona` = Insc_Alum_Curso.`Persona_Id_Persona`
+     INNER JOIN `calificacion_final` calificacion_final ON Persona.`Id_Persona` = calificacion_final.`Persona_Id_Persona`
+     AND Aprendizaje.`Id_Aprendizaje` = calificacion_final.`Aprendizaje_Id_Aprendizaje`
+     INNER JOIN `Subtopico` Subtopico ON Aprendizaje.`Subtopico_Id_Subtopico` = Subtopico.`Id_Subtopico`
+     INNER JOIN `Unidad` Unidad ON Subtopico.`Unidad_Id_Unidad` = Unidad.`Id_Unidad`
+     INNER JOIN `Asignatura` Asignatura ON Unidad.`Asignatura_Id_Asignatura` = Asignatura.`Id_Asignatura`
+     INNER JOIN `SY` SY ON Asignatura.`SY_Id_SY` = SY.`Id_SY`
+     AND SY.`Id_SY` = Insc_Alum_Curso.`SY_Id_SY`
+     INNER JOIN `Curso` Curso ON Insc_Alum_Curso.`Curso_Id_Curso` = Curso.`Id_Curso`
+WHERE
+     Asignatura.`Id_Asignatura` =$P{asignatura}
+ AND Persona.`Id_Persona` = $P{idpersona}
+GROUP BY
+     Aprendizaje.`Id_Aprendizaje`
+ORDER BY
+     Insc_Alum_Aprendizaje.`Persona_Id_Persona` ASC,
+     `Aprendizaje_Id_Aprendizaje` ASC]]>
+	</queryString>
+	<field name="Persona_Apellido1" class="java.lang.String"/>
+	<field name="Persona_Apellido2" class="java.lang.String"/>
+	<field name="Persona_Nombre1" class="java.lang.String"/>
+	<field name="Persona_Nombre2" class="java.lang.String"/>
+	<field name="Persona_Id_Persona" class="java.lang.Integer"/>
+	<field name="Aprendizaje_Aprendizaje" class="java.lang.String"/>
+	<field name="Aprendizaje_Fecha_Esperada" class="java.sql.Date"/>
+	<field name="Asignatura_Asignatura" class="java.lang.String"/>
+	<field name="Asignatura_Id_Asignatura" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Aprendizaje_Id_Aprendizaje" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Persona_Id_Persona" class="java.lang.Integer"/>
+	<field name="Aprendizaje_Subtopico_Id_Subtopico" class="java.lang.Integer"/>
+	<field name="Aprendizaje_Id_Aprendizaje" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Id_Insc_Alum_Aprendizaje" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Curso_Persona_Id_Persona" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Curso_Id_Insc_Alum_Curso" class="java.lang.Integer"/>
+	<field name="Subtopico_Id_Subtopico" class="java.lang.Integer"/>
+	<field name="Unidad_Id_Unidad" class="java.lang.Integer"/>
+	<field name="Unidad_Asignatura_Id_Asignatura" class="java.lang.Integer"/>
+	<field name="Subtopico_Unidad_Id_Unidad" class="java.lang.Integer"/>
+	<field name="Curso_Id_Curso" class="java.lang.Integer"/>
+	<field name="Curso_Curso" class="java.lang.String"/>
+	<field name="Insc_Alum_Curso_Curso_Id_Curso" class="java.lang.Integer"/>
+	<field name="Persona_Codigo" class="java.lang.String"/>
+	<field name="Aprendizaje_Learning" class="java.lang.String"/>
+	<field name="Asignatura_SY_Id_SY" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Calificacion" class="java.lang.String"/>
+	<field name="Insc_Alum_Aprendizaje_Comentario" class="java.lang.String"/>
+	<field name="Insc_Alum_Aprendizaje_Fecha_Logro" class="java.sql.Date"/>
+	<field name="calificacion_final_calificacion" class="java.lang.String"/>
+	<field name="Insc_Alum_Curso_SY_Id_SY" class="java.lang.Integer"/>
+	<field name="SY_Id_SY" class="java.lang.Integer"/>
+	<field name="SY_School_year" class="java.lang.String"/>
+	<sortField name="Insc_Alum_Aprendizaje_Fecha_Logro" order="Descending"/>
+	<variable name="Persona_Nombre1_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{Persona_Nombre1}]]></variableExpression>
+	</variable>
+	<group name="por_alumno" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{Persona_Id_Persona}]]></groupExpression>
+		<groupHeader>
+			<band height="1"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="22">
+				<line>
+					<reportElement uuid="507c235d-47f0-4773-a5a6-fb53fbe0d2be" x="4" y="10" width="352" height="1"/>
+					<graphicElement>
+						<pen lineStyle="Dotted" lineColor="#3300CC"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement uuid="30c3f7f1-cf30-463f-908c-c67534139eb5" x="4" y="0" width="1" height="11"/>
+					<graphicElement>
+						<pen lineStyle="Dotted" lineColor="#3300CC"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement uuid="635bb570-5d39-4316-b3eb-6ee84d5ea065" x="361" y="0" width="193" height="18"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Aprendizajes Calificados: "+$V{por_alumno_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ae2b379d-8198-4de2-832b-779b048a619f" x="13" y="104" width="84" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASIGNATURA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6ed18890-15cf-4287-b47c-7fcb3e804fa5" x="97" y="104" width="223" height="13"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Asignatura_Asignatura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6f943428-3ef0-465c-b1d1-899bb06f71b6" x="102" y="11" width="356" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COLEGIO ROCHESTER]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement uuid="ebc9eccb-61c4-4157-a81b-a1f979c1b66d" x="458" y="58" width="93" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="db627a80-f213-4665-8691-26c29aa56ca1" x="458" y="47" width="93" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aprendoz Rochester©]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="87779a93-55e9-4ab9-9806-c6d3b8829e09" x="102" y="42" width="356" height="40"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BOLETÍN DE CALIFICACIONES A LA FECHA: " + $F{Asignatura_Asignatura}+
+"\nAÑO ESCOLAR: "+$F{SY_School_year}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="140c9e8b-b25c-4d6c-83d9-7db57a56141a" x="4" y="0" width="98" height="82"/>
+				<imageExpression><![CDATA["repo:logo_blue.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="22a65b15-813d-42e1-9a2d-606aaaf0e5c2" x="458" y="7" width="93" height="42"/>
+				<imageExpression><![CDATA["repo:LOGO APRENDOZ.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement uuid="e5317128-08af-42f1-97f4-026d50e7c223" x="4" y="92" width="547" height="1" forecolor="#0000FF"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#000099"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="16c884d6-a013-478f-93c8-cb183f8fbec0" x="4" y="92" width="1" height="25"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#3300CC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="a3c6b8d7-b6d2-4b79-bff8-ab5c88d71439" x="320" y="104" width="43" height="13"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURSO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="83c7eaef-40ae-441f-80f5-cf3fca0d8d8a" x="367" y="104" width="122" height="13"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Curso_Curso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="08b23b43-2c87-4802-8c0a-f1819599ad36" x="13" y="1" width="41" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3de2d7ff-cfe5-4936-811e-a206abac0c36" x="196" y="1" width="155" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="769bb9b9-b985-460a-80cf-fc5011f6267f" x="54" y="1" width="142" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d9376084-c838-4b18-a3f1-673d03eddd75" x="13" y="22" width="42" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Persona_Codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="098a37ad-fa82-414b-a690-9b56f4e28d66" x="54" y="22" width="142" height="17"/>
+				<textElement>
+					<font fontName="SansSerif" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Persona_Nombre1}+ " "+$F{Persona_Nombre2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="89c99110-99ea-41bc-83a1-d532fee42484" x="196" y="22" width="155" height="16"/>
+				<textElement>
+					<font fontName="Arial" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Persona_Apellido1}+ " "+ $F{Persona_Apellido2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3a77287d-213a-4775-ab0d-738767cc373d" x="358" y="22" width="67" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Calificación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bcb80574-09d2-474d-8bdb-55322b2250bd" x="429" y="22" width="122" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comentario]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ae3f4ba5-8fb8-44c2-a3d1-1c21c839cc9a" x="4" y="1" width="1" height="38"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#3300CC"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="85" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="c5a1f4af-30c6-4749-9b54-48d9a3b73748" x="17" y="3" width="536" height="80" forecolor="#CC0000" backcolor="#E3E1E1"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a46d61f5-1786-4fe3-9c53-790eddbb6228" x="429" y="20" width="122" height="65"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Insc_Alum_Aprendizaje_Comentario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aff7b3a8-b65a-4569-82d6-fc2e63608113" x="26" y="20" width="282" height="55"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Aprendizaje_Aprendizaje}+"\n\n"+$F{Aprendizaje_Learning}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="826b75cc-d2c6-42d1-a55f-a1c250f40481" x="5" y="21" width="12" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#3300CC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="34326e6e-9044-47b5-8014-fa44f105c5d3" x="4" y="1" width="1" height="84"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#3300CC"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement uuid="f01d7ce6-e205-4025-9068-304846448caf" x="281" y="5" width="70" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Insc_Alum_Aprendizaje_Fecha_Logro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="99ba65cd-4ca4-486f-8864-b441c7ed4e65" x="191" y="5" width="90" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de logro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="914df688-9d54-4752-8606-ebfed82c3e31" x="358" y="20" width="67" height="20" forecolor="#000099"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{calificacion_final_calificacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="170dc42f-aab2-45bf-8072-a01726eb8772" x="26" y="5" width="90" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Codigo Aprendizaje]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="97c92381-a54f-497a-8ce1-5c21984830a9" x="119" y="5" width="49" height="14"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Aprendizaje_Id_Aprendizaje}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bb617335-8f66-4f77-8235-17c0c8cdb8f0" x="439" y="2" width="115" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement uuid="a704d943-f3e4-47a8-a2a3-e2551b4fb71a" x="4" y="2" width="98" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e990a299-c0bd-4b1d-820c-a36dcc58cc54" x="102" y="2" width="337" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe Detallado por Asignatura ● Aprendoz© | Colegio Rochester
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

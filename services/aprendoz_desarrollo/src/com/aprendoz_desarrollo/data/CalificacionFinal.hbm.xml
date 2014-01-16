@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CalificacionFinal" table="calificacion_final" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idCalificacionFinal" type="integer">
+            <column name="id_calificacion_final"/>
+            <generator class="identity"/>
+        </id>
+        <property name="calificacionNum" type="float">
+            <column name="calificacion_num" precision="12"/>
+        </property>
+        <property name="calificacion" type="string">
+            <column name="calificacion" length="45"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <property name="fechaLogro" type="date">
+            <column name="fecha_logro" length="10"/>
+        </property>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona"/>
+        </many-to-one>
+        <many-to-one name="aprendizaje" class="com.aprendoz_desarrollo.data.Aprendizaje">
+            <column name="Aprendizaje_Id_Aprendizaje"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

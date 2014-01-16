@@ -1,0 +1,49 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CalifEstCopy" table="calif_est_copy" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.CalifEstCopyId">
+            <key-property name="grupoFamiliar" type="integer">
+                <column name="Grupo_Familiar"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="unidad" type="string">
+                <column name="Unidad" length="500"/>
+            </key-property>
+            <key-property name="subtopico" type="string">
+                <column name="Subtopico" length="200"/>
+            </key-property>
+            <key-property name="aprendizaje" type="string">
+                <column name="Aprendizaje" length="500"/>
+            </key-property>
+            <key-property name="fechaEsperada" type="date">
+                <column name="Fecha_Esperada" length="10"/>
+            </key-property>
+            <key-property name="calificacion" type="string">
+                <column name="Calificacion" length="30"/>
+            </key-property>
+            <key-property name="fechaLogro" type="date">
+                <column name="Fecha_Logro" length="10"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

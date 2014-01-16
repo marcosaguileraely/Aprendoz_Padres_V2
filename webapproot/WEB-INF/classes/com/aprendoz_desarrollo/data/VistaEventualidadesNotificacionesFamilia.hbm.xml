@@ -1,0 +1,73 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesFamilia" table="vista_eventualidades_notificaciones_familia" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesFamiliaId">
+            <key-property name="grupofamiliar" type="string">
+                <column name="grupofamiliar" length="45"/>
+            </key-property>
+            <key-property name="idpersona" type="integer">
+                <column name="idpersona"/>
+            </key-property>
+            <key-property name="nombreAlumno" type="string">
+                <column name="NOMBRE_ALUMNO" length="183"/>
+            </key-property>
+            <key-property name="idcurso" type="integer">
+                <column name="idcurso"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="curso" length="45"/>
+            </key-property>
+            <key-property name="nombrePadre" type="string">
+                <column name="NOMBRE_PADRE" length="183"/>
+            </key-property>
+            <key-property name="correoPadre" type="string">
+                <column name="CORREO_PADRE" length="65535"/>
+            </key-property>
+            <key-property name="nombreMadre" type="string">
+                <column name="NOMBRE_MADRE" length="183"/>
+            </key-property>
+            <key-property name="correoMadre" type="string">
+                <column name="CORREO_MADRE" length="65535"/>
+            </key-property>
+            <key-property name="userCordinador" type="string">
+                <column name="user_cordinador" length="45"/>
+            </key-property>
+            <key-property name="correoCordinador" type="string">
+                <column name="correo_cordinador" length="65535"/>
+            </key-property>
+            <key-property name="ideventualidad" type="integer">
+                <column name="ideventualidad"/>
+            </key-property>
+            <key-property name="fecha" type="date">
+                <column name="fecha" length="10"/>
+            </key-property>
+            <key-property name="horas" type="time">
+                <column name="horas" length="8"/>
+            </key-property>
+            <key-property name="lugar" type="string">
+                <column name="lugar" length="40"/>
+            </key-property>
+            <key-property name="tipoeventualidad" type="string">
+                <column name="tipoeventualidad" length="45"/>
+            </key-property>
+            <key-property name="subtipo" type="string">
+                <column name="subtipo" length="65535"/>
+            </key-property>
+            <key-property name="estado" type="string">
+                <column name="estado" length="45"/>
+            </key-property>
+            <key-property name="registrante" type="string">
+                <column name="registrante" length="20"/>
+            </key-property>
+            <key-property name="nivel" type="string">
+                <column name="nivel" length="45"/>
+            </key-property>
+            <key-property name="correoDirector" type="string">
+                <column name="correo_director" length="65535"/>
+            </key-property>
+            <key-property name="userDirector" type="string">
+                <column name="user_director" length="45"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

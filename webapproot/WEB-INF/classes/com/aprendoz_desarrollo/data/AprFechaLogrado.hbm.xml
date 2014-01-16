@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AprFechaLogrado" table="apr_fecha_logrado" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.AprFechaLogradoId">
+            <key-property name="persona" type="integer">
+                <column name="persona"/>
+            </key-property>
+            <key-property name="asignatura" type="integer">
+                <column name="asignatura"/>
+            </key-property>
+            <key-property name="fechaLogro" type="date">
+                <column name="fecha_logro" length="10"/>
+            </key-property>
+            <key-property name="fechaEsperada" type="date">
+                <column name="fecha_esperada" length="10"/>
+            </key-property>
+            <key-property name="cantidad" type="long">
+                <column name="cantidad"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

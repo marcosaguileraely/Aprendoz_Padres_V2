@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscAlumTransporte" table="insc_alum_transporte" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscAlumTransporte" type="integer">
+            <column name="id_insc_alum_transporte"/>
+            <generator class="identity"/>
+        </id>
+        <property name="amPm" type="string">
+            <column name="am_pm" not-null="true"/>
+        </property>
+        <many-to-one name="rutasByDomingoRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="domingo_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutasByMiercolesRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="miercoles_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutasByViernesRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="viernes_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona" cascade="none">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutasByMartesRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="martes_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutasByJuevesRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="jueves_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutasByLunesRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="lunes_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutasBySabadoRuta" class="com.aprendoz_desarrollo.data.Rutas" cascade="none">
+            <column name="sabado_ruta" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

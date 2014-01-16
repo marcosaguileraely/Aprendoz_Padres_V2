@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Unidad" table="Unidad" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idUnidad" type="integer">
+            <column name="Id_Unidad"/>
+            <generator class="identity"/>
+        </id>
+        <property name="unidad" type="string">
+            <column name="Unidad" length="500"/>
+        </property>
+        <property name="unit" type="string">
+            <column name="Unit" length="500"/>
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="Fecha_Inicio" length="10"/>
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="Fecha_Fin" length="10"/>
+        </property>
+        <property name="numeroUnidad" type="integer">
+            <column name="Numero_Unidad"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <many-to-one name="asignatura" class="com.aprendoz_desarrollo.data.Asignatura">
+            <column name="Asignatura_Id_Asignatura" not-null="true"/>
+        </many-to-one>
+        <set name="subtopicos" inverse="true" cascade="">
+            <key>
+                <column name="Unidad_Id_Unidad" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Subtopico"/>
+        </set>
+    </class>
+</hibernate-mapping>

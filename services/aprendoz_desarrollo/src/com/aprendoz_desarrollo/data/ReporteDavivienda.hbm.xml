@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.ReporteDavivienda" table="reporte_davivienda" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idReporteSapiensDavivienda" type="integer">
+            <column name="id_reporte_sapiens_davivienda"/>
+            <generator class="identity"/>
+        </id>
+        <property name="tarjetadav" type="string">
+            <column name="tarjetadav"/>
+        </property>
+        <property name="numidres" type="string">
+            <column name="numidres"/>
+        </property>
+        <property name="valor" type="float">
+            <column name="valor" precision="12"/>
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres"/>
+        </property>
+        <property name="nit" type="string">
+            <column name="nit"/>
+        </property>
+        <property name="nnombre" type="string">
+            <column name="nnombre"/>
+        </property>
+        <property name="cursoact" type="string">
+            <column name="cursoact"/>
+        </property>
+    </class>
+</hibernate-mapping>

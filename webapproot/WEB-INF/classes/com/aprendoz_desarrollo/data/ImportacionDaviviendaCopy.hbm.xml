@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.ImportacionDaviviendaCopy" table="importacion_davivienda_copy" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idImportacionDavivienda" type="integer">
+            <column name="`id_importacion-davivienda`"/>
+            <generator class="identity"/>
+        </id>
+        <property name="tarjeta" type="string">
+            <column name="tarjeta"/>
+        </property>
+        <property name="nombresocio" type="string">
+            <column name="nombresocio"/>
+        </property>
+        <property name="numeroidentificacion" type="string">
+            <column name="numeroidentificacion"/>
+        </property>
+        <property name="estado" type="string">
+            <column name="estado"/>
+        </property>
+        <property name="fechaCreacion" type="date">
+            <column name="fecha_creacion" length="10"/>
+        </property>
+        <property name="fechaModificacion" type="date">
+            <column name="fecha_modificacion" length="10"/>
+        </property>
+    </class>
+</hibernate-mapping>

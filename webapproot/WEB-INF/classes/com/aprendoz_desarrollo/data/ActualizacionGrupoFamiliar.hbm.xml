@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.ActualizacionGrupoFamiliar" table="actualizacion_grupo_familiar" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idActualizacionGrupoFamiliar" type="integer">
+            <column name="id_actualizacion_grupo_familiar"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" not-null="true"/>
+        </property>
+        <property name="actualizado" type="byte">
+            <column name="actualizado" not-null="true"/>
+        </property>
+        <many-to-one name="grupoFamiliar" class="com.aprendoz_desarrollo.data.GrupoFamiliar">
+            <column name="grupo_familiar_id_grupo_familiar" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

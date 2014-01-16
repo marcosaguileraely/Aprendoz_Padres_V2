@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AprEsperados" table="apr_esperados" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.AprEsperadosId">
+            <key-property name="personaIdPersona" type="integer">
+                <column name="Persona_Id_Persona"/>
+            </key-property>
+            <key-property name="asignaturaIdAsignatura" type="integer">
+                <column name="Asignatura_Id_Asignatura"/>
+            </key-property>
+            <key-property name="fechaEsperada" type="date">
+                <column name="Fecha_Esperada" length="10"/>
+            </key-property>
+            <key-property name="count___" type="long">
+                <column name="`COUNT(*)`"/>
+            </key-property>
+            <key-property name="sy" type="integer">
+                <column name="SY"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

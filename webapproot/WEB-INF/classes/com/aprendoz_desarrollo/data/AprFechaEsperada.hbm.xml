@@ -1,0 +1,67 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AprFechaEsperada" table="apr_fecha_esperada" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.AprFechaEsperadaId">
+            <key-property name="asignatura" type="integer">
+                <column name="asignatura"/>
+            </key-property>
+            <key-property name="cantidad" type="long">
+                <column name="cantidad"/>
+            </key-property>
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="idUnidad" type="integer">
+                <column name="Id_Unidad"/>
+            </key-property>
+            <key-property name="unidadIdUnidad" type="integer">
+                <column name="Unidad_Id_Unidad"/>
+            </key-property>
+            <key-property name="idSubtopico" type="integer">
+                <column name="Id_Subtopico"/>
+            </key-property>
+            <key-property name="subtopicoIdSubtopico" type="integer">
+                <column name="Subtopico_Id_Subtopico"/>
+            </key-property>
+            <key-property name="idAprendizaje" type="integer">
+                <column name="Id_Aprendizaje"/>
+            </key-property>
+            <key-property name="aprendizajeIdAprendizaje" type="integer">
+                <column name="Aprendizaje_Id_Aprendizaje"/>
+            </key-property>
+            <key-property name="asignatura1" type="string">
+                <column name="Asignatura1" length="300"/>
+            </key-property>
+            <key-property name="subject" type="string">
+                <column name="Subject" length="300"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="personaIdPersona" type="integer">
+                <column name="Persona_Id_Persona"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="subtopico" type="string">
+                <column name="Subtopico" length="200"/>
+            </key-property>
+            <key-property name="unidad" type="string">
+                <column name="Unidad" length="500"/>
+            </key-property>
+            <key-property name="fechaEsperada" type="date">
+                <column name="Fecha_Esperada" length="10"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

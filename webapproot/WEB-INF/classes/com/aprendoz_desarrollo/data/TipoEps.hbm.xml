@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TipoEps" table="tipo_eps" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="ideps" type="integer">
+            <column name="ideps"/>
+            <generator class="identity"/>
+        </id>
+        <property name="eps" type="string">
+            <column name="eps" length="100" not-null="true"/>
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="100"/>
+        </property>
+        <property name="web" type="string">
+            <column name="web" length="100"/>
+        </property>
+    </class>
+</hibernate-mapping>

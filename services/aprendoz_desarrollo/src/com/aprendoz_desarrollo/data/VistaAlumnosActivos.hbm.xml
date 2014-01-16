@@ -1,0 +1,214 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaAlumnosActivos" table="vista_alumnos_activos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaAlumnosActivosId">
+            <key-property name="schoolYear" type="string">
+                <column name="School_year" length="45"/>
+            </key-property>
+            <key-property name="idGrado" type="integer">
+                <column name="Id_Grado"/>
+            </key-property>
+            <key-property name="nivel" type="string">
+                <column name="Nivel" length="45"/>
+            </key-property>
+            <key-property name="grado" type="string">
+                <column name="Grado" length="45"/>
+            </key-property>
+            <key-property name="idCurso" type="integer">
+                <column name="Id_Curso"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="Codigo" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="noDocumento" type="string">
+                <column name="No_Documento" length="45"/>
+            </key-property>
+            <key-property name="tipoDocumento" type="string">
+                <column name="Tipo_Documento" length="45"/>
+            </key-property>
+            <key-property name="hijoDeExalumno" type="boolean">
+                <column name="Hijo_de_Exalumno"/>
+            </key-property>
+            <key-property name="nombreLdap" type="string">
+                <column name="Nombre_LDAP" length="45"/>
+            </key-property>
+            <key-property name="clave" type="string">
+                <column name="Clave" length="45"/>
+            </key-property>
+            <key-property name="email" type="string">
+                <column name="email" length="65535"/>
+            </key-property>
+            <key-property name="activoRetirado" type="boolean">
+                <column name="Activo_Retirado"/>
+            </key-property>
+            <key-property name="nivelAcademico" type="string">
+                <column name="Nivel_Academico" length="45"/>
+            </key-property>
+            <key-property name="fechaNacimiento" type="date">
+                <column name="Fecha_Nacimiento" length="10"/>
+            </key-property>
+            <key-property name="lugarNacimientoMunicipio" type="string">
+                <column name="Lugar_Nacimiento_Municipio" length="45"/>
+            </key-property>
+            <key-property name="lugarNacimientoDepartamento" type="string">
+                <column name="Lugar_Nacimiento_Departamento" length="45"/>
+            </key-property>
+            <key-property name="nacionalidad" type="string">
+                <column name="Nacionalidad" length="45"/>
+            </key-property>
+            <key-property name="direccionResidencia" type="string">
+                <column name="Direccion_Residencia" length="500"/>
+            </key-property>
+            <key-property name="telefono" type="string">
+                <column name="Telefono" length="45"/>
+            </key-property>
+            <key-property name="telefono2" type="string">
+                <column name="Telefono2" length="45"/>
+            </key-property>
+            <key-property name="religion" type="string">
+                <column name="Religion" length="45"/>
+            </key-property>
+            <key-property name="lugarExpedicionMunicipio" type="string">
+                <column name="Lugar_Expedicion_Municipio" length="45"/>
+            </key-property>
+            <key-property name="lugarExpedicionDepartamento" type="string">
+                <column name="Lugar_Expedicion_Departamento" length="45"/>
+            </key-property>
+            <key-property name="barrio" type="string">
+                <column name="Barrio" length="200"/>
+            </key-property>
+            <key-property name="municipio" type="string">
+                <column name="Municipio" length="45"/>
+            </key-property>
+            <key-property name="departamento" type="string">
+                <column name="Departamento" length="45"/>
+            </key-property>
+            <key-property name="saludPrepagada" type="string">
+                <column name="Salud_Prepagada" length="45"/>
+            </key-property>
+            <key-property name="eps" type="string">
+                <column name="EPS" length="45"/>
+            </key-property>
+            <key-property name="numeroContratoSalud" type="string">
+                <column name="Numero_Contrato_Salud" length="45"/>
+            </key-property>
+            <key-property name="clinicaEmergencia" type="string">
+                <column name="Clinica_Emergencia" length="45"/>
+            </key-property>
+            <key-property name="viveCon" type="string">
+                <column name="Vive_Con" length="45"/>
+            </key-property>
+            <key-property name="tipoSangre" type="string">
+                <column name="Tipo_Sangre" length="45"/>
+            </key-property>
+            <key-property name="sexo" type="string">
+                <column name="Sexo" length="45"/>
+            </key-property>
+            <key-property name="codigoFamilia" type="string">
+                <column name="Codigo_Familia" length="45"/>
+            </key-property>
+            <key-property name="fechaIngreso" type="timestamp">
+                <column name="Fecha_Ingreso" length="19"/>
+            </key-property>
+            <key-property name="gradoIngreso" type="string">
+                <column name="Grado_Ingreso" length="45"/>
+            </key-property>
+            <key-property name="cursoIngreso" type="string">
+                <column name="Curso_Ingreso" length="45"/>
+            </key-property>
+            <key-property name="fechaRetiro" type="date">
+                <column name="Fecha_Retiro" length="10"/>
+            </key-property>
+            <key-property name="comentarioRetiro" type="string">
+                <column name="comentario_retiro" length="65535"/>
+            </key-property>
+            <key-property name="colegioAnterior" type="string">
+                <column name="Colegio_Anterior" length="45"/>
+            </key-property>
+            <key-property name="nombrePadreExalumno" type="string">
+                <column name="Nombre_Padre_Exalumno" length="200"/>
+            </key-property>
+            <key-property name="promocion" type="string">
+                <column name="Promocion" length="45"/>
+            </key-property>
+            <key-property name="profesion" type="string">
+                <column name="Profesion" length="45"/>
+            </key-property>
+            <key-property name="empresa" type="string">
+                <column name="Empresa" length="45"/>
+            </key-property>
+            <key-property name="cargo" type="string">
+                <column name="Cargo" length="45"/>
+            </key-property>
+            <key-property name="celular" type="string">
+                <column name="Celular" length="45"/>
+            </key-property>
+            <key-property name="direccionOficina" type="string">
+                <column name="Direccion_Oficina" length="500"/>
+            </key-property>
+            <key-property name="telefonoOficina" type="string">
+                <column name="Telefono_Oficina" length="45"/>
+            </key-property>
+            <key-property name="parentesco" type="string">
+                <column name="Parentesco" length="45"/>
+            </key-property>
+            <key-property name="rutaM" type="string">
+                <column name="Ruta_M" length="45"/>
+            </key-property>
+            <key-property name="rutaT" type="string">
+                <column name="Ruta_T" length="45"/>
+            </key-property>
+            <key-property name="tomaAlmuerzo" type="boolean">
+                <column name="Toma_Almuerzo"/>
+            </key-property>
+            <key-property name="tomaMediasNueves" type="boolean">
+                <column name="Toma_Medias_Nueves"/>
+            </key-property>
+            <key-property name="tomaSeguroAccidentes" type="boolean">
+                <column name="Toma_Seguro_Accidentes"/>
+            </key-property>
+            <key-property name="noPlaqueta" type="string">
+                <column name="No_Plaqueta" length="45"/>
+            </key-property>
+            <key-property name="tipoPersonaIdTipoPersona" type="integer">
+                <column name="Tipo_Persona_Id_Tipo_Persona"/>
+            </key-property>
+            <key-property name="grupoFamiliarIdGrupoFamiliar" type="integer">
+                <column name="Grupo_Familiar_ID_Grupo_Familiar"/>
+            </key-property>
+            <key-property name="paisNacId" type="integer">
+                <column name="PAIS_NAC_ID"/>
+            </key-property>
+            <key-property name="matriculado" type="boolean">
+                <column name="matriculado"/>
+            </key-property>
+            <key-property name="inscAlumCursoIdInscAlumCurso" type="integer">
+                <column name="Insc_Alum_Curso_Id_Insc_Alum_Curso"/>
+            </key-property>
+            <key-property name="paisDomicilio" type="string">
+                <column name="pais_domicilio" length="45"/>
+            </key-property>
+            <key-property name="codigoPostal" type="string">
+                <column name="codigo_postal" length="8"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

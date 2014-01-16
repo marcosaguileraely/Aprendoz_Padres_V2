@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CafeteriaSopas" table="cafeteria_sopas" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idSopas" type="integer">
+            <column name="id_sopas"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="sopas" type="string">
+            <column name="sopas"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535"/>
+        </property>
+        <property name="image" type="string">
+            <column name="image"/>
+        </property>
+    </class>
+</hibernate-mapping>

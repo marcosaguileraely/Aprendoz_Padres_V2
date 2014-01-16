@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idasignatura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idestd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Persona.`Apellido1` AS Persona_Apellido1,
+     Persona.`Apellido2` AS Persona_Apellido2,
+     Persona.`Nombre1` AS Persona_Nombre1,
+     Persona.`Nombre2` AS Persona_Nombre2,
+     Persona.`Id_Persona` AS Persona_Id_Persona,
+     Aprendizaje.`Aprendizaje` AS Aprendizaje_Aprendizaje,
+     Aprendizaje.`Fecha_Esperada` AS Aprendizaje_Fecha_Esperada,
+     Asignatura.`Asignatura` AS Asignatura_Asignatura,
+     Asignatura.`Id_Asignatura` AS Asignatura_Id_Asignatura,
+     Insc_Alum_Aprendizaje.`Aprendizaje_Id_Aprendizaje` AS Insc_Alum_Aprendizaje_Aprendizaje_Id_Aprendizaje,
+     Insc_Alum_Aprendizaje.`Persona_Id_Persona` AS Insc_Alum_Aprendizaje_Persona_Id_Persona,
+     Insc_Alum_Aprendizaje.`Insc_Alum_Curso_Id_Insc_Alum_Curso` AS Insc_Alum_Aprendizaje_Insc_Alum_Curso_Id_Insc_Alum_Curso,
+     Aprendizaje.`Subtopico_Id_Subtopico` AS Aprendizaje_Subtopico_Id_Subtopico,
+     Aprendizaje.`Id_Aprendizaje` AS Aprendizaje_Id_Aprendizaje,
+     Insc_Alum_Aprendizaje.`Id_Insc_Alum_Aprendizaje` AS Insc_Alum_Aprendizaje_Id_Insc_Alum_Aprendizaje,
+     Insc_Alum_Curso.`Persona_Id_Persona` AS Insc_Alum_Curso_Persona_Id_Persona,
+     Insc_Alum_Curso.`Id_Insc_Alum_Curso` AS Insc_Alum_Curso_Id_Insc_Alum_Curso,
+     Subtopico.`Id_Subtopico` AS Subtopico_Id_Subtopico,
+     Unidad.`Id_Unidad` AS Unidad_Id_Unidad,
+     Unidad.`Asignatura_Id_Asignatura` AS Unidad_Asignatura_Id_Asignatura,
+     Subtopico.`Unidad_Id_Unidad` AS Subtopico_Unidad_Id_Unidad,
+     Curso.`Id_Curso` AS Curso_Id_Curso,
+     Curso.`Curso` AS Curso_Curso,
+     Insc_Alum_Curso.`Curso_Id_Curso` AS Insc_Alum_Curso_Curso_Id_Curso,
+     Insc_Alum_Aprendizaje.`Periodo_Id_Periodo` AS Insc_Alum_Aprendizaje_Periodo_Id_Periodo,
+     Persona.`Codigo` AS Persona_Codigo,
+     Aprendizaje.`Learning` AS Aprendizaje_Learning,
+     Asignatura.`SY_Id_SY` AS Asignatura_SY_Id_SY,
+     Insc_Alum_Aprendizaje.`Calificacion` AS Insc_Alum_Aprendizaje_Calificacion,
+     Insc_Alum_Aprendizaje.`Comentario` AS Insc_Alum_Aprendizaje_Comentario
+FROM
+     `Aprendizaje` Aprendizaje INNER JOIN `Insc_Alum_Aprendizaje` Insc_Alum_Aprendizaje ON Aprendizaje.`Id_Aprendizaje` = Insc_Alum_Aprendizaje.`Aprendizaje_Id_Aprendizaje`
+     INNER JOIN `Persona` Persona ON Insc_Alum_Aprendizaje.`Persona_Id_Persona` = Persona.`Id_Persona`
+     INNER JOIN `Insc_Alum_Curso` Insc_Alum_Curso ON Insc_Alum_Aprendizaje.`Insc_Alum_Curso_Id_Insc_Alum_Curso` = Insc_Alum_Curso.`Id_Insc_Alum_Curso`
+     AND Persona.`Id_Persona` = Insc_Alum_Curso.`Persona_Id_Persona`
+     INNER JOIN `Curso` Curso ON Insc_Alum_Curso.`Curso_Id_Curso` = Curso.`Id_Curso`
+     INNER JOIN `Subtopico` Subtopico ON Aprendizaje.`Subtopico_Id_Subtopico` = Subtopico.`Id_Subtopico`
+     INNER JOIN `Unidad` Unidad ON Subtopico.`Unidad_Id_Unidad` = Unidad.`Id_Unidad`
+     INNER JOIN `Asignatura` Asignatura ON Unidad.`Asignatura_Id_Asignatura` = Asignatura.`Id_Asignatura`
+WHERE
+     Asignatura.`Id_Asignatura` = $P{idasignatura}
+AND  Asignatura.SY_Id_SY = 2
+     and Persona.`Id_Persona` = $P{idestd}
+ AND Aprendizaje.Fecha_Esperada > '2011/09/23'
+ORDER BY
+     Insc_Alum_Aprendizaje.`Persona_Id_Persona` ASC,
+     `Aprendizaje_Id_Aprendizaje` ASC]]>
+	</queryString>
+	<field name="Persona_Apellido1" class="java.lang.String"/>
+	<field name="Persona_Apellido2" class="java.lang.String"/>
+	<field name="Persona_Nombre1" class="java.lang.String"/>
+	<field name="Persona_Nombre2" class="java.lang.String"/>
+	<field name="Persona_Id_Persona" class="java.lang.Integer"/>
+	<field name="Aprendizaje_Aprendizaje" class="java.lang.String"/>
+	<field name="Aprendizaje_Fecha_Esperada" class="java.sql.Date"/>
+	<field name="Asignatura_Asignatura" class="java.lang.String"/>
+	<field name="Asignatura_Id_Asignatura" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Aprendizaje_Id_Aprendizaje" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Persona_Id_Persona" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Insc_Alum_Curso_Id_Insc_Alum_Curso" class="java.lang.Integer"/>
+	<field name="Aprendizaje_Subtopico_Id_Subtopico" class="java.lang.Integer"/>
+	<field name="Aprendizaje_Id_Aprendizaje" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Id_Insc_Alum_Aprendizaje" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Curso_Persona_Id_Persona" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Curso_Id_Insc_Alum_Curso" class="java.lang.Integer"/>
+	<field name="Subtopico_Id_Subtopico" class="java.lang.Integer"/>
+	<field name="Unidad_Id_Unidad" class="java.lang.Integer"/>
+	<field name="Unidad_Asignatura_Id_Asignatura" class="java.lang.Integer"/>
+	<field name="Subtopico_Unidad_Id_Unidad" class="java.lang.Integer"/>
+	<field name="Curso_Id_Curso" class="java.lang.Integer"/>
+	<field name="Curso_Curso" class="java.lang.String"/>
+	<field name="Insc_Alum_Curso_Curso_Id_Curso" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Periodo_Id_Periodo" class="java.lang.Integer"/>
+	<field name="Persona_Codigo" class="java.lang.String"/>
+	<field name="Aprendizaje_Learning" class="java.lang.String"/>
+	<field name="Asignatura_SY_Id_SY" class="java.lang.Integer"/>
+	<field name="Insc_Alum_Aprendizaje_Calificacion" class="java.lang.String"/>
+	<field name="Insc_Alum_Aprendizaje_Comentario" class="java.lang.String"/>
+	<variable name="Persona_Nombre1_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{Persona_Nombre1}]]></variableExpression>
+	</variable>
+	<group name="por_alumno">
+		<groupExpression><![CDATA[$F{Persona_Id_Persona}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<textField>
+					<reportElement x="4" y="5" width="50" height="17"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Persona_Codigo}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="196" y="6" width="155" height="16"/>
+					<textElement>
+						<font fontName="Arial" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Persona_Apellido1}+ " "+ $F{Persona_Apellido2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="54" y="5" width="142" height="17"/>
+					<textElement>
+						<font fontName="SansSerif" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Persona_Nombre1}+ " "+$F{Persona_Nombre2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="361" y="5" width="68" height="18"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Calificacion]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="435" y="5" width="116" height="18"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Comentario]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="22">
+				<line>
+					<reportElement x="4" y="10" width="347" height="1"/>
+					<graphicElement>
+						<pen lineStyle="Dotted" lineColor="#3300CC"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="4" y="0" width="1" height="11"/>
+					<graphicElement>
+						<pen lineStyle="Dotted" lineColor="#3300CC"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="25" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="104" width="72" height="13"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASIGNATURA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="104" width="43" height="13"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURSO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="104" width="164" height="13"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Asignatura_Asignatura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="104" width="128" height="13"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Curso_Curso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="109" y="11" width="320" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COLEGIO ROCHESTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="42" width="320" height="34"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[BOLETIN No. 2: DESARROLLO DE VIRTUDES
+AÑO ESCOLAR: 2011 - 2012]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="462" y="58" width="89" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="462" y="47" width="89" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aprendoz Rochester©]]></text>
+			</staticText>
+			<image>
+				<reportElement x="16" y="2" width="85" height="82"/>
+				<imageExpression><![CDATA["LOGO ROCHESTERsmall.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="462" y="11" width="89" height="36"/>
+				<imageExpression><![CDATA["LOGO APRENDOZ.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="5" y="97" width="546" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineColor="#0000FF"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="1" width="50" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="1" width="155" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="1" width="142" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<rectangle>
+				<reportElement x="17" y="2" width="537" height="55" forecolor="#CC0000" backcolor="#E3E1E1"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="5" width="116" height="45"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Insc_Alum_Aprendizaje_Comentario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="5" width="325" height="37"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Aprendizaje_Aprendizaje}+"\n"+$F{Aprendizaje_Learning}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="5" width="68" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Insc_Alum_Aprendizaje_Calificacion}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="5" y="21" width="12" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#3300CC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="4" y="1" width="1" height="59"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#3300CC"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="439" y="2" width="115" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="4" y="2" width="98" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="2" width="337" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe Detallado por Asignatura ● Aprendoz© | Colegio Rochester
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

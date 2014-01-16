@@ -1,0 +1,54 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.LogEventos" table="log_eventos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idLog" type="integer">
+            <column name="id_log"/>
+            <generator class="identity"/>
+        </id>
+        <property name="evento" type="string">
+            <column name="evento" length="25"/>
+        </property>
+        <property name="origenEvento" type="string">
+            <column name="origen_evento" length="150" not-null="true"/>
+        </property>
+        <property name="dato1" type="string">
+            <column name="dato1" length="100"/>
+        </property>
+        <property name="dato2" type="string">
+            <column name="dato2" length="100"/>
+        </property>
+        <property name="dato3" type="string">
+            <column name="dato3" length="100"/>
+        </property>
+        <property name="dato4" type="string">
+            <column name="dato4" length="100"/>
+        </property>
+        <property name="dato5" type="string">
+            <column name="dato5" length="100"/>
+        </property>
+        <property name="dato6" type="string">
+            <column name="dato6" length="100"/>
+        </property>
+        <property name="dato7" type="string">
+            <column name="dato7" length="80"/>
+        </property>
+        <property name="dato8" type="string">
+            <column name="dato8" length="80"/>
+        </property>
+        <property name="dato9" type="string">
+            <column name="dato9" length="80"/>
+        </property>
+        <property name="dato10" type="string">
+            <column name="dato10" length="80"/>
+        </property>
+        <property name="fechaDelRegistro" type="date">
+            <column name="fecha_del_registro" length="10"/>
+        </property>
+        <property name="tipoPersonaSoloPersona" type="integer">
+            <column name="tipo_persona_soloPersona"/>
+        </property>
+        <property name="fechaEvento" type="timestamp">
+            <column name="fecha_evento" length="19" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaDashboardAvanzadosYMagistrales" table="vista_dashboard_avanzados_y_magistrales" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaDashboardAvanzadosYMagistralesId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="aprProgreso" type="long">
+                <column name="apr_progreso"/>
+            </key-property>
+            <key-property name="aprCompetente" type="long">
+                <column name="apr_competente"/>
+            </key-property>
+            <key-property name="aprAvanzado" type="long">
+                <column name="apr_avanzado"/>
+            </key-property>
+            <key-property name="aprMagistral" type="long">
+                <column name="apr_magistral"/>
+            </key-property>
+            <key-property name="total" type="long">
+                <column name="TOTAL"/>
+            </key-property>
+            <key-property name="sy" type="long">
+                <column name="sy"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

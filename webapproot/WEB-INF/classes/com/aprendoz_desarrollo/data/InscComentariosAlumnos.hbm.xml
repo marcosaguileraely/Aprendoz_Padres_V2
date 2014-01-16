@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscComentariosAlumnos" table="insc_comentarios_alumnos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idComentarioEstudiante" type="integer">
+            <column name="id_comentario_estudiante"/>
+            <generator class="identity"/>
+        </id>
+        <property name="numeroBimestre" type="integer">
+            <column name="numero_bimestre" not-null="true"/>
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" length="65535" not-null="true"/>
+        </property>
+        <property name="fechaActual" type="timestamp">
+            <column name="fecha_actual" length="19"/>
+        </property>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="sy_id_sy" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="persona_id_persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

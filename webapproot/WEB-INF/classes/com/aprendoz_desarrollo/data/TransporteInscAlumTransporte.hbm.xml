@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TransporteInscAlumTransporte" table="transporte_insc_alum_transporte" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscAlumTransporte" type="integer">
+            <column name="id_insc_alum_transporte"/>
+            <generator class="identity"/>
+        </id>
+        <property name="amPm" type="string">
+            <column name="am_pm" not-null="true"/>
+        </property>
+        <many-to-one name="transporteRutasByDomingoRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="domingo_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transporteRutasByMiercolesRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="miercoles_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transporteRutasByViernesRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="viernes_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transporteRutasByMartesRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="martes_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transporteRutasByJuevesRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="jueves_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transporteRutasByLunesRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="lunes_ruta" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="transporteRutasBySabadoRuta" class="com.aprendoz_desarrollo.data.TransporteRutas">
+            <column name="sabado_ruta" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

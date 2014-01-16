@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportes" table="directores_docentes_listado_reportes" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportesId">
+            <key-property name="idreporte" type="integer">
+                <column name="idreporte"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="codigo" length="20"/>
+            </key-property>
+            <key-property name="reporte" type="string">
+                <column name="reporte"/>
+            </key-property>
+            <key-property name="uri" type="string">
+                <column name="uri" length="100"/>
+            </key-property>
+            <key-property name="idTipoPersona" type="integer">
+                <column name="Id_Tipo_Persona"/>
+            </key-property>
+            <key-property name="tipoPersona" type="string">
+                <column name="Tipo_Persona" length="45"/>
+            </key-property>
+            <key-property name="descripcion" type="string">
+                <column name="descripcion" length="65535"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

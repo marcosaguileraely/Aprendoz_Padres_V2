@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Area" table="Area" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idArea" type="integer">
+            <column name="Id_Area"/>
+            <generator class="identity"/>
+        </id>
+        <property name="area" type="string">
+            <column name="Area" length="300"/>
+        </property>
+        <property name="areaName" type="string">
+            <column name="Area_Name" length="300"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <set name="subareas" inverse="true" cascade="">
+            <key>
+                <column name="Area_Id_Area"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Subarea"/>
+        </set>
+    </class>
+</hibernate-mapping>

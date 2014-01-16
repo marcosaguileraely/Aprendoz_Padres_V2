@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Horario" table="horario" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idHorario" type="integer">
+            <column name="id_horario"/>
+            <generator class="identity"/>
+        </id>
+        <property name="numeroSesion" type="integer">
+            <column name="numero_sesion" not-null="true"/>
+        </property>
+        <property name="dia" type="string">
+            <column name="dia" length="20" not-null="true"/>
+        </property>
+        <many-to-one name="curso" class="com.aprendoz_desarrollo.data.Curso">
+            <column name="curso_id_curso" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="asignatura" class="com.aprendoz_desarrollo.data.Asignatura">
+            <column name="asignatura_id_asignatura" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="sy_id_sy" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoSemana" class="com.aprendoz_desarrollo.data.TipoSemana">
+            <column name="tipo_semana_id_tipo_semana" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,72 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.ImportacionAlmnosTransporte" table="importacion_almnos_transporte" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="contrato" type="integer">
+            <column name="contrato" not-null="true"/>
+        </property>
+        <property name="alumno" type="string">
+            <column name="alumno" length="150" not-null="true"/>
+        </property>
+        <property name="curso" type="string">
+            <column name="curso" length="100" not-null="true"/>
+        </property>
+        <property name="rm" type="integer">
+            <column name="RM" not-null="true"/>
+        </property>
+        <property name="rt" type="integer">
+            <column name="RT" not-null="true"/>
+        </property>
+        <property name="direccionAm" type="string">
+            <column name="direccion_am" length="150" not-null="true"/>
+        </property>
+        <property name="direccionAm2" type="string">
+            <column name="direccion_am2" length="150" not-null="true"/>
+        </property>
+        <property name="direccionPm" type="string">
+            <column name="direccion_pm" length="150" not-null="true"/>
+        </property>
+        <property name="direccionPm2" type="string">
+            <column name="direccion_pm2" length="150" not-null="true"/>
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="15" not-null="true"/>
+        </property>
+        <property name="padreNombre" type="string">
+            <column name="padre_nombre" length="50" not-null="true"/>
+        </property>
+        <property name="padreApellido" type="string">
+            <column name="padre_apellido" length="50" not-null="true"/>
+        </property>
+        <property name="padreTelefono" type="string">
+            <column name="padre_telefono" length="15" not-null="true"/>
+        </property>
+        <property name="padreCelular" type="string">
+            <column name="padre_celular" length="15" not-null="true"/>
+        </property>
+        <property name="padreMail" type="string">
+            <column name="padre_mail" length="50" not-null="true"/>
+        </property>
+        <property name="madreNombre" type="string">
+            <column name="madre_nombre" length="50" not-null="true"/>
+        </property>
+        <property name="madreApellido" type="string">
+            <column name="madre_apellido" length="50" not-null="true"/>
+        </property>
+        <property name="madreTelefono" type="string">
+            <column name="madre_telefono" length="15" not-null="true"/>
+        </property>
+        <property name="madreCelular" type="string">
+            <column name="madre_celular" length="15" not-null="true"/>
+        </property>
+        <property name="madreMail" type="string">
+            <column name="madre_mail" length="50" not-null="true"/>
+        </property>
+        <property name="contrasena" type="integer">
+            <column name="contrasena" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

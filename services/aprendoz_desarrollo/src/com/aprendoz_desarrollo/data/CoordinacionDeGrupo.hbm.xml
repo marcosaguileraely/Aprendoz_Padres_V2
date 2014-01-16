@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CoordinacionDeGrupo" table="coordinacion_de_grupo" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idCoordinacionDeGrupo" type="integer">
+            <column name="id_coordinacion_de_grupo"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one name="curso" class="com.aprendoz_desarrollo.data.Curso">
+            <column name="Curso_Id_Curso" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="sy" class="com.aprendoz_desarrollo.data.Sy">
+            <column name="SY_Id_SY" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

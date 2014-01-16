@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CafeteriaTipoOpcion" table="cafeteria_tipo_opcion" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idOpciones" type="integer">
+            <column name="id_opciones"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tipoOpcionIdTipoOpcion" type="integer">
+            <column name="tipo_opcion_id_tipo_opcion" not-null="true"/>
+        </property>
+        <property name="tipoProteinaIdTipoProteina" type="integer">
+            <column name="tipo_proteina_id_tipo_proteina" not-null="true"/>
+        </property>
+        <property name="menuIdMenu" type="integer">
+            <column name="menu_id_menu" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

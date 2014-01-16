@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+
+<!-- Generated 01/15/2014 19:40:48
+
+Configuration for 'aprendoz_desarrollo' database service
+
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+    <bean 
+        id="aprendoz_desarrollo"
+        class="com.aprendoz_desarrollo.Aprendoz_desarrollo"
+        scope="singleton"
+        lazy-init="true">
+        <property name="dataServiceManager">
+            <ref bean="aprendoz_desarrolloDataService"/>
+        </property>
+        <property name="taskManager">
+            <ref bean="aprendoz_desarrolloTaskMgr"/>
+        </property>
+    </bean>
+
+
+    <bean 
+        class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:aprendoz_desarrollo.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean 
+        id="aprendoz_desarrolloDataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource" 
+        lazy-init="true">
+        <property name="driverClassName" value="${aprendoz_desarrollo.driverClassName}"/>
+        <property name="url" value="${aprendoz_desarrollo.connectionUrl}"/>
+        <property name="username" value="${aprendoz_desarrollo.username}"/>
+        <property name="password" value="${aprendoz_desarrollo.password}"/>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloTxMgr" 
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+        lazy-init="true">
+        <property name="sessionFactory">
+            <ref bean="aprendoz_desarrolloSessionFactory"/>
+        </property>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloHibernateTemplate"
+        class="org.springframework.orm.hibernate3.HibernateTemplate"
+        lazy-init="true">
+        <property name="sessionFactory"> 
+            <ref bean="aprendoz_desarrolloSessionFactory"/>
+        </property>
+    </bean>  
+
+
+    <bean 
+        id="aprendoz_desarrolloSessionFactory" 
+        class="com.wavemaker.runtime.data.spring.ConfigurationAndSessionFactoryBean"
+        lazy-init="true">
+
+        <!-- A unique name for this SessionFactory's configuration -->
+        <property name="name" value="aprendoz_desarrollo"/>
+        <property name="dataSource" ref="aprendoz_desarrolloDataSource"/>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${aprendoz_desarrollo.dialect}</prop>
+                <prop key="hibernate.transaction.factory_class">
+                    org.hibernate.transaction.JDBCTransactionFactory
+                </prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                
+            </props> 
+        </property>
+
+        <property name="mappingResources">
+            <list>
+
+<value>com/aprendoz_desarrollo/data/Formulario5a.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PersonaCarne.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaInscAlumnAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoPersona.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/EstadoDepartamento.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CurriculoGrado.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Reportes.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaDristribucionAlumnosCursos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Area.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CoordinacionDeGrupo.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TransporteNovedades.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaDashboardNoCalificados.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/BimestreSy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Promocion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AccAuthorization.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Coordinadores.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/LogDocentes.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CafeteriaPostres.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/BisUsers.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/EventualidadPersonas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaInscAlumnAsigDemografica.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumActividad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CafeteriaProteina.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TransporteInscAlumTransporte.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoDesempeno.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CalificacionFinal.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DaviviendaCopy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ActualizacionGrupoFamiliar.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/LogEventos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscComentariosAlumnos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Grado.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DimensionCurricular.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/FichaMedica.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Salon.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/OtrasMetas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaCalificacionFinal.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesInicioVistaDetallesAcceso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Matricula.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AprLogrados.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoPeriodo.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ReportesDependencias.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Aprendizaje.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumCosto.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscCursoAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaPersonasGrupoFamiliar.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Periodo.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VProfesorAsignaturaCompleto.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Davivienda.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TmpBoletin20122013.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoAsistencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Subtopico.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Eje.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Nivel.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscDirectorNivel.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VProfesorAsignatura.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Inteligencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DirectoresDocentesListadoReportes.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AccStudentCard.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AccStudentCardAuthorization.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDaviviendaFaltantes.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Cronograma.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDaviviendaCopy6.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoDia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Sesion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDaviviendaCopy5.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaAlumnosActivos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaCalifFinal.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDaviviendaCopy4.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AdministracionVistaInscAlumnCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDaviviendaCopy3.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDaviviendaCopy2.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaAsignaturas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaPersonas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ReportesTipoPersona.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AdministracionVistaAsignaturas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoEps.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscPersonaGrupoFamiliar.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaAlumnosActivosPrejardinNuevos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaEventualidadesNotificacionesFamilia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionAlumnosTransporte.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsigCursoCompleto.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ActualizacionDatosPersona.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CafeteriaGartinuras.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoTransporte.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Semana.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TransporteRutas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Anticipos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Vistaasistencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaInscAlumnCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscripcionesVistaInscAlumnCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Costos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaAprendizajes.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Sy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAprendizaje.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaPersonasDemografica.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TransporteIngresoRutas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Eventualidades.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Asignatura.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumExtraCurricular.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Persona.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DimensionComprension.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Curso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaEnvioCorreo.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CalifEstCopy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaPersonasPromocion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscCoordinadoresCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PromocionVistaInscAlumnCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CortesAnuales.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesInscCursoAsignatura.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaAprendizajesAsignatura.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AprEsperados.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoSolicitud.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportadorSapiens.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionCarteraCopy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionDavivienda.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/SubtipoEventualidad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Logeventosaprendoz.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaDashboardAvanzadosYMagistrales.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AdministracionVistaPersonas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoInscAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CafeteriaTipoOpcion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TmpEnrLog.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaEventualidadesNotificaciones.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaRecursos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoActividad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Cargos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoDependencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ServiciosListadoServiciosAlumnos.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaActividades.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Nacionalidades.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Pais.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesAsistenciaAsistencias.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoSemana.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TestPorcentajes.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Anuncio.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Personal.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/GrupoFamiliar.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/DocentesVistaAsignaturaGrado.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AdministracionVistaAsignaturasCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Actividad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsigCopy.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ReporteDavivienda.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CafeteriaMenu.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/PadresVistaInscAlumAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Recurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/SesionNivel.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoLugar.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoValoracion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Subarea.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/NivelEsperado.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscipcionesVistaAsignaturas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoRecurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/TipoEventualidad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CafeteriaSopas.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsigCurso.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Unidad.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/AdministracionVistaInscAlumAsig.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/InscAlumAsigCopy2.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/CalifEst.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/VistaMatriculasGraficasTotalDia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/ImportacionCartera.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Asistencia.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Coordinacion.hbm.xml</value>
+<value>com/aprendoz_desarrollo/data/Horario.hbm.xml</value>
+
+<value>com/aprendoz_desarrollo/data/Formulario5a.ql.xml</value>
+<value>com/aprendoz_desarrollo/data/app-queries.ql.xml</value>
+
+            </list>
+        </property>
+
+    </bean>
+
+
+    <!-- the data service bean instance is injected into the service bean -->
+    <bean 
+        id="aprendoz_desarrolloDataService" 
+        class="com.wavemaker.runtime.data.spring.SpringDataServiceManager"
+        lazy-init="true">
+        <constructor-arg>
+            <!-- the value of the "name" property of the SessionFactory -->
+            <value>aprendoz_desarrollo</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="aprendoz_desarrolloHibernateTemplate"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="aprendoz_desarrolloTxMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="aprendoz_desarrolloTaskMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="useIndividualCRUDOperations" value="false"/>
+                <entry key="refreshEntities" value=""/> 
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+    <bean 
+        id="aprendoz_desarrolloTaskMgr"
+        class="com.wavemaker.runtime.data.DefaultTaskManager"
+        lazy-init="true"/>
+
+    <bean class="com.wavemaker.runtime.service.events.EventWire"
+        lazy-init="false">
+        <property name="serviceWire" ref="aprendoz_desarrolloServiceWire"/>
+        <property name="eventListener">
+            <bean class="com.wavemaker.runtime.data.DataServiceEventListener"/>
+        </property>
+    </bean>
+
+    <bean id="aprendoz_desarrolloServiceWire"
+        class="com.wavemaker.runtime.service.reflect.ReflectServiceWire"
+        lazy-init="false" scope="singleton">
+        <property name="serviceId" value="aprendoz_desarrollo"/>
+        <property name="serviceType" ref="DataService"/>
+    </bean>
+
+</beans>

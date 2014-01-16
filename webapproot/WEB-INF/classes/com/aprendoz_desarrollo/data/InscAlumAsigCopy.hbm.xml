@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.InscAlumAsigCopy" table="Insc_Alum_Asig_copy" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idInscAlumAsig" type="integer">
+            <column name="Id_Insc_Alum_Asig"/>
+            <generator class="identity"/>
+        </id>
+        <property name="calificacion" type="big_decimal">
+            <column name="Calificacion" precision="10"/>
+        </property>
+        <property name="porcentaje" type="big_decimal">
+            <column name="Porcentaje" precision="10"/>
+        </property>
+        <property name="esperados" type="integer">
+            <column name="esperados"/>
+        </property>
+        <property name="logrados" type="integer">
+            <column name="logrados"/>
+        </property>
+        <property name="califChar" type="string">
+            <column name="calif_char" length="10"/>
+        </property>
+        <many-to-one name="asignatura" class="com.aprendoz_desarrollo.data.Asignatura">
+            <column name="Asignatura_Id_Asignatura" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="Persona_Id_Persona" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="periodo" class="com.aprendoz_desarrollo.data.Periodo">
+            <column name="Periodo_Id_Periodo" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

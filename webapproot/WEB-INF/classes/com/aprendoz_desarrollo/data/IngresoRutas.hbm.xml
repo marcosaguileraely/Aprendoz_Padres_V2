@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.IngresoRutas" table="ingreso_rutas" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idIngresoRutas" type="integer">
+            <column name="id_ingreso_rutas"/>
+            <generator class="identity"/>
+        </id>
+        <property name="estudiante" type="string">
+            <column name="estudiante" length="65535" not-null="true"/>
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true"/>
+        </property>
+        <property name="horama" type="time">
+            <column name="horama" length="8" not-null="true"/>
+        </property>
+        <property name="accionma" type="string">
+            <column name="accionma" not-null="true"/>
+        </property>
+        <property name="rutama" type="string">
+            <column name="rutama" not-null="true"/>
+        </property>
+        <property name="horaTa" type="time">
+            <column name="horaTa" length="8" not-null="true"/>
+        </property>
+        <property name="accionta" type="string">
+            <column name="accionta" not-null="true"/>
+        </property>
+        <property name="rutata" type="string">
+            <column name="rutata" not-null="true"/>
+        </property>
+        <property name="identificacion" type="string">
+            <column name="identificacion" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

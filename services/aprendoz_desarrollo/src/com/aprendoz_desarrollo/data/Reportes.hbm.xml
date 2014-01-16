@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Reportes" table="reportes" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idreporte" type="integer">
+            <column name="idreporte"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="codigo" type="string">
+            <column name="codigo" length="20" not-null="true"/>
+        </property>
+        <property name="reporte" type="string">
+            <column name="reporte" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535"/>
+        </property>
+        <property name="uri" type="string">
+            <column name="uri" length="100" not-null="true"/>
+        </property>
+        <set name="reportesDependenciases" inverse="true" cascade="">
+            <key>
+                <column name="reporte_id_reporte" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ReportesDependencias"/>
+        </set>
+        <set name="reportesTipoPersonas" inverse="true" cascade="">
+            <key>
+                <column name="reportes_id_resportes" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ReportesTipoPersona"/>
+        </set>
+    </class>
+</hibernate-mapping>

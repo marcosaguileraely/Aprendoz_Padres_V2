@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TmpEnrLog" table="tmp_enr_log" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.TmpEnrLogId">
+            <key-property name="nit" type="string">
+                <column name="nit"/>
+            </key-property>
+            <key-property name="identificacion" type="string">
+                <column name="identificacion"/>
+            </key-property>
+            <key-property name="monto" type="string">
+                <column name="monto"/>
+            </key-property>
+            <key-property name="concepto" type="string">
+                <column name="concepto"/>
+            </key-property>
+            <key-property name="created" type="string">
+                <column name="created"/>
+            </key-property>
+            <key-property name="idpersona" type="integer">
+                <column name="idpersona"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Nivel" table="Nivel" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idNivel" type="integer">
+            <column name="Id_Nivel"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nivel" type="string">
+            <column name="Nivel" length="45"/>
+        </property>
+        <property name="levelName" type="string">
+            <column name="Level_Name" length="45"/>
+        </property>
+        <set name="grados" inverse="true" cascade="">
+            <key>
+                <column name="Nivel_Id_Nivel"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Grado"/>
+        </set>
+        <set name="sesionNivels" inverse="true" cascade="">
+            <key>
+                <column name="nivel"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.SesionNivel"/>
+        </set>
+        <set name="inscDirectorNivels" inverse="true" cascade="">
+            <key>
+                <column name="nivel_id_nivel" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscDirectorNivel"/>
+        </set>
+    </class>
+</hibernate-mapping>

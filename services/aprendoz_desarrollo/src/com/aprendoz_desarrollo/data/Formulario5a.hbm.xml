@@ -1,0 +1,87 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Formulario5a" table="formulario5a" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idformulario5a" type="integer">
+            <column name="idformulario5a"/>
+            <generator class="identity"/>
+        </id>
+        <property name="comparativo" type="string">
+            <column name="comparativo" length="45" not-null="true"/>
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="11" not-null="true"/>
+        </property>
+        <property name="grado" type="string">
+            <column name="grado"/>
+        </property>
+        <property name="grupo" type="string">
+            <column name="grupo" length="10"/>
+        </property>
+        <property name="primerapellido" type="string">
+            <column name="primerapellido"/>
+        </property>
+        <property name="segundoapellido" type="string">
+            <column name="segundoapellido"/>
+        </property>
+        <property name="primernombre" type="string">
+            <column name="primernombre"/>
+        </property>
+        <property name="segundonombre" type="string">
+            <column name="segundonombre"/>
+        </property>
+        <property name="tipodocumento" type="string">
+            <column name="tipodocumento"/>
+        </property>
+        <property name="numerodoc" type="string">
+            <column name="numerodoc"/>
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad"/>
+        </property>
+        <property name="departamento" type="string">
+            <column name="departamento"/>
+        </property>
+        <property name="ciudadresidencia" type="string">
+            <column name="ciudadresidencia"/>
+        </property>
+        <property name="departamentoresidencia" type="string">
+            <column name="departamentoresidencia"/>
+        </property>
+        <property name="ciudadnacimiento" type="string">
+            <column name="ciudadnacimiento"/>
+        </property>
+        <property name="departamentonacimiento" type="string">
+            <column name="departamentonacimiento"/>
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="nacionalidad"/>
+        </property>
+        <property name="dianacimiento" type="string">
+            <column name="dianacimiento" length="2"/>
+        </property>
+        <property name="mesnacimiento" type="string">
+            <column name="mesnacimiento" length="2"/>
+        </property>
+        <property name="anionacimiento" type="string">
+            <column name="anionacimiento" length="4"/>
+        </property>
+        <property name="fechanacimiento" type="date">
+            <column name="fechanacimiento" length="10"/>
+        </property>
+        <property name="genero" type="string">
+            <column name="genero" length="1"/>
+        </property>
+        <property name="barrio" type="string">
+            <column name="barrio"/>
+        </property>
+        <property name="condicioningreso" type="string">
+            <column name="condicioningreso" length="1"/>
+        </property>
+        <property name="nuevo" type="string">
+            <column name="nuevo" length="1"/>
+        </property>
+        <property name="estrato" type="string">
+            <column name="estrato" length="1"/>
+        </property>
+    </class>
+</hibernate-mapping>

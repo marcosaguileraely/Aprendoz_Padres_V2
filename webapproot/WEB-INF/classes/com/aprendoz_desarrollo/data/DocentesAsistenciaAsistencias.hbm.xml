@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DocentesAsistenciaAsistencias" table="docentes_asistencia_asistencias" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.DocentesAsistenciaAsistenciasId">
+            <key-property name="comentario" type="string">
+                <column name="Comentario" length="65535"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="Codigo" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="sexo" type="string">
+                <column name="Sexo" length="45"/>
+            </key-property>
+            <key-property name="idTipo" type="integer">
+                <column name="id_tipo"/>
+            </key-property>
+            <key-property name="tipo" type="string">
+                <column name="tipo" length="45"/>
+            </key-property>
+            <key-property name="idSesion" type="integer">
+                <column name="id_sesion"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

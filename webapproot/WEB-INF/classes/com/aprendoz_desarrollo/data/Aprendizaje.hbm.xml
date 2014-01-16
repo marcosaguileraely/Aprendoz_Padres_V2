@@ -1,0 +1,57 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Aprendizaje" table="Aprendizaje" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idAprendizaje" type="integer">
+            <column name="Id_Aprendizaje"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fechaEsperada" type="date">
+            <column name="Fecha_Esperada" length="10" not-null="true"/>
+        </property>
+        <property name="aprendizaje" type="string">
+            <column name="Aprendizaje" length="500" not-null="true"/>
+        </property>
+        <property name="learning" type="string">
+            <column name="Learning" length="500" not-null="true"/>
+        </property>
+        <property name="peso" type="integer">
+            <column name="Peso" not-null="true"/>
+        </property>
+        <property name="ejeIdEje" type="integer">
+            <column name="Eje_Id_Eje" not-null="true"/>
+        </property>
+        <property name="eje2IdEje" type="integer">
+            <column name="eje2_id_eje"/>
+        </property>
+        <property name="eje3IdEje" type="integer">
+            <column name="eje3_id_eje"/>
+        </property>
+        <many-to-one name="inteligencia" class="com.aprendoz_desarrollo.data.Inteligencia">
+            <column name="Inteligencia_Id_Inteligencia" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="dimensionComprension" class="com.aprendoz_desarrollo.data.DimensionComprension">
+            <column name="Dimension_Comprension_Id_Dimension" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="subtopico" class="com.aprendoz_desarrollo.data.Subtopico">
+            <column name="Subtopico_Id_Subtopico" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="nivelEsperado" class="com.aprendoz_desarrollo.data.NivelEsperado">
+            <column name="Nivel_Esperado_Id_Nivel_Esperado" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="dimensionCurricular" class="com.aprendoz_desarrollo.data.DimensionCurricular">
+            <column name="Dimension_Curricular_Id_Dimension" not-null="true"/>
+        </many-to-one>
+        <set name="calificacionFinals" inverse="true" cascade="">
+            <key>
+                <column name="Aprendizaje_Id_Aprendizaje"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.CalificacionFinal"/>
+        </set>
+        <set name="inscAlumAprendizajes" inverse="true" cascade="">
+            <key>
+                <column name="Aprendizaje_Id_Aprendizaje" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscAlumAprendizaje"/>
+        </set>
+    </class>
+</hibernate-mapping>

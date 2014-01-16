@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.ImportacionCartera" table="importacion_cartera" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idImportacionCartera" type="integer">
+            <column name="id_importacion_cartera"/>
+            <generator class="identity"/>
+        </id>
+        <property name="codigo" type="string">
+            <column name="codigo" length="45"/>
+        </property>
+        <property name="mensualidad" type="string">
+            <column name="mensualidad" length="45"/>
+        </property>
+        <property name="concepto" type="string">
+            <column name="concepto"/>
+        </property>
+        <property name="valor" type="float">
+            <column name="valor" precision="12"/>
+        </property>
+        <property name="alumno" type="string">
+            <column name="alumno" length="65535"/>
+        </property>
+        <property name="curso" type="string">
+            <column name="curso"/>
+        </property>
+        <property name="numeroMes" type="integer">
+            <column name="numero_mes"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Anticipos" table="anticipos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idAnticipos" type="integer">
+            <column name="id_anticipos"/>
+            <generator class="identity"/>
+        </id>
+        <property name="codigo" type="string">
+            <column name="codigo" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+.Login .Login-loginErrorMsg {
+  font-size: 12px; color: red
+}
+
+
+.Login .Login-footer {
+    filter:alpha(opacity=60);  
+    -moz-opacity:0.5;  
+    -khtml-opacity: 0.5;  
+     opacity: 0.8;  
+}
+
+/*.Login .Login-layoutBox{
+       background-image:url('resources/images/buttons/shield.png');
+}*/

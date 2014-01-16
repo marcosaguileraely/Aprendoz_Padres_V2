@@ -1,0 +1,43 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AdministracionVistaInscAlumnCurso" table="administracion_vista_insc_alumn_curso" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.AdministracionVistaInscAlumnCursoId">
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="Codigo" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="grupoFamiliarIdGrupoFamiliar" type="integer">
+                <column name="Grupo_Familiar_ID_Grupo_Familiar"/>
+            </key-property>
+            <key-property name="schoolYear" type="string">
+                <column name="School_year" length="45"/>
+            </key-property>
+            <key-property name="idSy" type="integer">
+                <column name="Id_SY"/>
+            </key-property>
+            <key-property name="idCurso" type="integer">
+                <column name="Id_Curso"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+            <key-property name="matriculado" type="boolean">
+                <column name="matriculado"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

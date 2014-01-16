@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.Grado" table="Grado" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idGrado" type="integer">
+            <column name="Id_Grado"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="grado" type="string">
+            <column name="Grado" length="45"/>
+        </property>
+        <property name="grade" type="string">
+            <column name="Grade" length="45"/>
+        </property>
+        <property name="gradoSapiens" type="string">
+            <column name="Grado_sapiens" length="11"/>
+        </property>
+        <many-to-one name="nivel" class="com.aprendoz_desarrollo.data.Nivel">
+            <column name="Nivel_Id_Nivel"/>
+        </many-to-one>
+        <set name="asignaturas" inverse="true" cascade="">
+            <key>
+                <column name="Grado_Id_Grado" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Asignatura"/>
+        </set>
+        <set name="costoses" inverse="true" cascade="">
+            <key>
+                <column name="Grado_Id_Grado" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Costos"/>
+        </set>
+        <set name="accAuthorizations" inverse="true" cascade="">
+            <key>
+                <column name="id_grado"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.AccAuthorization"/>
+        </set>
+        <set name="cursos" inverse="true" cascade="">
+            <key>
+                <column name="Grado_Id_Grado"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Curso"/>
+        </set>
+    </class>
+</hibernate-mapping>

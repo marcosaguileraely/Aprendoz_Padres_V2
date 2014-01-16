@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.PersonaCarne" table="persona_carne" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idPersonaCarne" type="integer">
+            <column name="id_persona_carne"/>
+            <generator class="identity"/>
+        </id>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true"/>
+        </property>
+        <property name="numerocopias" type="integer">
+            <column name="numerocopias" not-null="true"/>
+        </property>
+        <many-to-one name="persona" class="com.aprendoz_desarrollo.data.Persona">
+            <column name="persona_id_persona" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

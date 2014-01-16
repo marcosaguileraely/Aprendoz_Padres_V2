@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.CortesAnuales" table="cortes_anuales" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idCorte" type="integer">
+            <column name="id_corte"/>
+            <generator class="identity"/>
+        </id>
+        <property name="numeroCorte" type="integer">
+            <column name="numero_corte" not-null="true"/>
+        </property>
+        <property name="mescorte" type="string">
+            <column name="mescorte" not-null="true"/>
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="10" not-null="true"/>
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" not-null="true"/>
+        </property>
+        <property name="syIdSy" type="integer">
+            <column name="sy_id_sy" not-null="true"/>
+        </property>
+        <property name="ordenNominal" type="string">
+            <column name="orden_nominal" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

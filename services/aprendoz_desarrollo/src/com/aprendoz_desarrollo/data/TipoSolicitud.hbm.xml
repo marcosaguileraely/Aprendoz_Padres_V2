@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TipoSolicitud" table="tipo_solicitud" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idTipoSolicitud" type="integer">
+            <column name="id_tipo_solicitud"/>
+            <generator class="identity"/>
+        </id>
+        <property name="solicitud" type="string">
+            <column name="solicitud" length="80" not-null="true"/>
+        </property>
+        <set name="transporteNovedadeses" inverse="true" cascade="">
+            <key>
+                <column name="tipo_solicitud_id_tipo_solucitud" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.TransporteNovedades"/>
+        </set>
+    </class>
+</hibernate-mapping>

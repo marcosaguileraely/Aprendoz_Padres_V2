@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.TipoPersona" table="Tipo_Persona" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idTipoPersona" type="integer">
+            <column name="Id_Tipo_Persona"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tipoPersona" type="string">
+            <column name="Tipo_Persona" length="45"/>
+        </property>
+        <set name="accAuthorizations" inverse="true" cascade="">
+            <key>
+                <column name="id_tipo_persona"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.AccAuthorization"/>
+        </set>
+        <set name="inscPersonaGrupoFamiliars" inverse="true" cascade="">
+            <key>
+                <column name="Tipo_Persona_Id_Tipo_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.InscPersonaGrupoFamiliar"/>
+        </set>
+        <set name="personas" inverse="true" cascade="">
+            <key>
+                <column name="Tipo_Persona_Id_Tipo_Persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Persona"/>
+        </set>
+        <set name="reportesTipoPersonas" inverse="true" cascade="">
+            <key>
+                <column name="tipo_persona_id_tipo_persona" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.ReportesTipoPersona"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContratoMatricula" pageWidth="612" pageHeight="792" columnWidth="528" leftMargin="56" rightMargin="28" topMargin="20" bottomMargin="12">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="idPersona" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select padre.Id_Persona, estud.nombre1 estudn1, estud.nombre2 estudn2, estud.Apellido1 estuda1, estud.Apellido2 estuda2,
+	   padre.nombre1 padren1, padre.nombre2 padren2, padre.Apellido1 padrea1, padre.Apellido2 padrea2,
+		IFNULL(padre.Tipo_Documento, '') padretdoc, IFNULL(padre.No_Documento, '') padredoc, IFNULL(padre.Lugar_Expedicion_Municipio, '') padreexpdoc,
+	    IFNULL(padre.Direccion_Residencia, '') padredir, IFNULL(padre.Telefono, '') padretel, IFNULL(padre.Celular, '') padrecel, IFNULL(padre.email, '') padremail
+
+     , IFNULL(madre.nombre1, '') madren1, IFNULL(madre.nombre2, '') madren2, IFNULL(madre.Apellido1, '') madrea1, IFNULL(madre.Apellido2, '') madrea2,
+		IFNULL(madre.Tipo_Documento, '') madretdoc, IFNULL(madre.No_Documento, '') madredoc, IFNULL(madre.Lugar_Expedicion_Municipio, '') madreexpdoc,
+		IFNULL(madre.Direccion_Residencia, '') madredir, IFNULL(madre.Telefono, '') madretel, IFNULL(madre.Celular, '') madrecel, IFNULL(madre.email, '') madremail
+
+  	 , IFNULL(acud.nombre1, '') acudn1, IFNULL(acud.nombre2, '') acudn2, IFNULL(acud.Apellido1, '') acuda1, IFNULL(acud.Apellido2, '') acuda2,
+		IFNULL(acud.Tipo_Documento, '') acudtdoc, IFNULL(acud.No_Documento, '') acuddoc, IFNULL(acud.Lugar_Expedicion_Municipio, '') acudexpdoc,
+		IFNULL(acud.Direccion_Residencia, '') acuddir, IFNULL(acud.Telefono, '') acudtel, IFNULL(acud.Celular, '') acudcel, IFNULL(acud.email, '') acudmail
+
+     , g.grado
+  from persona estud
+       left join persona padre on padre.Grupo_Familiar_ID_Grupo_Familiar = estud.Grupo_Familiar_ID_Grupo_Familiar and (padre.Tipo_Persona_Id_Tipo_Persona = 2 OR padre.Tipo_Persona_Id_Tipo_Persona = 10 OR padre.Tipo_Persona_Id_Tipo_Persona = 4 )
+       left join persona madre on madre.Grupo_Familiar_ID_Grupo_Familiar = estud.Grupo_Familiar_ID_Grupo_Familiar and (madre.Tipo_Persona_Id_Tipo_Persona = 12 OR madre.Tipo_Persona_Id_Tipo_Persona = 4 )
+			 left join persona acud on acud.Grupo_Familiar_ID_Grupo_Familiar = estud.Grupo_Familiar_ID_Grupo_Familiar and acud.Tipo_Persona_Id_Tipo_Persona = 3
+		 , insc_alum_curso ic, curso c, grado g
+		 , Area /*tabla para hacer dos paginas obligatorias en el reporte*/
+where 1=1
+  and estud.Id_Persona = $P{idPersona}
+  and ic.Persona_Id_Persona = estud.id_persona
+  and ic.Curso_Id_Curso = c.Id_Curso
+  and c.Grado_id_grado = g.Id_Grado
+  and ic.SY_Id_SY=3
+LIMIT 0,2]]>
+	</queryString>
+	<field name="Id_Persona" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estudn1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estudn2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estuda1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estuda2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padren1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padren2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padrea1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padrea2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padretdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padredoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padreexpdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padredir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padretel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padrecel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="padremail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madren1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madren2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madrea1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madrea2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madretdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madredoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madreexpdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madredir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madretel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madrecel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="madremail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudn1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudn2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acuda1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acuda2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudtdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acuddoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudexpdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acuddir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudtel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudcel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="acudmail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="anioIncial" class="java.lang.String">
+		<variableExpression><![CDATA["2012"]]></variableExpression>
+		<initialValueExpression><![CDATA["2012"]]></initialValueExpression>
+	</variable>
+	<variable name="anioFinal" class="java.lang.String">
+		<variableExpression><![CDATA["2013"]]></variableExpression>
+		<initialValueExpression><![CDATA["2013"]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="75" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(1))||$V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+			<line>
+				<reportElement key="line-1" x="1" y="2" width="527" height="1"/>
+			</line>
+			<line>
+				<reportElement key="line-2" x="1" y="65" width="527" height="1"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-1" x="454" y="44" width="36" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Folio:]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-3" x="482" y="63" width="45" height="1"/>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-1" x="4" y="6" width="524" height="53"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["FUNDACIÓN EDUCATIVA ROCHESTER "+
+"\nCOLEGIO ROCHESTER"+
+"\nXXXXXXMODELO CONTRATO DE SERVICIOS EDUCATIVOSXXXXX"+
+"\nAÑO ESCOLAR "+$V{anioIncial}+" - "+$V{anioFinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="685" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(1))||$V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-2" x="1" y="1" width="527" height="684" forecolor="#000000">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(1)))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Entre los suscritos JUAN PABLO ALJURE LEÓN, identificado con la C.C. No.79.159.081 de Usaquén, en nombre y representación de la FUNDACIÓN EDUCATIVA ROCHESTER, NIT. 900.509.589-7, entidad sin ánimo de lucro, y en su calidad de Rector del COLEGIO ROCHESTER, quien en adelante se llamará EL COLEGIO, por una parte, y "
++
+$F{padren1}+($F{padren2} != null?" "+$F{padren2}:"")+" "+$F{padrea1}+($F{padrea2}!= null?" "+$F{padrea2}:"")
++
+" y "
++
+$F{madren1}+($F{madren2} != null?" "+$F{madren2}:"")+" "+$F{madrea1}+($F{madrea2}!= null?" "+$F{madrea2}:"")
++
+" en su condición de padre o acudientes del estudiante "
++
+$F{estudn1}+($F{estudn2} != null?" "+$F{estudn2}:"")+" "+$F{estuda1}+($F{estuda2}!= null?" "+$F{estuda2}:"")
++
+", quienes en lo sucesivo se denominarán PADRES o ACUDIENTES, identificados como aparece al pie de las firmas, hemos celebrado el presente contrato de servicios educativos que se regirá por la ley colombiana y por las siguientes cláusulas especiales:"
++"\n\n"+
+"PRIMERA: Definición del Contrato. El presente contrato de servicios educativos formaliza la vinculación del estudiante al servicio educativo que ofrece EL COLEGIO, en los términos de los Artículos 95 y 201 de la Ley 115 de 1994 y compromete a las partes en las obligaciones legales y pedagógicas tendientes a hacer efectiva la prestación del servicio educativo."
++"\n\n"+
+"SEGUNDA: Objeto del Contrato: El objeto del presente contrato es procurar la formación integral del estudiante mediante la recíproca complementación de esfuerzos del mismo, de los PADRES o ACUDIENTES y de EL COLEGIO, en la búsqueda del pleno desarrollo de la personalidad del estudiante y de un rendimiento académico de calidad en el ejercicio del programa curricular correspondiente al grado "
++$F{grado}+
+", de acuerdo con el Proyecto Educativo Institucional de EL COLEGIO, para el año escolar "
++$V{anioIncial}+"-"+$V{anioFinal}+"."
++"\n\n"+
+"TERCERA: Obligaciones de los PADRES o ACUDIENTES: 1. Aceptar y cumplir con lo dispuesto en el Manual de Convivencia vigente de EL COLEGIO, ajustado a la Ley 115 de 1994, copia del cual recibirán al iniciar clases, y que forma parte del presente contrato de servicios educativos. 2. Pagar los derechos de matrícula a EL COLEGIO junto con los otros cobros que deben ser pagados en la fecha de matrícula dentro del tiempo estipulado por EL COLEGIO, además de firmar un pagaré garantizando el pago de mensualidades. Con la firma del presente contrato de servicios educativos los PADRES o ACUDIENTES dan autorización a EL COLEGIO para ser reportados ante las Centrales de Riesgo en caso de incumplimiento en el pago de las mensualidades. 3. Pagar la pensión en 10 cuotas mensuales iguales desde Septiembre de 2012 a Junio de 2013 dentro del tiempo estipulado por la dirección de EL COLEGIO, junto con el pago del servicio de alimentación y transporte escolar elegidos, máximo por las cuantias adoptadas por el Consejo Directivo de EL COLEGIO, en desarrollo de las disposiciones legales, particularmente la resolución 7884 de Septiembre 19 de 2011 del Ministerio de Educación Nacional y el Decreto 2253 de 1995, pagos que deberán realizarse a través de los medios que EL COLEGIO ofrezca a los PADRES o ACUDIENTES. Los PADRES o ACUDIENTES que paguen el año por anticipado de todas las mensualidades de pensión, alimentación y/o transporte escolar recibirán un descuento equivalente a la tasa efectiva anual de depósito a término fijo (DFT), vigente en el momento del pago, más un punto porcentual. Los PADRES o ACUDIENTES que paguen cinco (5) meses por anticipado, recibirán la mitad de dicho descuento. No se aplican descuentos por pagos anticipados menores a cinco cuotas de pensión mensual. 4. Colaborar con los profesores y directivos de EL COLEGIO, asistiendo a los cursos y a las actividades de capacitación realizados por EL COLEGIO, como “PADRES o ACUDIENTES Pacíficos y Exitosos”, y atendiento a las citaciones y recomendaciones que redunden en el mejoramiento del desempeño integral del estudiante, su bienestar y el de toda la comunidad escolar. 5. Cumplir con las responsabilidades de los PADRES o ACUDIENTES descritas en el Manual de Convivencia vigente de EL COLEGIO, además de las disposiciones del Código de la Infancia y de la Adolescencia (Ley 1098 de 2006)."
++"\n\n"+
+"CUARTA: Obligaciones de EL COLEGIO. 1. Dar al estudiante matriculado el servicio educativo bilingüe (español-inglés) con un alto nivel académico, moral, social y físico, de acuerdo con el Proyecto Educativo Institucional y el Manual de Convivencia vigentes. 2. Fijar las tarifas de matrícula, pensión, cobros periódicos y otros cobros autorizados por el Consejo Directivo y la Secretaría de Educación de Chía. 3. Expedir certificados de estudios y de evaluación estudiantil, bimestral y al final del grado cursado, por Internet o por solicitud de los PADRES o ACUDIENTES mediante el pago del certificado, si se han cumplido las obligaciones contractuales, que incluye estar a paz y salvo con la tesorería de EL COLEGIO, todo en concordancia con la sentencia SU-624 de 1999 de la Corte Constitucional. 4.EL COLEGIO no asume la reponsabilidad que le compete al estudiante y a los PADRES o ACUDIENTES, por fallas en cumplimiento de sus obligaciones y responsabilidades descritas en el Manual de Convivencia."
++"\n\n"+
+"QUINTA: Duración y Renovación. El presente contrato de servicios educativos tiene una vigencia de un año escolar. La firma de un nuevo contrato para el siguiente año escolar se efectuará de acuerdo con las disposiciones legales, una vez cumplidas las obligaciones del presente contrato y las previstas en el Manual de Convivencia y cuando los padres de familia o acudientes se encuentren a paz y salvo con la Tesorería de EL COLEGIO. La no concurrencia de los PADRES O ACUDIENTES en la fechas fijadas por EL COLEGIO para la matrícula del siguiente año escolar, sin mediar excusa justificada, será interpretada como la voluntad de retirar al estudiante, en cuyo caso EL COLEGIO podrá adjudicar su cupo a otro estudiante. "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-3" x="1" y="23" width="527" height="222">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["SEXTA: Perfeccionamiento y terminación del contrato. El presente contrato se perfeccionará cuando ambas partes lo hayan firmado y se podrá terminar por las siguientes causas: 1. Por acuerdo entre las partes. 2. Por retiro voluntario del estudiante, para lo cual los PADRES o ACUDIENTES deberán diligenciar el formulario de retiro. 3. Por decisión de EL COLEGIO, de acuerdo con los procedimientos dispuestos en el Manual de Convivencia."
++"\n\n"+
+"SÉPTIMA: Si el estudiante, una vez matriculado, se retira de EL COLEGIO antes de la fecha de iniciación de clases del año escolar 2012-2013, se le devolverá el 50% del valor de la matrícula, más el valor de los otros costos pagados junto con la matrícula. Si el estudiante se retira después de iniciadas las clases, no habrá lugar a devolver suma alguna del valor de la matrícula, y sólo se devolverá lo pagado por otros conceptos de costos, proporcionalmente al tiempo de permanencia en EL COLEGIO."
++"\n\n"+
+"OCTAVA: Las partes acuerdan que este contrato de servicios educativos presta mérito ejecutivo para el cobro de cualquier suma pendiente de pago a EL COLEGIO por parte de los PADRES o ACUDIENTES."
++"\n\n"+
+"En constancia se firma por las partes, en Bogotá, D.C., el día 9999-12-31"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-4" x="5" y="267" width="223" height="92">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{padren1}+($F{padren2} != null?" "+$F{padren2}:"")+" "+$F{padrea1}+($F{padrea2}!= null?" "+$F{padrea2}:"")
++"\n"+
+"C.C. No. "+$F{padredoc}+" de "+$F{padreexpdoc}
++"\n"+
+"Dirección: "+$F{padredir}
++"\n"+
+"Teléfono: "+$F{padretel}
++"\n"+
+"Celular: "+$F{padrecel}
++"\n"+
+"E-mail: "+$F{padremail}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-5" x="303" y="268" width="223" height="92">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2))&&!$F{madrea1}.equals(""))]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{madren1}+($F{madren2} != null?" "+$F{madren2}:"")+" "+$F{madrea1}+($F{madrea2}!= null?" "+$F{madrea2}:"")
++"\n"+
+"C.C. No. "+$F{madredoc}+" de "+$F{madreexpdoc}
++"\n"+
+"Dirección: "+$F{madredir}
++"\n"+
+"Teléfono: "+$F{madretel}
++"\n"+
+"Celular: "+$F{madrecel}
++"\n"+
+"E-mail: "+$F{madremail}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField-6" x="4" y="454" width="223" height="92">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2))&&!$F{acuda1}.equals(""))]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{acudn1}+($F{acudn2} != null?" "+$F{acudn2}:"")+" "+$F{acuda1}+($F{acuda2}!= null?" "+$F{acuda2}:"")
++"\n"+
+"C.C. No. "+$F{acuddoc}+" de "+$F{acudexpdoc}
++"\n"+
+"Dirección: "+$F{acuddir}
++"\n"+
+"Teléfono: "+$F{acudtel}
++"\n"+
+"Celular: "+$F{acudcel}
++"\n"+
+"E-mail: "+$F{acudmail}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-4" x="4" y="267" width="222" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement key="line-5" x="304" y="267" width="222" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2))&&!$F{madrea1}.equals(""))]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement key="line-6" x="5" y="453" width="222" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2))&&!$F{acuda1}.equals(""))]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement key="line-4" x="5" y="634" width="222" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement key="line-4" x="304" y="635" width="223" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-4" x="5" y="636" width="221" height="18">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Rector y Representante Legal"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-4" x="304" y="637" width="222" height="18">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.equals(new Integer(2)))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Secretario Académico"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

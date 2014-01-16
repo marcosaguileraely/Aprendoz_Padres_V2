@@ -1,0 +1,61 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaAlumnosActivosPrejardinNuevos" table="vista_alumnos_activos_prejardin_nuevos" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaAlumnosActivosPrejardinNuevosId">
+            <key-property name="schoolYear" type="string">
+                <column name="School_year" length="45"/>
+            </key-property>
+            <key-property name="nivel" type="string">
+                <column name="Nivel" length="45"/>
+            </key-property>
+            <key-property name="grado" type="string">
+                <column name="Grado" length="45"/>
+            </key-property>
+            <key-property name="curso" type="string">
+                <column name="Curso" length="45"/>
+            </key-property>
+            <key-property name="codigo" type="string">
+                <column name="Codigo" length="45"/>
+            </key-property>
+            <key-property name="apellido1" type="string">
+                <column name="Apellido1" length="45"/>
+            </key-property>
+            <key-property name="apellido2" type="string">
+                <column name="Apellido2" length="45"/>
+            </key-property>
+            <key-property name="nombre1" type="string">
+                <column name="Nombre1" length="45"/>
+            </key-property>
+            <key-property name="nombre2" type="string">
+                <column name="Nombre2" length="45"/>
+            </key-property>
+            <key-property name="idPersona" type="integer">
+                <column name="Id_Persona"/>
+            </key-property>
+            <key-property name="noDocumento" type="string">
+                <column name="No_Documento" length="45"/>
+            </key-property>
+            <key-property name="tipoDocumento" type="string">
+                <column name="Tipo_Documento" length="45"/>
+            </key-property>
+            <key-property name="direccionResidencia" type="string">
+                <column name="Direccion_Residencia" length="500"/>
+            </key-property>
+            <key-property name="telefono" type="string">
+                <column name="Telefono" length="45"/>
+            </key-property>
+            <key-property name="telefono2" type="string">
+                <column name="Telefono2" length="45"/>
+            </key-property>
+            <key-property name="barrio" type="string">
+                <column name="Barrio" length="200"/>
+            </key-property>
+            <key-property name="municipio" type="string">
+                <column name="Municipio" length="45"/>
+            </key-property>
+            <key-property name="departamento" type="string">
+                <column name="Departamento" length="45"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

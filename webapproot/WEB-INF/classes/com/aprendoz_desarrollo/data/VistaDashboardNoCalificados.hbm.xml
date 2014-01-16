@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.VistaDashboardNoCalificados" table="vista_dashboard_no_calificados" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.VistaDashboardNoCalificadosId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignaturasNoCalificadas" type="long">
+                <column name="asignaturas_no_calificadas"/>
+            </key-property>
+            <key-property name="totalEstudiantes" type="long">
+                <column name="total_estudiantes"/>
+            </key-property>
+            <key-property name="totalPorcentaje" type="big_decimal">
+                <column name="total_porcentaje" precision="17"/>
+            </key-property>
+            <key-property name="califPorcentaje" type="big_decimal">
+                <column name="calif_porcentaje" precision="17"/>
+            </key-property>
+            <key-property name="aprProgreso" type="long">
+                <column name="apr_progreso"/>
+            </key-property>
+            <key-property name="sy" type="long">
+                <column name="sy"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DimensionCurricular" table="Dimension_Curricular" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idDimension" type="integer">
+            <column name="Id_Dimension"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="dimensionCurricular" type="string">
+            <column name="Dimension_Curricular" length="45"/>
+        </property>
+        <set name="aprendizajes" inverse="true" cascade="">
+            <key>
+                <column name="Dimension_Curricular_Id_Dimension" not-null="true"/>
+            </key>
+            <one-to-many class="com.aprendoz_desarrollo.data.Aprendizaje"/>
+        </set>
+    </class>
+</hibernate-mapping>

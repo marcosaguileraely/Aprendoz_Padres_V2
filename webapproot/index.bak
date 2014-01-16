@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="cache-control" content="must-revalidate" />
+<meta name="generator" content="WaveMaker Visual Ajax Studio" />
+<title>Colegio Rochester | Aprendoz Padres | Version 0.8</title>
+<link rel="shortcut icon" href="http://www.rochester.edu.co/public/template/img/favicon.ico" />
+<style type="text/css">
+@import "/wavemaker/lib/boot/boot.css";
+@import "app.css";
+#wavemakerNode {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#wavemakerNode {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div {
+    display: block;
+    float: left !important;
+    height: 31px !important;
+    left: 0 !important;
+    position: relative !important;
+    top: 7px !important;
+    width: 48% !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div {
+    float: left !important;
+    height: auto !important;
+    left: 0 !important;
+    position: relative !important;
+    width: 48% !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div input {
+    box-shadow: 2px 2px 1px #D4D4D4;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div > div:first-child:not(.dijitReset) {
+    box-shadow: 2px 2px 1px #D4D4D4;
+    color: #333333 !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div div input[type="text"] {
+    box-shadow: none !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div:first-child {
+    color: #C33548 !important;
+    font-size: 13px !important;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px #C3C3C3;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div:last-child:not(.wmeditor-cbeditor) {
+    overflow: visible !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div > div:hover, #app_pageDialog_actualizaDatos_personaLiveForm1 > div > div input:focus, #app_pageDialog_actualizaDatos_personaLiveForm1 > div > div input:hover {
+    border-color: navy !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div > div > div:not(.dijitCheckBoxDisabled):not(.dijitCheckBox), #app_pageDialog_actualizaDatos_personaLiveForm1 > div > div input[type="text"]:not(.dijitCheckBoxDisabled) {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 transparent !important;
+    border-color: #C3C3C3 !important;
+    border-image: none;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 1px 1px 2px #4D4D4D;
+    float: left !important;
+    height: 19px !important;
+    padding: 0 1px;
+    position: relative !important;
+    width: 96% !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 {
+    display: block !important;
+    float: left !important;
+    height: auto !important;
+    position: relative !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_layers1_client {
+    float: none !important;
+    overflow: hidden !important;
+    width: 813px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_layers1 {
+    width: 813px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel3, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel2, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel4, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel5, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel6 {
+    background-color: #C33548 !important;
+    color: white !important;
+    float: left !important;
+    font-weight: bold !important;
+    height: 48px;
+    left: 0;
+    line-height: normal;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative !important;
+    width: 100% !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel3 > div, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel2 > div, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel4 > div, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel5 > div, #app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_panel6 > div {
+    color: white !important;
+    float: left !important;
+    font-weight: bold;
+    position: relative !important;
+    text-align: center !important;
+    text-shadow: none !important;
+    top: 0 !important;
+    width: 100% !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_paisRelatedEditor1 {
+    display: block !important;
+    float: left !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+    width: 379px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1 {
+    display: block !important;
+    float: left !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+    width: 379px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 > div#app_pageDialog_actualizaDatos_relatedEditor1 > div#app_pageDialog_actualizaDatos_paisLookup1 > div.wmeditor-caption {
+  display: block !important;
+  float: left !important;
+  left: 0 !important;
+  max-width: 185px !important;
+  position: relative !important;
+  top: 0 !important;
+  width: 185px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_paisLookup1 {
+    display: block !important;
+    float: left !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+    width: 379px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor {
+  border: 2px solid #C3C3C3 !important;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 2px 2px 3px #666666;
+  display: block !important;
+  float: left !important;
+  height: 20px !important;
+  left: 0 !important;
+  max-width: 178px !important;
+  position: relative !important;
+  top: 0 !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] {
+  border: medium none !important;
+  display: block !important;
+  float: left !important;
+  height: 21px !important;
+  left: 0 !important;
+  margin: 0 !important;
+  max-width: 180px !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #aapp_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] input[id^="dijit_form_FilteringSelect"] {
+    display: block;
+    float: left;
+    max-width: 170px !important;
+    position: relative;
+    width: 170px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] > div {
+  display: block !important;
+  float: left !important;
+  height: 21px !important;
+  left: 0 !important;
+  max-width: 178px !important;
+  position: relative;
+  top: 0 !important;
+  width: 178px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_paisRelatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1 > div.wmeditor-caption {
+    max-width: 183px !important;
+    padding: 7px 0 1px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] div.dijitReset:nth-child(1) {
+  border: medium none !important;
+  display: block !important;
+  float: right !important;
+  left: 0 !important;
+  margin: 0 !important;
+  max-width: 18px !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+  width: 18px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] div.dijitReset:nth-child(2) {
+    display: block;
+    float: right !important;
+    max-width: 170px !important;
+    position: relative;
+    width: 180px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] div.dijitReset:nth-child(3) {
+    display: block !important;
+    float: right !important;
+    left: 0 !important;
+    margin: 0 !important;
+    max-width: 170px !important;
+    position: relative;
+    top: 0 !important;
+    width: 20px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_relatedEditor1 #app_pageDialog_actualizaDatos_paisLookup1_editor div[id^="widget_dijit_form_FilteringSelect"] div.dijitReset:nth-child(4) {
+    display: block;
+    float: right !important;
+    max-width: 170px !important;
+    position: relative;
+    width: 130px !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_paisLookup1 > div:first-child {
+    box-shadow: none !important;
+    color: #C33548 !important;
+    font-weight: normal !important;
+}
+#app_pageDialog_actualizaDatos_personaLiveForm1 #app_pageDialog_actualizaDatos_paisLookup1 #dijit_form_FilteringSelect_54{
+	color:black;
+}
+
+/*Fin estilo Camilo Valencia*/
+</style>
+
+<!-- Boot Wavemaker -->
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="/wavemaker/lib/boot/boot.js"></script>
+<!--inicio jquery downloader -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src="resources/javascript/jquery.fileDownload.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css" type="text/css" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/cupertino/jquery-ui.css" type="text/css" />
+<!--fin jquery downloader -->
+<!-- google charts api -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      google.load('visualization', '1',   {'packages':['gauge']});
+      // Set a callback to run when the Google Visualization API is loaded.
+      var chartIsLoadedFunc = function() {
+            window.googleChartLibIsLoaded = true; // use this in your page code to determine if you can draw or not
+      }
+      google.setOnLoadCallback(chartIsLoadedFunc);
+    </script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the gauge
+      google.load('visualization', '1',   {'packages':['gauge']});
+      //google.load('visualization', '1.0', {'packages':['corechart']});
+      // Set a callback to run when the Google Visualization API is loaded.
+      var chartIsLoadedFunc = function() {
+            window.googleChartLibIsLoaded = true; // use this in your page code to determine if you can draw or not
+      }
+      google.setOnLoadCallback(chartIsLoadedFunc);
+    </script>
+<!-- end google charts api  -->
+
+
+
+<script type="text/javascript" src="js/highcharts.src.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+</head>
+<body class="tundra">
+	<!-- Begin familia -->
+	<div id="wavemakerNode">
+		<div id="_wm_googleChromeDialog" class='chromeFramePrompt'>
+			<div style='float:right' onclick='closeChromeFramePrompt()'>
+				<img src='/wavemaker/images/delete_24.png' style='cursor:pointer;' />
+			</div>
+			<table><tr><td><div id='googleChromeFrameDiv' style='z-index:999;'></div></td></tr></table>
+		</div>
+		<div id="_wm_loading" style="z-index: 100;">
+			<table><tr><td><img alt="Loading" src="/wavemaker/lib/boot/images/loader.gif" />&nbsp;&nbsp;Cargando información. Espere por favor...</td></tr></table>
+		</div>
+	</div>
+	<script type="text/javascript" src="/wavemaker/lib/runtimeLoader.js"></script>
+	<script type="text/javascript" src="lib_project.js"></script>
+	<script type="text/javascript" src="types.js"></script>
+	<script type="text/javascript" src="Aprendoz_Padres_v2.js"></script>
+	<script type="text/javascript">
+		function promptGoogleFrame()
+		{
+			dojo.byId('_wm_googleChromeDialog').style.display = 'block';
+			//alert('Please install Google Chrome Frame');
+		}
+
+		function closeChromeFramePrompt()
+		{
+			dojo.byId('_wm_googleChromeDialog').style.display = 'none';
+			dojo.cookie("stopChromeFramePrompt",true,{expires: 365});
+		}
+
+		if (wm.checkGoogleFrame && !dojo.cookie("stopChromeFramePrompt"))
+		{
+			CFInstall.check({node:'googleChromeFrameDiv', preventPrompt:false, onmissing: dojo.hitch(window, 'promptGoogleFrame')});
+		}
+
+		new Aprendoz_Padres_v2({domNode: "wavemakerNode"}).run();
+	</script>
+	<!-- End familia -->
+        
+        <script type="text/javascript">                
+                var chart3;
+                $.fn.drawAprGraph = function(){
+                    var container = $(this);
+                                
+                                var esperados = new Array();
+                                var logrados = new Array();
+                                var alc = 0;   
+                                var tableEsperados = main.Esperados.dataSet.getData();
+                                var tableLogrados = main.Logrados.dataSet.getData();
+
+                                var alc = 0; 
+                                $.each(tableLogrados, function(k, v){
+                                    var reg = v.id;  
+                                    alc += parseInt(reg.count___);
+                                    logrados.push(new Array(reg.fechaLogro, alc));
+                                    i++;
+                                });
+                                var alc = 0;    
+                                $.each(tableEsperados, function(k, v){
+                                    var reg = v.id;      
+                                    alc += parseInt(reg.count___);
+                                    esperados.push(new Array(reg.fechaEsperada, alc));
+                                });
+                                chart3 = new Highcharts.Chart({
+                                        chart: {
+                                                renderTo: container.attr('id'),
+                                zoomType: 'x',
+                                spacingRight: 20
+                            },
+                            title: {
+                                text: 'Aprendizajes logrados'
+                            },
+                            subtitle: {
+                                text: document.ontouchstart === undefined ?
+                                        'Resumen de aprendizajes logrados a diario' :
+                                        'Drag your finger over the plot to zoom in'
+                            },
+                            xAxis: {
+                                type: 'datetime',
+                                maxZoom: 14 * 24 * 3600000, // fourteen days
+                                title: {
+                                        text: null
+                                }
+                            },
+                            yAxis: {
+                                    title: {
+                                        text: 'Aprendizajes'
+                                    }
+                            },
+
+                            series: [{
+                                type: 'area',
+                                name: 'Aprendizajes Esperados',
+                                data: esperados
+                                        },
+                                    {
+                                type: 'area',
+                                name: 'Aprendizajes Logrados',
+                                data: logrados                            
+                                    }]
+                                });
+                };
+        </script>
+</body>
+</html>

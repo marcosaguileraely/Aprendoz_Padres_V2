@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.DocentesVistaAsignaturaGrado" table="docentes_vista_asignatura_grado" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.DocentesVistaAsignaturaGradoId">
+            <key-property name="idAsignatura" type="integer">
+                <column name="Id_Asignatura"/>
+            </key-property>
+            <key-property name="asignatura" type="string">
+                <column name="Asignatura" length="300"/>
+            </key-property>
+            <key-property name="gradoIdGrado" type="integer">
+                <column name="Grado_Id_Grado"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

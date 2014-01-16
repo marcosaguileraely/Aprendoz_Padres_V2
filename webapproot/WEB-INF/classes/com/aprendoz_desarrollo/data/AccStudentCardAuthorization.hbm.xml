@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.AccStudentCardAuthorization" table="acc_student_card_authorization" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.aprendoz_desarrollo.data.AccStudentCardAuthorizationId">
+            <key-property name="studentCardId" type="integer">
+                <column name="student_card_id"/>
+            </key-property>
+            <key-property name="authorizationId" type="integer">
+                <column name="authorization_id"/>
+            </key-property>
+        </composite-id>
+        <many-to-one
+            name="accStudentCard"
+            class="com.aprendoz_desarrollo.data.AccStudentCard"
+            update="false"
+            insert="false"
+            fetch="select">
+            <column name="student_card_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one
+            name="accAuthorization"
+            class="com.aprendoz_desarrollo.data.AccAuthorization"
+            update="false"
+            insert="false"
+            fetch="select">
+            <column name="authorization_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

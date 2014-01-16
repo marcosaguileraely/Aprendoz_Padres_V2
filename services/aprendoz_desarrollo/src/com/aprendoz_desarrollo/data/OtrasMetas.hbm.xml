@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.aprendoz_desarrollo.data.OtrasMetas" table="Otras_Metas" catalog="aprendoz_desarrollo" dynamic-insert="false" dynamic-update="false">
+        <id name="idOtraMeta" type="integer">
+            <column name="Id_Otra_Meta"/>
+            <generator class="identity"/>
+        </id>
+        <property name="meta" type="string">
+            <column name="Meta" length="200"/>
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10"/>
+        </property>
+        <property name="logrado" type="boolean">
+            <column name="Logrado"/>
+        </property>
+        <property name="idSyIdIdSy" type="integer">
+            <column name="idSY_id_idSY"/>
+        </property>
+        <many-to-one name="subtopico" class="com.aprendoz_desarrollo.data.Subtopico">
+            <column name="Subtopico_Id_Subtopico" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
