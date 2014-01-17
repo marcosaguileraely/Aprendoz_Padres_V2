@@ -299,6 +299,14 @@
 		}],
 		"returnType": "[com.aprendoz_desarrollo.data.output.MailPadreRtnType]"
 	}, {
+		"name": "parentsSubjectStructure",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "ida",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.aprendoz_desarrollo.data.output.ParentsSubjectStructureRtnType]"
+	}, {
 		"name": "personaGetInfo",
 		"operationType": "hqlquery",
 		"parameters": [{

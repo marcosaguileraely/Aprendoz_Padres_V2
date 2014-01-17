@@ -1740,6 +1740,11 @@ this.parents_local_student_subjects.input.setValue("idpersona", idp);
 this.parents_local_student_subjects.input.setValue("idsy", idsy);
 this.parents_local_student_subjects.update();
 },
+performance_student_subjectsSelect: function(inSender) {
+var idsubject = this.performance_student_subjects.selectedItem.data.idasignatura;
+this.parents_local_students_learnings.input.setValue("ida", idsubject);
+this.parents_local_students_learnings.update();
+},
 _end: 0
 });
 
@@ -1774,6 +1779,9 @@ input: ["wm.ServiceInput", {"type":"getSyByCurDateInputs"}, {}]
 }],
 parents_local_student_subjects: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"hql_dash_asignaturas","service":"aprendoz_desarrollo"}, {}, {
 input: ["wm.ServiceInput", {"type":"hql_dash_asignaturasInputs"}, {}]
+}],
+parents_local_students_learnings: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"parentsSubjectStructure","service":"aprendoz_desarrollo"}, {}, {
+input: ["wm.ServiceInput", {"type":"parentsSubjectStructureInputs"}, {}]
 }],
 syDialog: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","desktopHeight":"197px","height":"197px","title":"sy","width":"500px"}, {}, {
 containerWidget: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
@@ -1931,7 +1939,7 @@ performance_student_subjects: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"sy","title":"Sy","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"logrados","title":"Logrados","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Código: \" + ${idasignatura} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Asignatura: \" + ${asignatura}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Calificación: \" + ${calificacion}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Puntaje: \" + ${puntaje}\n + \"</div>\"\n\n","mobileColumn":true}
-],"dsType":"com.aprendoz_desarrollo.data.output.Hql_dash_asignaturasRtnType","margin":"0","minDesktopHeight":60,"showing":false,"singleClickEdit":true,"styles":{"fontSize":"12px"}}, {}, {
+],"dsType":"com.aprendoz_desarrollo.data.output.Hql_dash_asignaturasRtnType","margin":"0","minDesktopHeight":60,"singleClickEdit":true,"styles":{"fontSize":"12px"}}, {"onSelect":"performance_student_subjectsSelect"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"parents_local_student_subjects","targetProperty":"dataSet"}, {}]
 }]
@@ -1939,7 +1947,21 @@ wire: ["wm.Wire", {"expression":undefined,"source":"parents_local_student_subjec
 performance_student_details: ["wm.Panel", {"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","padding":"15,0,0,0","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 performance_student_details_left: ["wm.Panel", {"height":"100%","horizontalAlign":"left","padding":"0,15,0,0","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 performance_student_learnings: ["wm.Label", {"align":"left","caption":"APRENDIZAJES DE LA ASIGNATURA","height":"27px","padding":"0,0,0,0","styles":{"color":"#3652a4","fontSize":"14px","fontWeight":"bold"},"width":"100%"}, {}],
-performance_student_details_learnings: ["wm.DojoGrid", {"height":"100%","margin":"4","minDesktopHeight":60,"singleClickEdit":true,"styles":{}}, {}]
+performance_student_details_learnings: ["wm.DojoGrid", {"columns":[
+{"show":false,"field":"idunidad","title":"Idunidad","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"idaprendizaje","title":" ","width":"65px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
+{"show":true,"field":"aprendizaje","title":"Aprendizajes","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"fecha","title":"Fecha esperada","width":"80px","align":"center","formatFunc":"wm_date_formatter","editorProps":null,"mobileColumn":false},
+{"show":false,"field":"idsubtopico","title":"Idsubtopico","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"unidad","title":"Unidad","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"idasignatura","title":"Idasignatura","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"subtopico","title":"Subtopico","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\" : \" + ${idaprendizaje} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Aprendizajes: \" + ${aprendizaje}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Fecha esperada: \" + ${wm.runtimeId}.formatCell(\"fecha\", ${fecha}, ${this}, ${wm.rowId})\n + \"</div>\"\n\n","mobileColumn":true}
+],"dsType":"com.aprendoz_desarrollo.data.output.ParentsSubjectStructureRtnType","height":"100%","margin":"4","minDesktopHeight":60,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":undefined,"source":"parents_local_students_learnings","targetProperty":"dataSet"}, {}]
+}]
+}]
 }],
 performance_student_details_right: ["wm.Panel", {"height":"100%","horizontalAlign":"left","styles":{"backgroundColor":"#3652a4"},"verticalAlign":"top","width":"100%"}, {}]
 }]

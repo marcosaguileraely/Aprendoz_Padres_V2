@@ -5,7 +5,7 @@ package com.aprendoz_desarrollo;
 
 /**
  *  Query names for service "aprendoz_desarrollo"
- *  01/16/2014 11:54:59
+ *  01/16/2014 17:14:32
  * 
  */
 public class Aprendoz_desarrolloConstants {
@@ -30,11 +30,13 @@ public class Aprendoz_desarrolloConstants {
     public final static String GetInscPersonaGrupoFamiliarQueryName = "GetInscPersonaGrupoFamiliar";
     public final static String getNombreGrupoFamiliarQueryName = "getNombreGrupoFamiliar";
     public final static String getSubjectsByStudentQueryName = "getSubjectsByStudent";
+    public final static String getSyByCurDateQueryName = "getSyByCurDate";
     public final static String getTipoPersonaByUserQueryName = "getTipoPersonaByUser";
     public final static String getTodosCostosQueryName = "getTodosCostos";
     public final static String getUserbyIdPersonaQueryName = "getUserbyIdPersona";
     public final static String haveNewIntegrantsQueryName = "haveNewIntegrants";
     public final static String hq_ls_gradoQueryName = "hq_ls_grado";
+    public final static String hqlAlergiasByUserQueryName = "hqlAlergiasByUser";
     public final static String hqlGetTotalPagarQueryName = "hqlGetTotalPagar";
     public final static String hql_dash_asignaturasQueryName = "hql_dash_asignaturas";
     public final static String hql_ls_paisQueryName = "hql_ls_pais";
@@ -42,6 +44,7 @@ public class Aprendoz_desarrolloConstants {
     public final static String mailAcudienteQueryName = "mailAcudiente";
     public final static String mailMadreQueryName = "mailMadre";
     public final static String mailPadreQueryName = "mailPadre";
+    public final static String parentsSubjectStructureQueryName = "parentsSubjectStructure";
     public final static String personaGetInfoQueryName = "personaGetInfo";
     public final static String returExitsValueQueryName = "returExitsValue";
     public final static String returnExistsValueGrupoFamiliarQueryName = "returnExistsValueGrupoFamiliar";
@@ -50,7 +53,5 @@ public class Aprendoz_desarrolloConstants {
     public final static String updateDatosPersonaQueryName = "updateDatosPersona";
     public final static String updateInscPersonaGrupoFamiliarQueryName = "updateInscPersonaGrupoFamiliar";
     public final static String updateServiciosQueryName = "updateServicios";
-    public final static String hqlAlergiasByUserQueryName = "hqlAlergiasByUser";
-    public final static String getSyByCurDateQueryName = "getSyByCurDate";
 
 }

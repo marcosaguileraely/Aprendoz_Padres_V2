@@ -1995,5 +1995,10 @@ dojo.declare("Main", wm.Page, {
         this.parents_local_student_subjects.input.setValue("idsy", idsy);
         this.parents_local_student_subjects.update();
 	},
+	performance_student_subjectsSelect: function(inSender) {
+        var idsubject = this.performance_student_subjects.selectedItem.data.idasignatura;
+		this.parents_local_students_learnings.input.setValue("ida", idsubject);
+        this.parents_local_students_learnings.update();
+	},
 	_end: 0
 });

@@ -26,6 +26,7 @@ import com.aprendoz_desarrollo.data.output.ListadoEstudiantesGrupoFamiliarRtnTyp
 import com.aprendoz_desarrollo.data.output.MailAcudienteRtnType;
 import com.aprendoz_desarrollo.data.output.MailMadreRtnType;
 import com.aprendoz_desarrollo.data.output.MailPadreRtnType;
+import com.aprendoz_desarrollo.data.output.ParentsSubjectStructureRtnType;
 import com.aprendoz_desarrollo.data.output.PersonaGetInfoRtnType;
 import com.aprendoz_desarrollo.data.output.ReturExitsValueRtnType;
 import com.aprendoz_desarrollo.data.output.ReturnExistsValueGrupoFamiliarRtnType;
@@ -48,7 +49,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "aprendoz_desarrollo"
- *  01/16/2014 11:54:59
+ *  01/16/2014 17:14:32
  * 
  */
 @SuppressWarnings("unchecked")
@@ -159,6 +160,10 @@ public class Aprendoz_desarrollo
         return ((List<GetSubjectsByStudentRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getSubjectsByStudentQueryName), idpersona, idsy, pagingOptions));
     }
 
+    public List<GetSyByCurDateRtnType> getSyByCurDate(Date f1, PagingOptions pagingOptions) {
+        return ((List<GetSyByCurDateRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getSyByCurDateQueryName), f1, pagingOptions));
+    }
+
     public com.aprendoz_desarrollo.data.output.GetTipoPersonaByUserRtnType getTipoPersonaByUser(String user, PagingOptions pagingOptions) {
         List<com.aprendoz_desarrollo.data.output.GetTipoPersonaByUserRtnType> rtn = ((List<com.aprendoz_desarrollo.data.output.GetTipoPersonaByUserRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getTipoPersonaByUserQueryName), user, pagingOptions));
         if (rtn.isEmpty()) {
@@ -182,6 +187,10 @@ public class Aprendoz_desarrollo
 
     public List<Hq_ls_gradoRtnType> hq_ls_grado(PagingOptions pagingOptions) {
         return ((List<Hq_ls_gradoRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.hq_ls_gradoQueryName), pagingOptions));
+    }
+
+    public List<HqlAlergiasByUserRtnType> hqlAlergiasByUser(Integer idp, PagingOptions pagingOptions) {
+        return ((List<HqlAlergiasByUserRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.hqlAlergiasByUserQueryName), idp, pagingOptions));
     }
 
     public List<HqlGetTotalPagarRtnType> hqlGetTotalPagar(Integer idp, PagingOptions pagingOptions) {
@@ -210,6 +219,10 @@ public class Aprendoz_desarrollo
 
     public List<MailPadreRtnType> mailPadre(Integer grupo, PagingOptions pagingOptions) {
         return ((List<MailPadreRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.mailPadreQueryName), grupo, pagingOptions));
+    }
+
+    public List<ParentsSubjectStructureRtnType> parentsSubjectStructure(Integer ida, PagingOptions pagingOptions) {
+        return ((List<ParentsSubjectStructureRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.parentsSubjectStructureQueryName), ida, pagingOptions));
     }
 
     public List<PersonaGetInfoRtnType> personaGetInfo(String username, PagingOptions pagingOptions) {
@@ -262,14 +275,6 @@ public class Aprendoz_desarrollo
         } else {
             return rtn.get(0);
         }
-    }
-
-    public List<HqlAlergiasByUserRtnType> hqlAlergiasByUser(Integer idp, PagingOptions pagingOptions) {
-        return ((List<HqlAlergiasByUserRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.hqlAlergiasByUserQueryName), idp, pagingOptions));
-    }
-
-    public List<GetSyByCurDateRtnType> getSyByCurDate(Date f1, PagingOptions pagingOptions) {
-        return ((List<GetSyByCurDateRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (Aprendoz_desarrolloConstants.getSyByCurDateQueryName), f1, pagingOptions));
     }
 
     public Object insert(Object o) {

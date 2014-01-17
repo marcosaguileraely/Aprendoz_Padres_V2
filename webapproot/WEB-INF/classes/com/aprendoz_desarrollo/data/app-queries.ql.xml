@@ -322,4 +322,17 @@ DATE(sy.fechaHasta)
 FROM Sy sy
 WHERE :f1 BETWEEN sy.fechaDesde AND sy.fechaHasta
     </query>
+    <query name="parentsSubjectStructure">
+        <query-param name="ida" type="java.lang.Integer"/>
+        SELECT a.idAsignatura as idasignatura,
+u.idUnidad as idunidad,
+u.unidad as unidad,
+s.idSubtopico as idsubtopico,
+s.subtopico as subtopico,
+apr.idAprendizaje as idaprendizaje,
+apr.aprendizaje as aprendizaje,
+apr.fechaEsperada as fecha
+FROM Asignatura a INNER JOIN a.unidads u INNER JOIN u.subtopicos s INNER JOIN s.aprendizajes apr
+WHERE a.idAsignatura=:ida
+    </query>
 </hibernate-mapping>

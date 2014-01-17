@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 /**
- * Generated for query "returnExistsValueGrupoFamiliar" on 01/16/2014 11:54:57
+ * Generated for query "returnExistsValueGrupoFamiliar" on 01/16/2014 17:14:30
  * 
  */
 public class ReturnExistsValueGrupoFamiliarRtnType {

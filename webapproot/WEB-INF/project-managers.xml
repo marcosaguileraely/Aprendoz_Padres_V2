@@ -171,60 +171,60 @@
                         <value>com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDia</value>
                         <value>com.aprendoz_desarrollo.data.VistaPersonasGrupoFamiliar</value>
                         <value>com.aprendoz_desarrollo.data.Vistaasistencia</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaDristribucionAlumnosCursosId</value>
-                        <value>com.aprendoz_desarrollo.data.AprEsperadosId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaInscAlumAsigId</value>
-                        <value>com.aprendoz_desarrollo.data.CurriculoGradoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigId</value>
                         <value>com.aprendoz_desarrollo.data.InscripcionesVistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesInscCursoAsignaturaId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDiaId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosPrejardinNuevosId</value>
+                        <value>com.aprendoz_desarrollo.data.AprEsperadosId</value>
+                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaId</value>
+                        <value>com.aprendoz_desarrollo.data.TmpBoletin20122013Id</value>
+                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoCompletoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemograficaId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaDristribucionAlumnosCursosId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaPersonasGrupoFamiliarId</value>
                         <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturasId</value>
-                        <value>com.aprendoz_desarrollo.data.CalifEstId</value>
-                        <value>com.aprendoz_desarrollo.data.CalifEstCopyId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesInicioVistaDetallesAccesoId</value>
-                        <value>com.aprendoz_desarrollo.data.ServiciosListadoServiciosAlumnosId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaRecursosId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaCalificacionFinalId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumnCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.AccStudentCardAuthorizationId</value>
+                        <value>com.aprendoz_desarrollo.data.TmpEnrLogId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaEnvioCorreoId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCursoId</value>
                         <value>com.aprendoz_desarrollo.data.AdministracionVistaPersonasId</value>
                         <value>com.aprendoz_desarrollo.data.PadresVistaPersonasPromocionId</value>
-                        <value>com.aprendoz_desarrollo.data.InscAlumAsigCursoCompletoId</value>
-                        <value>com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportesId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaasistenciaId</value>
-                        <value>com.aprendoz_desarrollo.data.PromocionVistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaPersonasGrupoFamiliarId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaPersonasId</value>
-                        <value>com.aprendoz_desarrollo.data.BisUsersId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaDashboardAvanzadosYMagistralesId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaCalifFinalId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaPersonasDemograficaId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumAsigId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaDashboardNoCalificadosId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaEnvioCorreoId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaAprendizajesId</value>
-                        <value>com.aprendoz_desarrollo.data.TmpBoletin20122013Id</value>
-                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaId</value>
                         <value>com.aprendoz_desarrollo.data.InscipcionesVistaAsignaturasId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaAprendizajesAsignaturaId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaRecursosId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosId</value>
-                        <value>com.aprendoz_desarrollo.data.CoordinacionId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesAsistenciaAsistenciasId</value>
-                        <value>com.aprendoz_desarrollo.data.AccStudentCardAuthorizationId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.CoordinadoresId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.AprLogradosId</value>
-                        <value>com.aprendoz_desarrollo.data.PadresVistaActividadesId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaCalificacionFinalId</value>
-                        <value>com.aprendoz_desarrollo.data.DocentesVistaInscAlumnAsigDemograficaId</value>
-                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaCompletoId</value>
-                        <value>com.aprendoz_desarrollo.data.TmpEnrLogId</value>
                         <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesFamiliaId</value>
-                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumnCursoId</value>
-                        <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesId</value>
+                        <value>com.aprendoz_desarrollo.data.ServiciosListadoServiciosAlumnosId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaDashboardAvanzadosYMagistralesId</value>
                         <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturaGradoId</value>
+                        <value>com.aprendoz_desarrollo.data.DirectoresDocentesListadoReportesId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaInscAlumnCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.CurriculoGradoId</value>
+                        <value>com.aprendoz_desarrollo.data.CoordinadoresId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesInscCursoAsignaturaId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaInscAlumAsigId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaPersonasId</value>
+                        <value>com.aprendoz_desarrollo.data.AprLogradosId</value>
+                        <value>com.aprendoz_desarrollo.data.CoordinacionId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosPrejardinNuevosId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaasistenciaId</value>
+                        <value>com.aprendoz_desarrollo.data.CalifEstCopyId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaAprendizajesAsignaturaId</value>
+                        <value>com.aprendoz_desarrollo.data.CalifEstId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaAsignaturasId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaDashboardNoCalificadosId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaActividadesId</value>
+                        <value>com.aprendoz_desarrollo.data.BisUsersId</value>
+                        <value>com.aprendoz_desarrollo.data.PromocionVistaInscAlumnCursoId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesVistaPersonasDemograficaId</value>
+                        <value>com.aprendoz_desarrollo.data.AdministracionVistaAsignaturasId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesInicioVistaDetallesAccesoId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaAprendizajesId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaMatriculasGraficasTotalDiaId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaCalifFinalId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaAlumnosActivosId</value>
+                        <value>com.aprendoz_desarrollo.data.DocentesAsistenciaAsistenciasId</value>
+                        <value>com.aprendoz_desarrollo.data.VistaEventualidadesNotificacionesId</value>
+                        <value>com.aprendoz_desarrollo.data.PadresVistaInscAlumAsigId</value>
+                        <value>com.aprendoz_desarrollo.data.VProfesorAsignaturaCompletoId</value>
                         <value>com.aprendoz_desarrollo.data.output._verificaResponsableRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.GetInscPersonaGrupoFamiliarRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.MailMadreRtnType</value>
@@ -245,6 +245,7 @@
                         <value>com.aprendoz_desarrollo.data.output.GetGrupoFamiliarbyUserRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.MailPadreRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.GetSyByCurDateRtnType</value>
+                        <value>com.aprendoz_desarrollo.data.output.ParentsSubjectStructureRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.GetIdbyUserRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output.PersonaGetInfoRtnType</value>
                         <value>com.aprendoz_desarrollo.data.output._existeFichaMedicaByUserRtnType</value>
